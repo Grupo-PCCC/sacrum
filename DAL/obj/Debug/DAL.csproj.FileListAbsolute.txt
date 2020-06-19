@@ -1,0 +1,9 @@
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\bin\Debug\DAL.dll
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\bin\Debug\DAL.pdb
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\bin\Debug\EN.dll
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\bin\Debug\EN.pdb
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\obj\Debug\DAL.dll
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\DAL\obj\Debug\DAL.pdb
