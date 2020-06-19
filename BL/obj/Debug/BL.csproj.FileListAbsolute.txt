@@ -9,3 +9,14 @@ C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Pro
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\obj\Debug\BL.csproj.CopyComplete
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\obj\Debug\BL.dll
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\obj\Debug\BL.pdb
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\BL.dll
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\BL.pdb
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\DAL.dll
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\EN.dll
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\DAL.pdb
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\EN.pdb
+C:\Users\gabri\source\repos\sacrum\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\gabri\source\repos\sacrum\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\gabri\source\repos\sacrum\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\gabri\source\repos\sacrum\BL\obj\Debug\BL.dll
+C:\Users\gabri\source\repos\sacrum\BL\obj\Debug\BL.pdb
