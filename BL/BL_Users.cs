@@ -19,9 +19,5 @@ namespace BL
         {
             return objDato.ListarUsers(buscar);
         }
-
-
-
-
     }
 }
