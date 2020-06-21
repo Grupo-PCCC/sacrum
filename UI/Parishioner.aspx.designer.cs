@@ -31,33 +31,6 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button BtnSearch;
         
         /// <summary>
-        /// BtnNewParishioner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnNewParishioner;
-        
-        /// <summary>
-        /// BtnModifyParishioner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnModifyParishioner;
-        
-        /// <summary>
-        /// BtnDeleteParishioner control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnDeleteParishioner;
-        
-        /// <summary>
         /// TxtParishioner control.
         /// </summary>
         /// <remarks>

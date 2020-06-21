@@ -13,9 +13,6 @@
         Feligreses
         </div>
         <asp:Button ID="BtnSearch" runat="server" OnClick="BtnSearch_Click" Text="Buscar" />
-        <asp:Button ID="BtnNewParishioner" runat="server" OnClick="BtnNewParishioner_Click" Text="Nuevo" />
-        <asp:Button ID="BtnModifyParishioner" runat="server" OnClick="BtnModifyParishioner_Click" Text="Modificar" />
-        <asp:Button ID="BtnDeleteParishioner" runat="server" OnClick="BtnDeleteParishioner_Click" Text="Borrar" />
         <asp:TextBox ID="TxtParishioner" runat="server"></asp:TextBox>
         <asp:GridView ID="ViewParishioner" runat="server">
         </asp:GridView>

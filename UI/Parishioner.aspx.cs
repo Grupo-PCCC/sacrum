@@ -24,9 +24,9 @@ namespace UI
 
         public void mostrarBuscarTabla (string buscar)
         {
-            BL_Users objBL = new BL_Users();
+            BL_Parishioner objBL = new BL_Parishioner();
             buscar = TxtParishioner.Text.ToString();
-            ViewParishioner.DataSource = objBL.ListandoUsers(buscar);
+            ViewParishioner.DataSource = objBL.ListandoParishioner(buscar);
             ViewParishioner.DataBind();
 
         }

@@ -15,7 +15,7 @@ namespace BL
 
         DAL_Users objDato = new DAL_Users();
 
-        public List <EN_Users> ListandoUsers(string buscar)
+        public List<EN_Users> ListandoUsers(string buscar)
         {
             return objDato.ListarUsers(buscar);
         }

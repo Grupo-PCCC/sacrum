@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DAL_Login.cs" />
+    <Compile Include="DAL_Parishioner.cs" />
     <Compile Include="DAL_Users.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
