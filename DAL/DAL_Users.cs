@@ -38,7 +38,6 @@ namespace DAL
                 lista.Add(reg);
 
             }
-
             Conexion.Close();
             LeerFilas.Close();
             return lista;
