@@ -1,4 +1,5 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="UI.Users" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="UI.Users" EnableEventValidation="false" %>
+
 
 <!DOCTYPE html>
 
@@ -8,7 +9,7 @@
     <title>Usuarios</title>
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form id="form1" runat="server" enableviewstate="False">
         <div>
          Usuarios
         </div>
