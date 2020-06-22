@@ -19,12 +19,5 @@ namespace EN
         public string UserType { get; set; }
 
 
-
-        //public int Id { get => Id; set => Id = value; }
-        //public string Nick { get => Nick; set => Nick = value; }
-        //public string Password { get => Password; set => Password = value; }
-        //public string Name { get => Name; set => Name = value; }
-        //public string Surname { get => Surname; set => Surname = value; }
-        //public string UserTypeId { get => UserTypeId; set => UserTypeId = value; }
     }
 }

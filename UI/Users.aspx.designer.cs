@@ -24,7 +24,11 @@ namespace UI
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control TxtUsers.
+=======
+        /// Control BtnSearch.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
@@ -33,7 +37,11 @@ namespace UI
         protected global::System.Web.UI.WebControls.TextBox TxtUsers;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control BtnSearch.
+=======
+        /// Control TxtUsers.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.

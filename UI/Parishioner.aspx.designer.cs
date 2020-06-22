@@ -33,6 +33,7 @@ namespace UI
         protected global::System.Web.UI.WebControls.TextBox TxtParishioner;
 
         /// <summary>
+<<<<<<< HEAD
         /// Control BtnSearch.
         /// </summary>
         /// <remarks>
@@ -61,6 +62,9 @@ namespace UI
 
         /// <summary>
         /// Control BtnDeleteParishioner.
+=======
+        /// TxtParishioner control.
+>>>>>>> master
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
