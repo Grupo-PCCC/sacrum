@@ -19,10 +19,10 @@ namespace EN
 
         public EN_ParishionerPhone _parishionerPhone;
 
-        public EN_Parishioner()
-        {
-            _parishionerPhone = new EN_ParishionerPhone();
-        }
+        //public EN_Parishioner()
+        //{
+        //    _parishionerPhone = new EN_ParishionerPhone();
+        //}
 
     }
 }

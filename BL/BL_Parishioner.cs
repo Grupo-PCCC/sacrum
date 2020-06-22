@@ -13,11 +13,34 @@ namespace BL
     public class BL_Parishioner
     {
 
-        DAL_Parishioner objDato = new DAL_Parishioner();
-
-        public List <EN_Parishioner> ListandoParishioner(string buscar)
+        DAL_Parishioner DAL_Parishioner = new DAL_Parishioner();
+        public int Grabar(EN_Parishioner parishioner)
         {
-            return objDato.ListarParishioner(buscar);
+            int res = 0;
+            if (parishioner.Id == 0)
+            {
+                res = DAL_Parishioner.Insertar(parishioner);
+            }
+            else
+            {
+                res = DAL_Parishioner.Editar(parishioner);
+            }
+            return res;
+        }
+
+        public int Borrar(EN_Parishioner parishioner)
+        {
+            return DAL_Parishioner.Borrar(parishioner);
+        }
+
+        public List<EN_Parishioner> Listar()
+        {
+            return DAL_Parishioner.Listar();
+        }
+
+        public EN_Parishioner Listar(int id)
+        {
+            return DAL_Parishioner.Listar(id);
         }
     }
 }
