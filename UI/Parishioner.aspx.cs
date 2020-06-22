@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            mostrarBuscarTabla(TxtParishioner.Text.ToString());
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
@@ -24,11 +24,27 @@ namespace UI
 
         public void mostrarBuscarTabla (string buscar)
         {
-            BL_Users objBL = new BL_Users();
+            BL_Parishioner objBL = new BL_Parishioner();
             buscar = TxtParishioner.Text.ToString();
-            ViewParishioner.DataSource = objBL.ListandoUsers(buscar);
+            ViewParishioner.DataSource = objBL.ListandoParishioner(buscar);
             ViewParishioner.DataBind();
 
         }
+        protected void BtnNewParishioner_Click(object sender, EventArgs e)
+        {
+            
+        }
+        protected void BtnModifyParishioner_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void BtnDeleteParishioner_Click(object sender, EventArgs e)
+        {
+
+        }
+        //public void addParishioner()
+        //{
+
+        //}
     }
 }

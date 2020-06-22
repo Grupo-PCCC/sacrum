@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            mostrarBuscarTabla(TxtUsers.Text.ToString());
         }
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
