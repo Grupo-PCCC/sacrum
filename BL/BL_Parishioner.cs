@@ -33,14 +33,14 @@ namespace BL
             return DAL_Parishioner.Borrar(parishioner);
         }
 
-        public List<EN_Parishioner> Listar()
+        public List<EN_Parishioner> ListarTodo()
         {
-            return DAL_Parishioner.Listar();
+            return DAL_Parishioner.ListarTodo();
         }
 
-        public List<EN_Parishioner> Listar(int id)
+        public List<EN_Parishioner> ListarID(int Id)
         {
-            return DAL_Parishioner.ListarID(id);
+            return DAL_Parishioner.ListarID(Id);
         }
     }
 }

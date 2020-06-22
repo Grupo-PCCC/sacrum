@@ -25,7 +25,7 @@ namespace UI
 
         public void Enlazar()
         {
-            ViewParishioner.DataSource = BL_Parishioner.Listar();
+            ViewParishioner.DataSource = BL_Parishioner.ListarTodo();
             ViewParishioner.DataBind();
         }
 
@@ -49,32 +49,40 @@ namespace UI
 
             BL_Parishioner.Grabar(par);
             Enlazar();
+            hid.Value = "0";
+
+            TxtName.Text = "";
+            TxtSurname.Text = "";
+            TxtBirthdate.Text = "";
+            TxtNumP.Text = "";
+            TxtNumA.Text = "";
+            TxtObs.Text = "";
         }
        
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
-            int id = int.Parse(ViewParishioner.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
-            List <EN_Parishioner> listparish = BL_Parishioner.Listar(id);
-            var par = listparish[0];
+            int Id = int.Parse(ViewParishioner.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
+            List <EN_Parishioner> listparishID = BL_Parishioner.ListarID(Id);
+            var parish = listparishID[0];
             
 
             switch (e.CommandName)
             {
                 case "Borrar":
                     {
-                        BL_Parishioner.Borrar(par);
+                        BL_Parishioner.Borrar(parish);
                         Enlazar();
                         break;
                     }
                 case "Seleccionar":
                     {
-                        hid.Value = par.Id.ToString();
-                        TxtName.Text = par.Name;
-                        TxtSurname.Text = par.Surname;
-                        TxtBirthdate.Text = Convert.ToDateTime(par.BirthDate).ToString();
-                        TxtNumP.Text = par.NumberP;
-                        TxtNumA.Text = par.NumberA;
-                        TxtObs.Text = par.Observation;
+                        hid.Value = parish.Id.ToString();
+                        TxtName.Text = parish.Name;
+                        TxtSurname.Text = parish.Surname;
+                        TxtBirthdate.Text = Convert.ToDateTime(parish.BirthDate).ToString();
+                        TxtNumP.Text = parish.NumberP;
+                        TxtNumA.Text = parish.NumberA;
+                        TxtObs.Text = parish.Observation;
 
                         break;
                     }

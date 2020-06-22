@@ -14,7 +14,7 @@ namespace DAL
     {
 
         private DAL_Acceso acceso = new DAL_Acceso();
-        public List<EN_Parishioner> Listar()
+        public List<EN_Parishioner> ListarTodo()
         {
             DataTable tabla = acceso.Leer("ListParish", null);
             List<EN_Parishioner> parishioners = new List<EN_Parishioner>();
@@ -72,13 +72,13 @@ namespace DAL
 
 
 
-        public List<EN_Parishioner> ListarID(int id)
+        public List<EN_Parishioner> ListarID(int Id)
 
         {
-            int idregistro = id;
+            int idEncontrado = Id;
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(acceso.CrearParametro("@Id", idregistro));
-            DataTable tabla = acceso.Leer("ListParish2", parameters);
+            parameters.Add(acceso.CrearParametro("@Id", idEncontrado));
+            DataTable tabla = acceso.Leer("ListParishId", parameters);
             List<EN_Parishioner> parishID = new List<EN_Parishioner>();
 
             foreach (DataRow registro in tabla.Rows)
