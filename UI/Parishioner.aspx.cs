@@ -54,7 +54,9 @@ namespace UI
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
             int id = int.Parse(ViewParishioner.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
-            EN_Parishioner par = BL_Parishioner.Listar(id);
+            List <EN_Parishioner> listparish = BL_Parishioner.Listar(id);
+            var par = listparish[0];
+            
 
             switch (e.CommandName)
             {

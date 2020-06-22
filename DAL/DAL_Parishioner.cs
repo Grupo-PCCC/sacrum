@@ -16,7 +16,7 @@ namespace DAL
         private DAL_Acceso acceso = new DAL_Acceso();
         public List<EN_Parishioner> Listar()
         {
-            DataTable tabla = acceso.Leer("ListParish2", null);
+            DataTable tabla = acceso.Leer("ListParish", null);
             List<EN_Parishioner> parishioners = new List<EN_Parishioner>();
 
             foreach (DataRow registro in tabla.Rows)
@@ -42,7 +42,7 @@ namespace DAL
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Name", parishioner.Name));
             parameters.Add(acceso.CrearParametro("@Surname", parishioner.Surname));
-            parameters.Add(acceso.CrearParametro("@BirthDate", Convert.ToDateTime(parishioner.BirthDate).ToString()));
+            parameters.Add(acceso.CrearParametro("@BirthDate", parishioner.BirthDate));
             parameters.Add(acceso.CrearParametro("@Observation", parishioner.Observation));
 
             return acceso.Escribir("NewParishioner", parameters);
@@ -70,24 +70,53 @@ namespace DAL
             return acceso.Escribir("DeleteParishioner", parameters);
         }
 
-        public EN_Parishioner Listar(int id)
+
+
+        public List<EN_Parishioner> ListarID(int id)
+
         {
-            DataTable tabla = acceso.Leer("ListParish2", null);
-            EN_Parishioner parishioner = new EN_Parishioner();
-            DataRow registro = tabla.Rows[0];
+            int idregistro = id;
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Id", idregistro));
+            DataTable tabla = acceso.Leer("ListParish2", parameters);
+            List<EN_Parishioner> parishID = new List<EN_Parishioner>();
 
-            parishioner.Id = int.Parse(registro["Id"].ToString());
-            parishioner.Name = (registro["Name"].ToString());
-            parishioner.Surname = (registro["Surname"].ToString());
-            parishioner.BirthDate = Convert.ToDateTime(registro["BirthDate"].ToString());
-            parishioner.NumberP = (registro["NumberP"].ToString());
-            parishioner.NumberA = (registro["NumberA"].ToString());
-            parishioner.Observation = (registro["Observation"].ToString());
+            foreach (DataRow registro in tabla.Rows)
+            {
+                EN_Parishioner parishioner = new EN_Parishioner();
+                parishioner.Id = int.Parse(registro["Id"].ToString());
+                parishioner.Name = (registro["Name"].ToString());
+                parishioner.Surname = (registro["Surname"].ToString());
+                parishioner.BirthDate = Convert.ToDateTime(registro["BirthDate"].ToString());
+                parishioner.NumberP = (registro["NumberP"].ToString());
+                parishioner.NumberA = (registro["NumberA"].ToString());
+                parishioner.Observation = (registro["Observation"].ToString());
+                parishID.Add(parishioner);
+            }
 
-            return parishioner;
+            return parishID;
+
         }
 
-
-
     }
+    //public EN_Parishioner Listar(int id)
+    //{
+    //    DataTable tabla = acceso.Leer("ListParish2", null);
+    //    EN_Parishioner parishioner = new EN_Parishioner();
+    //    DataRow registro = tabla.Rows[0];
+
+    //    parishioner.Id = int.Parse(registro["Id"].ToString());
+    //    parishioner.Name = (registro["Name"].ToString());
+    //    parishioner.Surname = (registro["Surname"].ToString());
+    //    parishioner.BirthDate = Convert.ToDateTime(registro["BirthDate"].ToString());
+    //    parishioner.NumberP = (registro["NumberP"].ToString());
+    //    parishioner.NumberA = (registro["NumberA"].ToString());
+    //    parishioner.Observation = (registro["Observation"].ToString());
+
+    //    return parishioner;
+    //}
+
+
+
 }
+

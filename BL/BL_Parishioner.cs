@@ -38,9 +38,9 @@ namespace BL
             return DAL_Parishioner.Listar();
         }
 
-        public EN_Parishioner Listar(int id)
+        public List<EN_Parishioner> Listar(int id)
         {
-            return DAL_Parishioner.Listar(id);
+            return DAL_Parishioner.ListarID(id);
         }
     }
 }
