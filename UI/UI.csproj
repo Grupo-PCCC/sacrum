@@ -67,14 +67,28 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Content Include="AddParishioner.aspx" />
+=======
     <Content Include="css\style.css" />
     <Content Include="images\b4.jpg" />
+>>>>>>> master
     <Content Include="Index.aspx" />
     <Content Include="Parishioner.aspx" />
     <Content Include="Users.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Compile Include="AddParishioner.aspx.cs">
+      <DependentUpon>AddParishioner.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AddParishioner.aspx.designer.cs">
+      <DependentUpon>AddParishioner.aspx</DependentUpon>
+    </Compile>
+=======
+>>>>>>> master
     <Compile Include="Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

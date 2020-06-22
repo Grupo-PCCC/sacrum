@@ -14,7 +14,7 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            mostrarBuscarTabla(TxtParishioner.Text.ToString());
         }
 
         protected void BtnSearch_Click(object sender, EventArgs e)
@@ -30,5 +30,21 @@ namespace UI
             ViewParishioner.DataBind();
 
         }
+        protected void BtnNewParishioner_Click(object sender, EventArgs e)
+        {
+            
+        }
+        protected void BtnModifyParishioner_Click(object sender, EventArgs e)
+        {
+
+        }
+        protected void BtnDeleteParishioner_Click(object sender, EventArgs e)
+        {
+
+        }
+        //public void addParishioner()
+        //{
+
+        //}
     }
 }

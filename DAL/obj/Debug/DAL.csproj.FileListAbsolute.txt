@@ -16,3 +16,12 @@ C:\Users\gabri\source\repos\sacrum\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.ca
 C:\Users\gabri\source\repos\sacrum\DAL\obj\Debug\DAL.csproj.CopyComplete
 C:\Users\gabri\source\repos\sacrum\DAL\obj\Debug\DAL.dll
 C:\Users\gabri\source\repos\sacrum\DAL\obj\Debug\DAL.pdb
+C:\Users\hpere\source\repos\sacrum\DAL\bin\Debug\DAL.dll
+C:\Users\hpere\source\repos\sacrum\DAL\bin\Debug\DAL.pdb
+C:\Users\hpere\source\repos\sacrum\DAL\bin\Debug\EN.dll
+C:\Users\hpere\source\repos\sacrum\DAL\bin\Debug\EN.pdb
+C:\Users\hpere\source\repos\sacrum\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\hpere\source\repos\sacrum\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\hpere\source\repos\sacrum\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\hpere\source\repos\sacrum\DAL\obj\Debug\DAL.dll
+C:\Users\hpere\source\repos\sacrum\DAL\obj\Debug\DAL.pdb

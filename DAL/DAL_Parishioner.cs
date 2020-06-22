@@ -33,11 +33,17 @@ namespace DAL
                 reg.Name = (string)LeerFilas["Name"];
                 reg.Surname = (string)LeerFilas["Surname"];
                 reg.BirthDate = (DateTime)LeerFilas["BirthDate"];
+<<<<<<< HEAD
+                //reg.NumberP = (string)LeerFilas["NumberP"];
+                //reg.NumberA = (string)LeerFilas["NumberA"];
+
+=======
                 reg.NumberP = Convert.ToString(LeerFilas["NumberP"] is DBNull ? "" : LeerFilas["NumberP"]);
                 reg.NumberA = Convert.ToString(LeerFilas["NumberA"] is DBNull ? "" : LeerFilas["NumberA"]);
                 reg.Observation = (string)LeerFilas["Observation"];
                 //reg._parishionerPhone.IdPHP1 = (int)LeerFilas["IdPHP1"];
                 //reg._parishionerPhone.IdPHP2 = (int)LeerFilas["IdPHP2"];
+>>>>>>> master
                 lista.Add(reg);
 
             }
@@ -47,4 +53,8 @@ namespace DAL
         }
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
