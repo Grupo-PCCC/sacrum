@@ -58,7 +58,7 @@
             <asp:TextBox ID="TxtObs" class="form-control" runat="server"></asp:TextBox>
 
 
-            <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Grabar" OnClick="btnGrabar_Click" Height="33px" />
+            <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" Height="33px" />
             <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnGrabar_Click" />
 
         </asp:Panel>
