@@ -83,7 +83,7 @@ namespace UI
                         TxtNumP.Text = parish.NumberP;
                         TxtNumA.Text = parish.NumberA;
                         TxtObs.Text = parish.Observation;
-
+                        ModalPopupExtender1.Show();
                         break;
                     }
             }

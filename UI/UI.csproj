@@ -43,6 +43,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=20.1.0.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Documents\ASP.NET AJAX Control Toolkit\Bin\AjaxControlToolkit.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -67,40 +71,45 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="css\boostrap.min.css" />
+    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
-    <Content Include="Index.aspx" />
-    <Content Include="Parishioner.aspx" />
-    <Content Include="Users.aspx" />
+    <Content Include="css\stylegen.css" />
+    <Content Include="Inicio.aspx" />
+    <Content Include="Feligreses.aspx" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.min.js" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Index.aspx.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Index.aspx.designer.cs">
-      <DependentUpon>Index.aspx</DependentUpon>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Parishioner.aspx.cs">
-      <DependentUpon>Parishioner.aspx</DependentUpon>
+    <Compile Include="Feligreses.aspx.cs">
+      <DependentUpon>Feligreses.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Parishioner.aspx.designer.cs">
-      <DependentUpon>Parishioner.aspx</DependentUpon>
+    <Compile Include="Feligreses.aspx.designer.cs">
+      <DependentUpon>Feligreses.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Users.aspx.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Users.aspx.designer.cs">
-      <DependentUpon>Users.aspx</DependentUpon>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\Asap-Regular.ttf" />
     <Content Include="fonts\Audiowide-Regular.ttf" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="js\bootstrap.min.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -119,6 +128,7 @@
       <Name>EN</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
