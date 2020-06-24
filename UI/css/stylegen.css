@@ -9,10 +9,19 @@
 .modalpopup {
     padding: 20px 0px 24px 10px;
     position: relative;
-    width: 816px;
-    height: 518px;
+    width: 365px;
+    height: 581px;
     background-color: white;
     border: 1px solid black;
     top: 0px;
     left: 0px;
+}
+
+.modal-header {
+    width: 358px;
+}
+
+
+.btn-success {
+    margin-left: 200px;
 }

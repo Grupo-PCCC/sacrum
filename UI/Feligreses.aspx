@@ -25,44 +25,59 @@
         </div>
 
         <asp:HiddenField ID="hid" runat="server" />
-        
+
 
 
 
         <asp:ScriptManager ID="ScriptManager1" runat="server">
         </asp:ScriptManager>
 
-        <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup">
+        <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" Width="380px">
 
+            <div class="modal-header" id="ModalHeader">
 
+                <h3>Feligres</h3>
+                
 
-            <label for="Nombre" runat="server">Nombre</label>
-            <asp:TextBox ID="TxtName" class="form-control" runat="server"></asp:TextBox>
+            </div>
+           
+          
+            <div class="form form-group">
+                <label for="Nombre" runat="server">Nombre</label>
+                <asp:TextBox ID="TxtName" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
 
+            <div class="form form-group">
+                <label for="apellido" runat="server">Apellido</label>
+                <asp:TextBox ID="TxtSurname" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
+            <div class="form form-group">
+                <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
+                <asp:TextBox ID="TxtBirthdate" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
 
-            <label for="apellido" runat="server">Apellido</label>
-            <asp:TextBox ID="TxtSurname" class="form-control" runat="server"></asp:TextBox>
+            <div class="form form-group">
+                <label for="tel1" runat="server">Telefono 1</label>
+                <asp:TextBox ID="TxtNumP" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
+            <div class="form form-group">
+                <label for="tel2" runat="server">Telefono 2</label>
+                <asp:TextBox ID="TxtNumA" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
+            <div class="form form-group">
+                <label for="observaciones" runat="server">Observaciones</label>
+                <asp:TextBox ID="TxtObs" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            </div>
 
-
-            <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
-            <asp:TextBox ID="TxtBirthdate" class="form-control" runat="server"></asp:TextBox>
-
-
-            <label for="tel1" runat="server">Telefono 1</label>
-            <asp:TextBox ID="TxtNumP" class="form-control" runat="server"></asp:TextBox>
-
-            <label for="tel2" runat="server">Telefono 2</label>
-            <asp:TextBox ID="TxtNumA" class="form-control" runat="server"></asp:TextBox>
-
-            <label for="observaciones" runat="server">Observaciones</label>
-            <asp:TextBox ID="TxtObs" class="form-control" runat="server"></asp:TextBox>
-
-
-            <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" Height="33px" />
-            <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnGrabar_Click" />
+            <br />
+            
+                <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
+                <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                
+            
 
         </asp:Panel>
-        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo">
+        <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
         </ajaxToolkit:ModalPopupExtender>
         <br />
         <br />
@@ -71,7 +86,9 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
+                    
                     <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo Feligres" OnClick="btnNuevo_Click" />
+                    
                     <asp:GridView ID="ViewParishioner" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1">
                         <Columns>
                             <asp:ButtonField CommandName="Seleccionar" Text="Seleccionar" />
@@ -97,17 +114,41 @@
     <script src="js/jquery.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
 
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            $("#btnShowModal").click(function () {
-                $("#feligresModal").modal('show');
-            });
+     <script type="text/javascript">
+         // call the function on pageload
+         function pageLoad() {
+             //Get the Modalpopupextender based on BehaviorID
+             var mpe = $find("modalPopupExtender1");
+             //Attach the clearvalues function to it
+             mpe.add_shown(clearvalues);
+         }
+         //Function to clear the values
+         //Add other control also here
+         function clearvalues() {
+             var TxtName = $get("TxtName");
+             TxtName.value = "";
 
-            $("#btnHideModal").click(function () {
-                $("#feligresModal").modal('hide');
-            });
-    </script>
+             var TxtSurname = $get("TxtSurname");
+             TxtSurname.value = "";
+
+             var TxtBirthdate = $get("TxtBirthdate");
+             TxtBirthdate.value = "";
+
+             var TxtNumP = $get("TxtNumP");
+             TxtNumP.value = "";
+
+             var TxtNumA = $get("TxtNumA");
+             TxtNumA.value = "";
+
+             var TxtObs = $get("TxtObs");
+             TxtObs.value = "";
+
+         }
+        </script>
+
+
+
 
 </body>
 </html>

@@ -79,7 +79,7 @@ namespace UI
                         hid.Value = parish.Id.ToString();
                         TxtName.Text = parish.Name;
                         TxtSurname.Text = parish.Surname;
-                        TxtBirthdate.Text = Convert.ToDateTime(parish.BirthDate).ToString();
+                        TxtBirthdate.Text = Convert.ToDateTime(parish.BirthDate).ToString("dd-MM-yyyy");
                         TxtNumP.Text = parish.NumberP;
                         TxtNumA.Text = parish.NumberA;
                         TxtObs.Text = parish.Observation;
@@ -90,6 +90,18 @@ namespace UI
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            hid.Value = "0";
+
+            TxtName.Text = "";
+            TxtSurname.Text = "";
+            TxtBirthdate.Text = "";
+            TxtNumP.Text = "";
+            TxtNumA.Text = "";
+            TxtObs.Text = "";
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
 
