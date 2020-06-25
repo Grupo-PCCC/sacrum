@@ -25,7 +25,7 @@ namespace UI
                     var validlogin = User.LoginUser(TxtUser.Text, TxtPass.Text);
                     if (validlogin == true)
                     {
-                        Response.Redirect("Parishioner.aspx");
+                        Response.Redirect("Feligreses.aspx");
                     }
                     else
                     {

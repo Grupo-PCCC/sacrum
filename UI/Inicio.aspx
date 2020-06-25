@@ -23,8 +23,8 @@
             <div class="design-w3l">
                 <div class="mail-form-agile">
                     <form action="#" method="post">
-                        <asp:TextBox ID="TxtUser" runat="server" Text="Usuario"></asp:TextBox>
-                        <asp:TextBox ID="TxtPass" runat="server" Text="Password"></asp:TextBox>
+                        <asp:TextBox ID="TxtUser" runat="server" PlaceHolder="Usuario"></asp:TextBox>
+                        <asp:TextBox ID="TxtPass" runat="server" PlaceHolder="Password"></asp:TextBox>
                         <asp:Button ID="Login" runat="server" Text="Login" OnClick="Login_Click" />
                         <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>
                         <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>
