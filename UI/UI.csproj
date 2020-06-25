@@ -76,6 +76,7 @@
     <Content Include="Inicio.aspx" />
     <Content Include="Feligreses.aspx" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\javascript.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />

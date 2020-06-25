@@ -56,7 +56,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Id", parishioner.Id));
             parameters.Add(acceso.CrearParametro("@Name", parishioner.Name));
             parameters.Add(acceso.CrearParametro("@Surname", parishioner.Surname));
-            parameters.Add(acceso.CrearParametro("@BirthDate", Convert.ToDateTime(parishioner.BirthDate).ToString()));
+            parameters.Add(acceso.CrearParametro("@BirthDate", Convert.ToDateTime(parishioner.BirthDate)));
             parameters.Add(acceso.CrearParametro("@Observation", parishioner.Observation));
 
             return acceso.Escribir("UpdateParishioner", parameters);
