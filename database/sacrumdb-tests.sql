@@ -32,4 +32,24 @@ SELECT @IdPersona
 INSERT INTO Feligres VALUES (@Nombre,@Apellido,@Observaciones,@IdPersona)
 GO
 
-EXEC NuevoFeligres 'prueba','prueba','prueba'
+CREATE TABLE TipoDatoPersona (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Nombre VARCHAR (30) NOT NULL)
+
+INSERT INTO TipoDatoPersona VALUES ('Teléfono'), ('Mail'), ('Dirección')
+
+CREATE TABLE DatoPersona (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+IdPersona INT FOREIGN KEY REFERENCES Persona(Id) NOT NULL,
+IdTipoDatoPersona INT FOREIGN KEY REFERENCES TipoDatoPersona(Id) NOT NULL,
+Valor VARCHAR (100) NOT NULL,
+Detalle VARCHAR (20))
+
+CREATE PROC NuevoDatoPersona
+@IdPersona INT,
+@IdTipoDatoPersona INT,
+@Valor VARCHAR (100),
+@Detalle VARCHAR (20)
+AS
+INSERT INTO DatoPersona VALUES (@IdPersona,@IdTipoDatoPersona,@Valor,@Detalle)
+GO
