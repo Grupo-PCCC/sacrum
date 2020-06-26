@@ -251,3 +251,5 @@ C:\Users\gabri\source\repos\sacrum\UI\bin\AjaxControlToolkit.dll
 \\Mac\Home\Desktop\NSLP\sacrum\UI\obj\Debug\UI.pdb
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\UI\bin\Cache.dll
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\UI\bin\Cache.pdb
+\\Mac\Home\Desktop\NSLP\sacrum\UI\bin\Cache.dll
+\\Mac\Home\Desktop\NSLP\sacrum\UI\bin\Cache.pdb

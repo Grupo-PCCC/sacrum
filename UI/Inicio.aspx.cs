@@ -23,7 +23,7 @@ namespace UI
                 if (TxtPass.Text != "")
                 {
                     BL_Login User = new BL_Login();
-                    var validlogin = User.LoginUser(TxtUser.Text, TxtPass.Text);
+                    var validlogin = User.LoginUser(TxtUser.Text, GenerarMD5.crearMD5(TxtPass.Text));
                     if (validlogin == true)
                     {
                         Session["usuarioName"] = LoginCache.Name;
