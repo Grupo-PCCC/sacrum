@@ -20,4 +20,13 @@ namespace EN
 
 
     }
+    public static class CacheUser
+    {
+
+        public static string Nick { get; set; }
+        public static int Id { get; set; }
+        public static string Name { get; set; }
+        public static string Surname { get; set; }
+
+    }
 }
