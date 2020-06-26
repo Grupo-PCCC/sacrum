@@ -19,6 +19,14 @@ namespace UI
             {
                 Enlazar();
             }
+            //VerificarSesion();
+        }
+        private void VerificarSesion()
+        {
+            //if (Session["usuarioId"] == null)
+            //{
+            //    Response.Redirect("~/Inicio.aspx");
+            //}
         }
 
    

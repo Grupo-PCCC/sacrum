@@ -7,20 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI {
-    
-    
-    public partial class Parishioner {
-        
-        /// <summary>
-        /// Control form1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-        
+namespace UI
+{
+
+
+    public partial class Parishioner
+    {
+
         /// <summary>
         /// Control hid.
         /// </summary>
@@ -29,7 +22,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hid;
-        
+
         /// <summary>
         /// Control ScriptManager1.
         /// </summary>
@@ -38,7 +31,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// Control pnlFeligres.
         /// </summary>
@@ -47,7 +40,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFeligres;
-        
+
         /// <summary>
         /// Control TxtName.
         /// </summary>
@@ -56,7 +49,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtName;
-        
+
         /// <summary>
         /// Control TxtSurname.
         /// </summary>
@@ -65,7 +58,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtSurname;
-        
+
         /// <summary>
         /// Control TxtBirthdate.
         /// </summary>
@@ -74,7 +67,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtBirthdate;
-        
+
         /// <summary>
         /// Control TxtNumP.
         /// </summary>
@@ -83,7 +76,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtNumP;
-        
+
         /// <summary>
         /// Control TxtNumA.
         /// </summary>
@@ -92,7 +85,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtNumA;
-        
+
         /// <summary>
         /// Control TxtObs.
         /// </summary>
@@ -101,7 +94,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtObs;
-        
+
         /// <summary>
         /// Control btnGrabar.
         /// </summary>
@@ -110,7 +103,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrabar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -119,7 +112,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Control ModalPopupExtender1.
         /// </summary>
@@ -128,7 +121,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.ModalPopupExtender ModalPopupExtender1;
-        
+
         /// <summary>
         /// Control btnNuevo.
         /// </summary>
@@ -137,7 +130,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevo;
-        
+
         /// <summary>
         /// Control ViewParishioner.
         /// </summary>
