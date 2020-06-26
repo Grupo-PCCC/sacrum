@@ -26,6 +26,9 @@
                         <asp:TextBox ID="TxtUser" runat="server" PlaceHolder="Usuario"></asp:TextBox>
                         <asp:TextBox ID="TxtPass" TextMode="Password" runat="server" PlaceHolder="Password"></asp:TextBox>
                         <asp:Button ID="Login" runat="server" Text="Login" OnClick="Login_Click" />
+                        <br />
+
+                        <asp:Label ID="msgError" runat="server" Text="Label"></asp:Label>
                         <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>
                         <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>
                         <%--<asp:Label ID="msgError" runat="server" Visible="False"></asp:Label>--%>

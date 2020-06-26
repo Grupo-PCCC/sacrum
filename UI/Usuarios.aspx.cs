@@ -4,8 +4,9 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using EN;
+using Cache;
 using BL;
+
 
 
 namespace UI
@@ -14,6 +15,11 @@ namespace UI
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            
+            if (Session["usuarioName"] == null)
+            {
+                Response.Redirect("~/Inicio.aspx");
+            }
             mostrarBuscarTabla(TxtUsers.Text.ToString());
         }
         protected void BtnSearch_Click(object sender, EventArgs e)

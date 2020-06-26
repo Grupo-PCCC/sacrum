@@ -7,6 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using EN;
+using Cache;
 
 namespace DAL
 {
@@ -24,7 +25,16 @@ namespace DAL
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
+                while(reader.Read())
+                {
+                    LoginCache.Id = reader.GetInt32(0);
+                    LoginCache.Name = reader.GetString(3);
+                    LoginCache.Surname = reader.GetString(4);
+
+
+                }
                 return true;
+
             }
             else
                 return false;

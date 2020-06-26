@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI
-{
-
-
-    public partial class Index
-    {
-
+namespace UI {
+    
+    
+    public partial class Index {
+        
         /// <summary>
         /// Control form1.
         /// </summary>
@@ -22,7 +20,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
-
+        
         /// <summary>
         /// Control TxtUser.
         /// </summary>
@@ -31,7 +29,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtUser;
-
+        
         /// <summary>
         /// Control TxtPass.
         /// </summary>
@@ -40,7 +38,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtPass;
-
+        
         /// <summary>
         /// Control Login.
         /// </summary>
@@ -49,5 +47,14 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Login;
+        
+        /// <summary>
+        /// Control msgError.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label msgError;
     }
 }

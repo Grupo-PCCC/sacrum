@@ -131,6 +131,10 @@
       <Project>{f533670e-fbec-427d-acbd-ff238265788b}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Cache\Cache.csproj">
+      <Project>{d740d9ac-b5b4-4ef1-bfe5-839fa3b6b454}</Project>
+      <Name>Cache</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EN\EN.csproj">
       <Project>{ebcca3c7-1121-4fa2-a606-37aa45cb6507}</Project>
       <Name>EN</Name>

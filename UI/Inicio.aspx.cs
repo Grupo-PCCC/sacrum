@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
+using Cache;
 
 namespace UI
 {
@@ -25,7 +26,9 @@ namespace UI
                     var validlogin = User.LoginUser(TxtUser.Text, TxtPass.Text);
                     if (validlogin == true)
                     {
-                        Response.Redirect("Feligreses.aspx");
+                        Session["usuarioName"] = LoginCache.Name;
+                        Response.Redirect("~/Feligreses.aspx");
+
                     }
                     else
                     {

@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EC16FD5D-9911-4E29-8DD4-5F343BF7818D}</ProjectGuid>
+    <ProjectGuid>{D740D9AC-B5B4-4EF1-BFE5-839FA3B6B454}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>DAL</RootNamespace>
-    <AssemblyName>DAL</AssemblyName>
+    <RootNamespace>Cache</RootNamespace>
+    <AssemblyName>Cache</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -32,7 +32,6 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,21 +41,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DAL_Acceso.cs" />
-    <Compile Include="DAL_Login.cs" />
-    <Compile Include="DAL_Parishioner.cs" />
-    <Compile Include="DAL_Users.cs" />
+    <Compile Include="LoginCache.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Cache\Cache.csproj">
-      <Project>{d740d9ac-b5b4-4ef1-bfe5-839fa3b6b454}</Project>
-      <Name>Cache</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EN\EN.csproj">
-      <Project>{ebcca3c7-1121-4fa2-a606-37aa45cb6507}</Project>
-      <Name>EN</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

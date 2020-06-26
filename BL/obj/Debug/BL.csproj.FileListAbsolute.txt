@@ -42,3 +42,5 @@ C:\Users\hpere\source\repos\sacrum\BL\obj\Debug\BL.pdb
 \\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.csproj.CopyComplete
 \\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.dll
 \\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.pdb
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\bin\Debug\Cache.dll
+C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\bin\Debug\Cache.pdb

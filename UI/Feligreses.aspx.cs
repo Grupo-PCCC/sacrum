@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EN;
 using BL;
+using Cache;
 
 
 namespace UI
@@ -19,14 +20,15 @@ namespace UI
             {
                 Enlazar();
             }
-            //VerificarSesion();
+            VerificarSesion();
         }
         private void VerificarSesion()
         {
-            //if (Session["usuarioId"] == null)
-            //{
-            //    Response.Redirect("~/Inicio.aspx");
-            //}
+            
+            if (Session["usuarioName"] == null)
+            {
+                Response.Redirect("~/Inicio.aspx");
+            }
         }
 
    
