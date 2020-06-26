@@ -31,3 +31,14 @@ C:\Users\hpere\source\repos\sacrum\BL\obj\Debug\BL.csproj.CoreCompileInputs.cach
 C:\Users\hpere\source\repos\sacrum\BL\obj\Debug\BL.csproj.CopyComplete
 C:\Users\hpere\source\repos\sacrum\BL\obj\Debug\BL.dll
 C:\Users\hpere\source\repos\sacrum\BL\obj\Debug\BL.pdb
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\BL.dll
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\BL.pdb
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\DAL.dll
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\EN.dll
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\DAL.pdb
+\\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\EN.pdb
+\\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.csprojAssemblyReference.cache
+\\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+\\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.csproj.CopyComplete
+\\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.dll
+\\Mac\Home\Desktop\NSLP\sacrum\BL\obj\Debug\BL.pdb
