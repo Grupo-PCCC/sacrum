@@ -15,6 +15,7 @@ namespace BL
 
         public bool LoginUser(string Nick, string Password)
         {
+            EN_Users cache = new EN_Users();
             return objLogin.Login(Nick,Password) ;
         }
     }
