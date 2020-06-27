@@ -21,7 +21,7 @@
                     <a class="p-2 text-dark" href="Feligreses.aspx">Feligreses</a>
                 </nav>
                 <div class="btn-group">
-                  <button type="button" class="btn btn-outline-primary">Action</button>
+                  <button type="button" class="btn btn-outline-primary">Cuenta</button>
                   <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
