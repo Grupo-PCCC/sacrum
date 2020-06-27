@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace EN
 {
-    public class EN_PhoneType
+    public class EN_TipoTelefono
     {
         public int Id { get; set; }
-        public string Name { get; set; }
+        public string Nombre { get; set; }
     }
 }

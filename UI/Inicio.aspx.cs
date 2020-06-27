@@ -18,31 +18,31 @@ namespace UI
 
         protected void Login_Click(object sender, EventArgs e)
         {
-            if (TxtUser.Text != "")
+            if (txtUsuario.Text != "")
             {
-                if (TxtPass.Text != "")
+                if (txtContraseña.Text != "")
                 {
                     BL_Login User = new BL_Login();
-                    var validlogin = User.LoginUser(TxtUser.Text, GenerarMD5.crearMD5(TxtPass.Text));
+                    var validlogin = User.LoginUser(txtUsuario.Text, GenerarMD5.crearMD5(txtContraseña.Text));
                     if (validlogin == true)
                     {
-                        Session["usuarioName"] = LoginCache.Name;
+                        Session["usuarioName"] = LoginCache.Nombre;
                         Response.Redirect("~/Feligreses.aspx");
 
                     }
                     else
                     {
-                        Errormsg("Usuario o Password invalido");
+                        Errormsg("Usuario/Contraseña inválido");
                     }
                 }
-                else Errormsg("Ingrese Password");
+                else Errormsg("Ingrese su contraseña");
             }
-            else Errormsg("Ingrese Usuario");
+            else Errormsg("Ingrese su nombre de usuario");
         }
         private void Errormsg(string msg)
         {
-            msgError.Text = " " + msg;
-            msgError.Visible = true;
+            lblError.Text = " " + msg;
+            lblError.Visible = true;
         }
     }
 }

@@ -10,13 +10,13 @@ using EN;
 
 namespace DAL
 {
-    public class DAL_Users
+    public class DAL_Usuario
     {
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
 
-        public List<EN_Users> ListarUsers(string buscar)
+        public List<EN_Usuario> ListarUsers(string buscar)
         {
-            var lista = new List<EN_Users>();
+            var lista = new List<EN_Usuario>();
             SqlDataReader LeerFilas;
             SqlCommand cmd = new SqlCommand("ListUser", Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
@@ -28,13 +28,13 @@ namespace DAL
             while (LeerFilas != null && LeerFilas.Read())
 
             {
-                var reg = new EN_Users();
+                var reg = new EN_Usuario();
                 reg.Id = (int)LeerFilas["Id"];
                 reg.Nick = (string)LeerFilas["Nick"];
-                reg.Password = (string)LeerFilas["Password"];
-                reg.Name = (string)LeerFilas["Name"];
-                reg.Surname = (string)LeerFilas["Surname"];
-                reg.UserType= (string)LeerFilas["TipoPerfil"];
+                reg.Contraseña = (string)LeerFilas["Password"];
+                reg.Nombre = (string)LeerFilas["Name"];
+                reg.Apellido = (string)LeerFilas["Surname"];
+                reg.TipoUsuario= (string)LeerFilas["TipoPerfil"];
                 lista.Add(reg);
 
             }

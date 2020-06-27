@@ -10,8 +10,8 @@ namespace Cache
     {
         public static string Nick { get; set; }
         public static int Id { get; set; }
-        public static string Name { get; set; }
-        public static string Surname { get; set; }
+        public static string Nombre { get; set; }
+        public static string Apellido { get; set; }
 
     }
 

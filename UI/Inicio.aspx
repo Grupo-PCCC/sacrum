@@ -23,15 +23,13 @@
             <div class="design-w3l">
                 <div class="mail-form-agile">
                     <form action="#" method="post" autocomplete="off">
-                        <asp:TextBox ID="TxtUser" runat="server" PlaceHolder="Usuario"></asp:TextBox>
-                        <asp:TextBox ID="TxtPass" TextMode="Password" runat="server" PlaceHolder="Password"></asp:TextBox>
-                        <asp:Button ID="Login" runat="server" Text="Login" OnClick="Login_Click" />
+                        <asp:TextBox ID="txtUsuario" runat="server" PlaceHolder="Usuario"></asp:TextBox>
+                        <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server" PlaceHolder="Contraseña"></asp:TextBox>
+                        <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión" OnClick="Login_Click" />
                         <br />
 
-                        <asp:Label ID="msgError" runat="server" Text=""></asp:Label>
-                        <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>
-                        <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>
-                        <%--<asp:Label ID="msgError" runat="server" Visible="False"></asp:Label>--%>
+                        <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
+                        <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>                        <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>                        <%--<asp:Label ID="msgError" runat="server" Visible="False"></asp:Label>--%>
                     </form>
                 </div>
                 <div class="clear"></div>

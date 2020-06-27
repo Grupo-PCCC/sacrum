@@ -13,7 +13,7 @@ namespace UI
 {
     public partial class Parishioner : System.Web.UI.Page
     {
-        BL_Parishioner BL_Parishioner = new BL_Parishioner();
+        BL_Feligres BL_Parishioner = new BL_Feligres();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -35,8 +35,8 @@ namespace UI
 
         public void Enlazar()
         {
-            ViewParishioner.DataSource = BL_Parishioner.ListarTodo();
-            ViewParishioner.DataBind();
+            dgvFeligres.DataSource = BL_Parishioner.ListarTodo();
+            dgvFeligres.DataBind();
         }
 
 
@@ -47,32 +47,32 @@ namespace UI
                 hid.Value = "0";
             }
 
-            EN_Parishioner par = new EN_Parishioner();
+            EN_Feligres par = new EN_Feligres();
 
             par.Id = int.Parse(hid.Value);
-            par.Name = TxtName.Text.ToString();
-            par.Surname = TxtSurname.Text.ToString();
-            par.BirthDate = Convert.ToDateTime(TxtBirthdate.Text);
-            par.NumberP = TxtNumP.Text.ToString();
-            par.NumberA = TxtNumA.Text.ToString();
-            par.Observation = TxtObs.Text.ToString();
+            par.Nombre = txtNombre.Text.ToString();
+            par.Apellido = txtApellido.Text.ToString();
+            par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
+            par.Numero1 = txtNum1.Text.ToString();
+            par.Numero2 = txtNum2.Text.ToString();
+            par.Observacion = txtObservaciones.Text.ToString();
 
             BL_Parishioner.Grabar(par);
             Enlazar();
             hid.Value = "0";
 
-            TxtName.Text = "";
-            TxtSurname.Text = "";
-            TxtBirthdate.Text = "";
-            TxtNumP.Text = "";
-            TxtNumA.Text = "";
-            TxtObs.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtFechaNac.Text = "";
+            txtNum1.Text = "";
+            txtNum2.Text = "";
+            txtObservaciones.Text = "";
         }
        
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
-            int Id = int.Parse(ViewParishioner.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
-            List <EN_Parishioner> listparishID = BL_Parishioner.ListarID(Id);
+            int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
+            List <EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
             var parish = listparishID[0];
             
 
@@ -87,12 +87,12 @@ namespace UI
                 case "Seleccionar":
                     {
                         hid.Value = parish.Id.ToString();
-                        TxtName.Text = parish.Name;
-                        TxtSurname.Text = parish.Surname;
-                        TxtBirthdate.Text = Convert.ToDateTime(parish.BirthDate).ToString("dd-MM-yyyy");
-                        TxtNumP.Text = parish.NumberP;
-                        TxtNumA.Text = parish.NumberA;
-                        TxtObs.Text = parish.Observation;
+                        txtNombre.Text = parish.Nombre;
+                        txtApellido.Text = parish.Apellido;
+                        txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToString("dd-MM-yyyy");
+                        txtNum1.Text = parish.Numero1;
+                        txtNum2.Text = parish.Numero2;
+                        txtObservaciones.Text = parish.Observacion;
                         ModalPopupExtender1.Show();
                         break;
                     }
@@ -103,24 +103,24 @@ namespace UI
         {
             hid.Value = "0";
 
-            TxtName.Text = "";
-            TxtSurname.Text = "";
-            TxtBirthdate.Text = "";
-            TxtNumP.Text = "";
-            TxtNumA.Text = "";
-            TxtObs.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtFechaNac.Text = "";
+            txtNum1.Text = "";
+            txtNum2.Text = "";
+            txtObservaciones.Text = "";
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
 
-            TxtName.Text = "";
-            TxtSurname.Text = "";
-            TxtBirthdate.Text = "";
-            TxtNumP.Text = "";
-            TxtNumA.Text = "";
-            TxtObs.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            txtFechaNac.Text = "";
+            txtNum1.Text = "";
+            txtNum2.Text = "";
+            txtObservaciones.Text = "";
         }
     }
 }

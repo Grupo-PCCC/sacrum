@@ -9,14 +9,14 @@ using System.Data;
 namespace EN
 {
  
-    public class EN_Users
+    public class EN_Usuario
     {
         public int Id { get; set; }
         public string Nick { get; set; }
-        public string Password { get; set; }
-        public string Name { get; set; }
-        public string Surname { get; set; }
-        public string UserType { get; set; }
+        public string Contraseña { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public string TipoUsuario { get; set; }
 
 
     }
