@@ -7,7 +7,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Configuration;
 using EN;
-using Cache;
+using COMMON;
 
 namespace DAL
 {
@@ -28,6 +28,7 @@ namespace DAL
                 while (reader.Read())
                 {
                     LoginCache.Id = reader.GetInt32(0);
+                    LoginCache.Nick = reader.GetString(1);
                     LoginCache.Nombre = reader.GetString(3);
                     LoginCache.Apellido = reader.GetString(4);
 

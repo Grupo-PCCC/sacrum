@@ -29,14 +29,14 @@
                         <br />
 
                         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
-                        <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>                        <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>                        <%--<asp:Label ID="msgError" runat="server" Visible="False"></asp:Label>--%>
+                        
                     </form>
                 </div>
                 <div class="clear"></div>
             </div>
 
             <div class="footer">
-                <p>© 2020 - SACRUM - GRUPO PCCC </a></p>
+               <a><p>© 2020 - SACRUM - GRUPO PCCC </p> </a>
             </div>
             </div>
     </form>

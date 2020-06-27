@@ -8,22 +8,22 @@
          //Function to clear the values
          //Add other control also here
          function clearvalues() {
-             var TxtName = $get("TxtName");
-             TxtName.value = "";
+             var txtNombre = $get("txtNombre");
+             txtNombre.value = "";
 
-             var TxtSurname = $get("TxtSurname");
-             TxtSurname.value = "";
+             var txtApellido = $get("txtApellido");
+             txtApellido.value = "";
 
-             var TxtBirthdate = $get("TxtBirthdate");
-             TxtBirthdate.value = "";
+             var txtFechaNac = $get("txtFechaNac");
+             txtFechaNac.value = "";
 
-             var TxtNumP = $get("TxtNumP");
-             TxtNumP.value = "";
+             var txtNum1 = $get("txtNum1");
+             txtNum1.value = "";
 
-             var TxtNumA = $get("TxtNumA");
-             TxtNumA.value = "";
+             var txtNum2 = $get("txtNum2");
+             txtNum2.value = "";
 
-             var TxtObs = $get("TxtObs");
-             TxtObs.value = "";
+             var txtObservaciones = $get("txtObservaciones");
+             txtObservaciones.value = "";
 
          }

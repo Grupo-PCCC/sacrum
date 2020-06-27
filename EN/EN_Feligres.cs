@@ -19,10 +19,5 @@ namespace EN
 
         public EN_TelefonoFeligres _telefonoFeligres;
 
-        //public EN_Parishioner()
-        //{
-        //    _parishionerPhone = new EN_ParishionerPhone();
-        //}
-
     }
 }

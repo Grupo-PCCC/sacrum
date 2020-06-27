@@ -70,6 +70,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Auditoria.aspx" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\style.css" />
     <Content Include="css\stylegen.css" />
@@ -82,6 +83,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Auditoria.aspx.cs">
+      <DependentUpon>Auditoria.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Auditoria.aspx.designer.cs">
+      <DependentUpon>Auditoria.aspx</DependentUpon>
+    </Compile>
     <Compile Include="base.Master.cs">
       <DependentUpon>base.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -131,9 +139,9 @@
       <Project>{f533670e-fbec-427d-acbd-ff238265788b}</Project>
       <Name>BL</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Cache\Cache.csproj">
+    <ProjectReference Include="..\Cache\COMMON.csproj">
       <Project>{d740d9ac-b5b4-4ef1-bfe5-839fa3b6b454}</Project>
-      <Name>Cache</Name>
+      <Name>COMMON</Name>
     </ProjectReference>
     <ProjectReference Include="..\EN\EN.csproj">
       <Project>{ebcca3c7-1121-4fa2-a606-37aa45cb6507}</Project>

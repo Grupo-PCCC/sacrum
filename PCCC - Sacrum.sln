@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BL", "BL\BL.csproj", "{F533
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI", "UI\UI.csproj", "{24352AB0-F4CF-4E26-BFD8-56C8021ED775}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cache", "Cache\Cache.csproj", "{D740D9AC-B5B4-4EF1-BFE5-839FA3B6B454}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "COMMON", "Cache\COMMON.csproj", "{D740D9AC-B5B4-4EF1-BFE5-839FA3B6B454}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

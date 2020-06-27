@@ -10,16 +10,16 @@
 namespace UI {
     
     
-    public partial class Users {
+    public partial class Auditoria {
         
         /// <summary>
-        /// Control TxtUsuarios.
+        /// Control TxtBusqueda.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtUsuarios;
+        protected global::System.Web.UI.WebControls.TextBox TxtBusqueda;
         
         /// <summary>
         /// Control BtnBuscar.
@@ -31,13 +31,13 @@ namespace UI {
         protected global::System.Web.UI.WebControls.Button BtnBuscar;
         
         /// <summary>
-        /// Control dgvUsuarios.
+        /// Control dgvAuditoria.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView dgvUsuarios;
+        protected global::System.Web.UI.WebControls.GridView dgvAuditoria;
         
         /// <summary>
         /// Control lblResultado.

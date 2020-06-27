@@ -1,13 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feligreses.aspx.cs" MasterPageFile="~/base.Master" Inherits="UI.Parishioner" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feligreses.aspx.cs" MasterPageFile="/base.Master" Inherits="UI.Parishioner" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--</form>--%>
+    <link href="css/stylegen.css" rel="stylesheet" />
     <asp:HiddenField ID="hid" runat="server" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-
+    
+    
     <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" Width="380px">
 
         <div class="modal-header" id="ModalHeader">
@@ -42,6 +44,7 @@
             <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
 
+
         <br />
 
         <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
@@ -50,8 +53,14 @@
 
 
     </asp:Panel>
+
     <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
     </ajaxToolkit:ModalPopupExtender>
+    
+
+   <%-- <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
+    </ajaxToolkit:ModalPopupExtender>--%>
+        
     <br />
     <br />
     <br />
@@ -77,10 +86,12 @@
                     <SortedDescendingCellStyle BackColor="#F6F0C0" />
                     <SortedDescendingHeaderStyle BackColor="#7E0000" />
                 </asp:GridView>
+                <br />
+                <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
             </div>
         </div>
     </div>
 <%--</form>--%>
-
-
+<%--<script src="js/javascript.js"></script>--%>
+ 
 </asp:Content>

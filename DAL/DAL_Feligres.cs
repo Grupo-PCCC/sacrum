@@ -99,24 +99,7 @@ namespace DAL
         }
 
     }
-    //public EN_feligres Listar(int id)
-    //{
-    //    DataTable tabla = acceso.Leer("ListParish2", null);
-    //    EN_feligres feligres = new EN_feligres();
-    //    DataRow registro = tabla.Rows[0];
-
-    //    feligres.Id = int.Parse(registro["Id"].ToString());
-    //    feligres.Name = (registro["Name"].ToString());
-    //    feligres.Surname = (registro["Surname"].ToString());
-    //    feligres.BirthDate = Convert.ToDateTime(registro["BirthDate"].ToString());
-    //    feligres.NumberP = (registro["NumberP"].ToString());
-    //    feligres.NumberA = (registro["NumberA"].ToString());
-    //    feligres.Observation = (registro["Observation"].ToString());
-
-    //    return feligres;
-    //}
-
-
+   
 
 }
 

@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BL;
-using Cache;
+using COMMON;
 
 namespace UI
 {
     public partial class Index : System.Web.UI.Page
     {
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -26,7 +28,12 @@ namespace UI
                     var validlogin = User.LoginUser(txtUsuario.Text, GenerarMD5.crearMD5(txtContraseña.Text));
                     if (validlogin == true)
                     {
-                        Session["usuarioName"] = LoginCache.Nombre;
+                        Audit L = new Audit();
+                        L.Action = "El usuario " + txtUsuario.Text + " inició sesión en la aplicación";
+                        L.ActionDate = DateTime.Now;
+                        L.Id = LoginCache.Id;
+                        L.WriteLog(L);
+                        Session["usuarioNick"] = LoginCache.Nick;
                         Response.Redirect("~/Feligreses.aspx");
 
                     }

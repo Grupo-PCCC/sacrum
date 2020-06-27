@@ -5,7 +5,7 @@ using System.Text;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 
-namespace Cache
+namespace COMMON
 {
     public static class GenerarMD5
     {

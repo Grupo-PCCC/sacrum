@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Cache;
+using COMMON;
 using BL;
 
 
@@ -16,22 +16,25 @@ namespace UI
         protected void Page_Load(object sender, EventArgs e)
         {
             
-            if (Session["usuarioName"] == null)
+            if (Session["usuarioNick"] == null)
             {
                 Response.Redirect("~/Inicio.aspx");
             }
-            mostrarBuscarTabla(TxtUsers.Text.ToString());
+            mostrarBuscarTabla(TxtUsuarios.Text.ToString());
         }
-        protected void BtnSearch_Click(object sender, EventArgs e)
-        {
-            mostrarBuscarTabla(TxtUsers.Text.ToString());
-        }
+
         public void mostrarBuscarTabla (string buscar)
         {
             BL_Usuario objBL = new BL_Usuario();
-            buscar = TxtUsers.Text.ToString();
-            ViewUsers.DataSource = objBL.ListandoUsers(buscar);
-            ViewUsers.DataBind();
+            buscar = TxtUsuarios.Text.ToString();
+            dgvUsuarios.DataSource = objBL.ListandoUsers(buscar);
+            dgvUsuarios.DataBind();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
+        }
+
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            mostrarBuscarTabla(TxtUsuarios.Text.ToString());
         }
     }
 }

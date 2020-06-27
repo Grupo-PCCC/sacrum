@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using Cache;
+using COMMON;
 
 namespace UI
 {
@@ -18,7 +18,7 @@ namespace UI
         protected void lnkCerrarSesion_Click(object sender, EventArgs e)
         {
             Session.Clear();
-            Session["usuarioName"] = null;
+            Session["usuarioNick"] = null;
             Session.Abandon();
             Response.Redirect("~/Inicio.aspx");
         }

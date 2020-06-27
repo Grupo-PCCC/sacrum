@@ -6,7 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using EN;
 using BL;
-using Cache;
+using COMMON;
 
 
 namespace UI
@@ -14,6 +14,7 @@ namespace UI
     public partial class Parishioner : System.Web.UI.Page
     {
         BL_Feligres BL_Parishioner = new BL_Feligres();
+        Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!this.IsPostBack)
@@ -25,10 +26,11 @@ namespace UI
         private void VerificarSesion()
         {
             
-            if (Session["usuarioName"] == null)
+            if (Session["usuarioNick"] == null)
             {
                 Response.Redirect("~/Inicio.aspx");
             }
+            
         }
 
    
@@ -37,6 +39,7 @@ namespace UI
         {
             dgvFeligres.DataSource = BL_Parishioner.ListarTodo();
             dgvFeligres.DataBind();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
 
 
@@ -48,7 +51,7 @@ namespace UI
             }
 
             EN_Feligres par = new EN_Feligres();
-
+            Audit L = new Audit();
             par.Id = int.Parse(hid.Value);
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
@@ -56,8 +59,11 @@ namespace UI
             par.Numero1 = txtNum1.Text.ToString();
             par.Numero2 = txtNum2.Text.ToString();
             par.Observacion = txtObservaciones.Text.ToString();
-
             BL_Parishioner.Grabar(par);
+            L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
+            L.ActionDate = DateTime.Now;
+            L.Id = LoginCache.Id;
+            L.WriteLog(L);
             Enlazar();
             hid.Value = "0";
 
@@ -67,6 +73,7 @@ namespace UI
             txtNum1.Text = "";
             txtNum2.Text = "";
             txtObservaciones.Text = "";
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
        
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
@@ -82,7 +89,9 @@ namespace UI
                     {
                         BL_Parishioner.Borrar(parish);
                         Enlazar();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
+                        
                     }
                 case "Seleccionar":
                     {
@@ -94,7 +103,9 @@ namespace UI
                         txtNum2.Text = parish.Numero2;
                         txtObservaciones.Text = parish.Observacion;
                         ModalPopupExtender1.Show();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
+
                     }
             }
         }
