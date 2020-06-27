@@ -98,7 +98,7 @@ namespace UI
                         hid.Value = parish.Id.ToString();
                         txtNombre.Text = parish.Nombre;
                         txtApellido.Text = parish.Apellido;
-                        txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToString("dd-MM-yyyy");
+                        txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToShortDateString();
                         txtNum1.Text = parish.Numero1;
                         txtNum2.Text = parish.Numero2;
                         txtObservaciones.Text = parish.Observacion;
