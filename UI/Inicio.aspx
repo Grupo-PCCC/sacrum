@@ -17,7 +17,7 @@
 
         <div class="padding-all">
             <div class="header">
-                <h1>SACRUM - GESTION PARROQUIAL</h1>
+                <h1>SACRUM - GESTIÓN PARROQUIAL</h1>
             </div>
 
             <div class="design-w3l">
