@@ -2,17 +2,17 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--</form>--%>
+    <%--<form id="form1" runat="server" class="">--%>
 
      <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <h1>Auditoria</h1>
-                <%--<form id="form1" runat="server" class="">--%>
+                <h1>Auditoría</h1>
+                <%--</form>--%>
                 <div class="form-inline float-lg-right">
                     <div class="form-group mx-sm-3 mb-2">
                         <asp:TextBox ID="TxtBusqueda" class="form-control" runat="server"></asp:TextBox>
-                        <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                        <asp:Button ID="btnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
                     </div>
                 </div>
                 <asp:GridView ID="dgvAuditoria" runat="server" Class="table" CellPadding="4" ForeColor="#333333" GridLines="None">

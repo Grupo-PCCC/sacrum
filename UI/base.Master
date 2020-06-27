@@ -20,7 +20,7 @@
                 <nav class="my-2 my-md-0 mr-md-3">
                     <a class="p-2 text-dark" href="Feligreses.aspx">Feligreses</a>
                     <a class="p-2 text-dark" href="Usuarios.aspx">Usuarios</a>
-                    <a class="p-2 text-dark" href="Auditoria.aspx">Auditoria</a>
+                    <a class="p-2 text-dark" href="Auditoria.aspx">Auditoría</a>
                     
                 </nav>
                 <div class="btn-group">
@@ -29,7 +29,7 @@
                     <span class="sr-only">Toggle Dropdown</span>
                   </button>
                   <div class="dropdown-menu">
-                     <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click">Cerrar Sesion</asp:LinkButton>
+                     <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click">Cerrar sesión</asp:LinkButton>
                   </div>
                 </div>
                 <%--<a class="btn btn-outline-primary" runat="server" href="#">Ingresar</a>--%>
