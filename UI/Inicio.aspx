@@ -28,7 +28,7 @@
                         <asp:Button ID="Login" runat="server" Text="Login" OnClick="Login_Click" />
                         <br />
 
-                        <asp:Label ID="msgError" runat="server" Text="Label"></asp:Label>
+                        <asp:Label ID="msgError" runat="server" Text=""></asp:Label>
                         <%--<input type="text" name="name" placeholder="Usuario.." required="" />--%>
                         <%--<input type="password" name="password" class="padding" placeholder="Password" required="" />--%>
                         <%--<asp:Label ID="msgError" runat="server" Visible="False"></asp:Label>--%>
