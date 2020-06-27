@@ -59,10 +59,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="EN_Parishioner.cs" />
-    <Compile Include="EN_ParishionerPhone.cs" />
-    <Compile Include="EN_PhoneType.cs" />
-    <Compile Include="EN_Users.cs" />
+    <Compile Include="EN_Feligres.cs" />
+    <Compile Include="EN_TelefonoFeligres.cs" />
+    <Compile Include="EN_TipoTelefono.cs" />
+    <Compile Include="EN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

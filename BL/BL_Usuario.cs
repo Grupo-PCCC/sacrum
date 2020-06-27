@@ -10,12 +10,12 @@ using DAL;
 
 namespace BL
 {
-    public class BL_Users
+    public class BL_Usuario
     {
 
-        DAL_Users objDato = new DAL_Users();
+        DAL_Usuario objDato = new DAL_Usuario();
 
-        public List<EN_Users> ListandoUsers(string buscar)
+        public List<EN_Usuario> ListandoUsers(string buscar)
         {
             return objDato.ListarUsers(buscar);
         }

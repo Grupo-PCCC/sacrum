@@ -15,21 +15,21 @@ namespace DAL
     {
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
 
-        public bool Login(string Nick, string Password)
+        public bool Login(string Nick, string Contraseña)
         {
             SqlCommand cmd = new SqlCommand("SelectUser", Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion.Open();
             cmd.Parameters.AddWithValue("@Nick", Nick);
-            cmd.Parameters.AddWithValue("@Password", Password);
+            cmd.Parameters.AddWithValue("@Password", Contraseña);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
-                while(reader.Read())
+                while (reader.Read())
                 {
                     LoginCache.Id = reader.GetInt32(0);
-                    LoginCache.Name = reader.GetString(3);
-                    LoginCache.Surname = reader.GetString(4);
+                    LoginCache.Nombre = reader.GetString(3);
+                    LoginCache.Apellido = reader.GetString(4);
 
 
                 }

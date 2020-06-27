@@ -46,3 +46,5 @@ C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Pro
 C:\Users\dcavagni\Desktop\Facultad\Programacion V - 3 Año\TP FINAL - PCCC - Programacion V\PCCC - Sacrum\BL\bin\Debug\Cache.pdb
 \\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\Cache.dll
 \\Mac\Home\Desktop\NSLP\sacrum\BL\bin\Debug\Cache.pdb
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\Cache.dll
+C:\Users\gabri\source\repos\sacrum\BL\bin\Debug\Cache.pdb

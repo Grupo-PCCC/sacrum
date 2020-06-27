@@ -28,7 +28,7 @@ namespace UI
         }
         public void mostrarBuscarTabla (string buscar)
         {
-            BL_Users objBL = new BL_Users();
+            BL_Usuario objBL = new BL_Usuario();
             buscar = TxtUsers.Text.ToString();
             ViewUsers.DataSource = objBL.ListandoUsers(buscar);
             ViewUsers.DataBind();

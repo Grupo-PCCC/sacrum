@@ -3,7 +3,7 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <%--<form id="form1" runat="server">--%>
+    <%--</form>--%>
     <asp:HiddenField ID="hid" runat="server" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
@@ -17,29 +17,29 @@
 
         <div class="form form-group">
             <label for="Nombre" runat="server">Nombre</label>
-            <asp:TextBox ID="TxtName" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtNombre" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
 
         <div class="form form-group">
             <label for="apellido" runat="server">Apellido</label>
-            <asp:TextBox ID="TxtSurname" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtApellido" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
         <div class="form form-group">
             <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
-            <asp:TextBox ID="TxtBirthdate" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
 
         <div class="form form-group">
             <label for="tel1" runat="server">Telefono 1</label>
-            <asp:TextBox ID="TxtNumP" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtNum1" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
         <div class="form form-group">
             <label for="tel2" runat="server">Telefono 2</label>
-            <asp:TextBox ID="TxtNumA" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtNum2" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
         <div class="form form-group">
             <label for="observaciones" runat="server">Observaciones</label>
-            <asp:TextBox ID="TxtObs" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
 
         <br />
@@ -60,9 +60,9 @@
         <div class="row">
             <div class="col-lg-12">
 
-                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo Feligres" OnClick="btnNuevo_Click" />
+                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
 
-                <asp:GridView ID="ViewParishioner" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1">
+                <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1">
                     <Columns>
                         <asp:ButtonField CommandName="Seleccionar" Text="Seleccionar" />
                         <asp:ButtonField CommandName="Borrar" Text="Borrar" />
