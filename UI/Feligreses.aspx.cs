@@ -113,25 +113,14 @@ namespace UI
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
-
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtFechaNac.Text = "";
-            txtNum1.Text = "";
-            txtNum2.Text = "";
-            txtObservaciones.Text = "";
+            ModalPopupExtender1.Show();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
 
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtFechaNac.Text = "";
-            txtNum1.Text = "";
-            txtNum2.Text = "";
-            txtObservaciones.Text = "";
+            ModalPopupExtender1.Dispose();
         }
     }
 }
