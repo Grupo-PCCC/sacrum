@@ -39,6 +39,7 @@ namespace UI
         {
             dgvFeligres.DataSource = BL_Parishioner.ListarTodo();
             dgvFeligres.DataBind();
+
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
 
@@ -56,8 +57,8 @@ namespace UI
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
             par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
-            par.Numero1 = txtNum1.Text.ToString();
-            par.Numero2 = txtNum2.Text.ToString();
+            //par.Numero1 = txtNum1.Text.ToString();
+            //par.Numero2 = txtNum2.Text.ToString();
             par.Observacion = txtObservaciones.Text.ToString();
             BL_Parishioner.Grabar(par);
             L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
@@ -70,15 +71,15 @@ namespace UI
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtFechaNac.Text = "";
-            txtNum1.Text = "";
-            txtNum2.Text = "";
+            //txtNum1.Text = "";
+            //txtNum2.Text = "";
             txtObservaciones.Text = "";
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
        
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
-            int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[2].Text);
+            int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
             List <EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
             var parish = listparishID[0];
             
@@ -99,8 +100,8 @@ namespace UI
                         txtNombre.Text = parish.Nombre;
                         txtApellido.Text = parish.Apellido;
                         txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToShortDateString();
-                        txtNum1.Text = parish.Numero1;
-                        txtNum2.Text = parish.Numero2;
+                        //txtNum1.Text = parish.Numero1;
+                        //txtNum2.Text = parish.Numero2;
                         txtObservaciones.Text = parish.Observacion;
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);

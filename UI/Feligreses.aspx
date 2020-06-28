@@ -30,15 +30,6 @@
             <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
             <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
-
-        <div class="form form-group">
-            <label for="tel1" runat="server">Telefono 1</label>
-            <asp:TextBox ID="txtNum1" class="form-control" runat="server" Width="350px"></asp:TextBox>
-        </div>
-        <div class="form form-group">
-            <label for="tel2" runat="server">Telefono 2</label>
-            <asp:TextBox ID="txtNum2" class="form-control" runat="server" Width="350px"></asp:TextBox>
-        </div>
         <div class="form form-group">
             <label for="observaciones" runat="server">Observaciones</label>
             <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
@@ -71,9 +62,17 @@
 
                 <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
 
-                <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1">
+                <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False">
+                    
                     <Columns>
-                        <asp:ButtonField CommandName="Seleccionar" Text="Seleccionar" />
+                        <asp:BoundField HeaderText="Id" Visible="false" DataField="Id"/>
+                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
+                        <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
+                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}" />
+                        <asp:BoundField HeaderText="Numero1" Visible="false" DataField="Numero1"/>
+                        <asp:BoundField HeaderText="Numero2" Visible="false" DataField="Numero2"/>
+                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion" />
+                        <asp:ButtonField CommandName="Seleccionar" Text="Editar" />
                         <asp:ButtonField CommandName="Borrar" Text="Borrar" />
                     </Columns>
                     <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
