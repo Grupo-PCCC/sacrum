@@ -45,7 +45,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@BirthDate", feligres.FechaNac));
             parameters.Add(acceso.CrearParametro("@Observation", feligres.Observacion));
 
-            return acceso.Escribir("Newfeligres", parameters);
+            return acceso.Escribir("NewParishioner", parameters);
 
 
         }
@@ -59,7 +59,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@BirthDate", Convert.ToDateTime(feligres.FechaNac)));
             parameters.Add(acceso.CrearParametro("@Observation", feligres.Observacion));
 
-            return acceso.Escribir("Updatefeligres", parameters);
+            return acceso.Escribir("UpdateParishioner", parameters);
         }
 
         public int Borrar(EN_Feligres feligres)
@@ -67,7 +67,7 @@ namespace DAL
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Id", feligres.Id));
 
-            return acceso.Escribir("Deletefeligres", parameters);
+            return acceso.Escribir("DeleteParishioner", parameters);
         }
 
 
