@@ -17,23 +17,22 @@ namespace UI
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!this.IsPostBack)
-            {
-                Enlazar();
-            }
+
+            Enlazar();
+
             VerificarSesion();
         }
         private void VerificarSesion()
         {
-            
+
             if (Session["usuarioNick"] == null)
             {
                 Response.Redirect("~/Inicio.aspx");
             }
-            
+
         }
 
-   
+
 
         public void Enlazar()
         {
@@ -57,32 +56,27 @@ namespace UI
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
             par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
-            //par.Numero1 = txtNum1.Text.ToString();
-            //par.Numero2 = txtNum2.Text.ToString();
             par.Observacion = txtObservaciones.Text.ToString();
             BL_Parishioner.Grabar(par);
             L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
             L.ActionDate = DateTime.Now;
             L.Id = LoginCache.Id;
             L.WriteLog(L);
-            Enlazar();
             hid.Value = "0";
-
             txtNombre.Text = "";
             txtApellido.Text = "";
             txtFechaNac.Text = "";
-            //txtNum1.Text = "";
-            //txtNum2.Text = "";
             txtObservaciones.Text = "";
+            Enlazar();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
-       
+
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
             int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
-            List <EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
+            List<EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
             var parish = listparishID[0];
-            
+
 
             switch (e.CommandName)
             {
@@ -92,7 +86,7 @@ namespace UI
                         Enlazar();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
-                        
+
                     }
                 case "Seleccionar":
                     {
@@ -100,8 +94,6 @@ namespace UI
                         txtNombre.Text = parish.Nombre;
                         txtApellido.Text = parish.Apellido;
                         txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToShortDateString();
-                        //txtNum1.Text = parish.Numero1;
-                        //txtNum2.Text = parish.Numero2;
                         txtObservaciones.Text = parish.Observacion;
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
@@ -120,8 +112,12 @@ namespace UI
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
-
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            txtFechaNac.Text = string.Empty;
+            txtObservaciones.Text = string.Empty;
             ModalPopupExtender1.Dispose();
+            ModalPopupExtender1.Hide();
         }
     }
 }

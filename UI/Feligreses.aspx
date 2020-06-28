@@ -45,12 +45,11 @@
 
     </asp:Panel>
 
-    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
+    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server"  BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
     </ajaxToolkit:ModalPopupExtender>
     
 
-   <%-- <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" CancelControlID="btnCancelar" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
-    </ajaxToolkit:ModalPopupExtender>--%>
+
         
     <br />
     <br />
@@ -65,15 +64,35 @@
                 <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False">
                     
                     <Columns>
-                        <asp:BoundField HeaderText="Id" Visible="false" DataField="Id"/>
-                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" />
-                        <asp:BoundField HeaderText="Apellido" DataField="Apellido" />
-                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}" />
-                        <asp:BoundField HeaderText="Numero1" Visible="false" DataField="Numero1"/>
-                        <asp:BoundField HeaderText="Numero2" Visible="false" DataField="Numero2"/>
-                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion" />
-                        <asp:ButtonField CommandName="Seleccionar" Text="Editar" />
-                        <asp:ButtonField CommandName="Borrar" Text="Borrar" />
+                        <asp:BoundField HeaderText="Id"  DataField="Id">
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Apellido" DataField="Apellido" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}" >
+                
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                
+                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:ButtonField CommandName="Seleccionar" Text="Editar" HeaderText="Editar" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:ButtonField>
+                        <asp:ButtonField CommandName="Borrar" Text="Borrar" HeaderText="Borrar" >
+                        <HeaderStyle HorizontalAlign="Center" />
+                        <ItemStyle HorizontalAlign="Center" />
+                        </asp:ButtonField>
                     </Columns>
                     <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
                     <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
@@ -91,35 +110,6 @@
         </div>
     </div>
 <%--</form>--%>
-<%--<script src="js/javascript.js"></script>--%>
-         <script type="text/javascript">
-    function pageLoad() {
-             //Get the Modalpopupextender based on BehaviorID
-             var mpe = $find("modalPopupExtender1");
-             //Attach the clearvalues function to it
-             mpe.add_shown(clearvalues);
-         }
-         //Function to clear the values
-         //Add other control also here
-         function clearvalues() {
-             var txtNombre = $get("txtNombre");
-             txtNombre.value = "";
 
-             var txtApellido = $get("txtApellido");
-             txtApellido.value = "";
-
-             var txtFechaNac = $get("txtFechaNac");
-             txtFechaNac.value = "";
-
-             var txtNum1 = $get("txtNum1");
-             txtNum1.value = "";
-
-             var txtNum2 = $get("txtNum2");
-             txtNum2.value = "";
-
-             var txtObservaciones = $get("txtObservaciones");
-             txtObservaciones.value = "";
-
-         }
-</script> 
+       
 </asp:Content>
