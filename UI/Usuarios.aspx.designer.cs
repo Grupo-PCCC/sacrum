@@ -7,11 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI {
-    
-    
-    public partial class Users {
-        
+namespace UI
+{
+
+
+    public partial class Users
+    {
+
+        /// <summary>
+        /// Control btnNuevo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnNuevo;
+
         /// <summary>
         /// Control TxtBusqueda.
         /// </summary>
@@ -20,7 +31,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtBusqueda;
-        
+
         /// <summary>
         /// Control BtnBuscar.
         /// </summary>
@@ -29,7 +40,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnBuscar;
-        
+
         /// <summary>
         /// Control dgvUsuarios.
         /// </summary>
@@ -38,7 +49,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvUsuarios;
-        
+
         /// <summary>
         /// Control lblResultado.
         /// </summary>
