@@ -73,7 +73,9 @@ namespace UI
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
-            int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
+            int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
+            //int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
+            //int Id = int.Parse(dgvFeligres.DataKeys[0][int.Parse(e.CommandArgument.ToString())].ToString());
             List<EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
             var parish = listparishID[0];
 
@@ -118,6 +120,25 @@ namespace UI
             txtObservaciones.Text = string.Empty;
             ModalPopupExtender1.Dispose();
             ModalPopupExtender1.Hide();
+        }
+
+        protected void dgvFeligres_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvFeligres.PageIndex = e.NewPageIndex;
+            Enlazar();
+        }
+
+        protected void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            mostrarBuscarTabla(TxtBuscar.Text.ToString());
+        }
+        public void mostrarBuscarTabla(string Name)
+        {
+            BL_Feligres objBL = new BL_Feligres();
+            Name = TxtBuscar.Text.ToString();
+            dgvFeligres.DataSource = objBL.ListarName(Name);
+            dgvFeligres.DataBind();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
     }
 }

@@ -20,13 +20,13 @@ namespace UI
             {
                 Response.Redirect("~/Inicio.aspx");
             }
-            mostrarBuscarTabla(TxtUsuarios.Text.ToString());
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
         }
 
         public void mostrarBuscarTabla (string buscar)
         {
             BL_Usuario objBL = new BL_Usuario();
-            buscar = TxtUsuarios.Text.ToString();
+            buscar = TxtBusqueda.Text.ToString();
             dgvUsuarios.DataSource = objBL.ListandoUsers(buscar);
             dgvUsuarios.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
@@ -34,7 +34,13 @@ namespace UI
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            mostrarBuscarTabla(TxtUsuarios.Text.ToString());
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+        }
+
+        protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvUsuarios.PageIndex = e.NewPageIndex;
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
         }
     }
 }

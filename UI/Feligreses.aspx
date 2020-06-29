@@ -1,15 +1,91 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feligreses.aspx.cs" MasterPageFile="/base.Master" Inherits="UI.Parishioner" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--</form>--%>
     <link href="css/stylegen.css" rel="stylesheet" />
-    <asp:HiddenField ID="hid" runat="server" />
-    <asp:ScriptManager ID="ScriptManager1" runat="server">
+     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
-    
-    
+    <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+        <ContentTemplate>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1>Feligreses</h1>
+
+                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
+                <div class="form-inline float-lg-right">
+                    <div class="form-group mx-sm-3 mb-2">
+                        <asp:TextBox ID="TxtBuscar" class="form-control" PlaceHolder="Nombre" runat="server"></asp:TextBox>
+                        <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                    </div>
+
+                </div>
+                
+               <%-- <asp:UpdatePanel ID="UpdatePanel1" runat="server">
+                    <ContentTemplate>--%>
+
+                <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging">
+
+                    <Columns>
+                        <asp:BoundField HeaderText="Id" DataField="Id" Visible="false">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Nombre" DataField="Nombre">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Apellido" DataField="Apellido">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}">
+
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+
+                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        <asp:ButtonField CommandName="Seleccionar" Text="Editar" HeaderText="Editar">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:ButtonField>
+                        <asp:ButtonField CommandName="Borrar" Text="Borrar" HeaderText="Borrar">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:ButtonField>
+                    </Columns>
+                    <FooterStyle BackColor="#CCCCCC" />
+                    <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
+                    <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
+                    <RowStyle BackColor="White" />
+                    <SelectedRowStyle BackColor="#000099" Font-Bold="True" ForeColor="White" />
+                    <SortedAscendingCellStyle BackColor="#F1F1F1" />
+                    <SortedAscendingHeaderStyle BackColor="#808080" />
+                    <SortedDescendingCellStyle BackColor="#CAC9C9" />
+                    <SortedDescendingHeaderStyle BackColor="#383838" />
+                </asp:GridView>
+                        
+                   <%-- </ContentTemplate>
+                </asp:UpdatePanel>--%>
+
+                <br />
+                <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+            </div>
+        </div>
+    </div>
+
+    <asp:HiddenField ID="hid" runat="server" />
+   
+
+
     <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" Width="380px">
 
         <div class="modal-header" id="ModalHeader">
@@ -45,71 +121,18 @@
 
     </asp:Panel>
 
-    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server"  BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
+    <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">
     </ajaxToolkit:ModalPopupExtender>
-    
+            
+        </ContentTemplate>
+    </asp:UpdatePanel>
 
 
-        
+
     <br />
     <br />
     <br />
 
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
 
-                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
-
-                <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="White" BorderColor="#CC9966" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False">
-                    
-                    <Columns>
-                        <asp:BoundField HeaderText="Id"  DataField="Id">
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="Nombre" DataField="Nombre" >
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="Apellido" DataField="Apellido" >
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}" >
-                
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                
-                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion" >
-                        <HeaderStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        <asp:ButtonField CommandName="Seleccionar" Text="Editar" HeaderText="Editar" >
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:ButtonField>
-                        <asp:ButtonField CommandName="Borrar" Text="Borrar" HeaderText="Borrar" >
-                        <HeaderStyle HorizontalAlign="Center" />
-                        <ItemStyle HorizontalAlign="Center" />
-                        </asp:ButtonField>
-                    </Columns>
-                    <FooterStyle BackColor="#FFFFCC" ForeColor="#330099" />
-                    <HeaderStyle BackColor="#990000" Font-Bold="True" ForeColor="#FFFFCC" />
-                    <PagerStyle BackColor="#FFFFCC" ForeColor="#330099" HorizontalAlign="Center" />
-                    <RowStyle BackColor="White" ForeColor="#330099" />
-                    <SelectedRowStyle BackColor="#FFCC66" Font-Bold="True" ForeColor="#663399" />
-                    <SortedAscendingCellStyle BackColor="#FEFCEB" />
-                    <SortedAscendingHeaderStyle BackColor="#AF0101" />
-                    <SortedDescendingCellStyle BackColor="#F6F0C0" />
-                    <SortedDescendingHeaderStyle BackColor="#7E0000" />
-                </asp:GridView>
-                <br />
-                <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
-            </div>
-        </div>
-    </div>
-<%--</form>--%>
-
-       
+    <%--</form>--%>
 </asp:Content>

@@ -97,6 +97,30 @@ namespace DAL
             return parishID;
 
         }
+        public List<EN_Feligres> ListarNombre(string Name)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Name", Name));
+            DataTable tabla = acceso.Leer("ListParishName", parameters);
+            List<EN_Feligres> feligress = new List<EN_Feligres>();
+
+            foreach (DataRow registro in tabla.Rows)
+            {
+                EN_Feligres feligres = new EN_Feligres();
+
+                feligres.Id = int.Parse(registro["Id"].ToString());
+                feligres.Nombre = (registro["Name"].ToString());
+                feligres.Apellido = (registro["Surname"].ToString());
+                feligres.FechaNac = Convert.ToDateTime(registro["BirthDate"].ToString());
+                feligres.Numero1 = (registro["NumberP"].ToString());
+                feligres.Numero2 = (registro["NumberA"].ToString());
+                feligres.Observacion = (registro["Observation"].ToString());
+
+                feligress.Add(feligres);
+            }
+
+            return feligress;
+        }
 
     }
    

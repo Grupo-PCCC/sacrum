@@ -42,5 +42,10 @@ namespace BL
         {
             return DAL_Feligres.ListarID(Id);
         }
+
+        public List<EN_Feligres> ListarName(string Name)
+        {
+            return DAL_Feligres.ListarNombre(Name);
+        }
     }
 }

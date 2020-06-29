@@ -56,14 +56,35 @@ namespace COMMON
                 reg.Nick = (string)rdr["Usuario"];
                 reg.Action = (string)rdr["Action"];
                 List.Add(reg);
-              
+
             }
             Conexion.Close();
             Conexion.Dispose();
             return List;
+        }
 
+        public List<Audit> ListarAccionNick(string Nick)
+        {
+            SqlCommand cmd = new SqlCommand("ListLogAction", Conexion);
+            var List = new List<Audit>();
+            cmd.CommandType = CommandType.StoredProcedure;
+            Conexion.Open();
+            cmd.Parameters.AddWithValue("@Nick", Nick);
+            var rdr = cmd.ExecuteReader();
+            while (rdr != null && rdr.Read())
+            {
+                var reg = new Audit();
+                reg.ActionDate = (DateTime)rdr["ActionDate"];
+                reg.Nick = (string)rdr["Usuario"];
+                reg.Action = (string)rdr["Action"];
+                List.Add(reg);
 
+            }
+            Conexion.Close();
+            Conexion.Dispose();
+            return List;
         }
     }
 }
+
 

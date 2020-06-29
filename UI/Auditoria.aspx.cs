@@ -35,7 +35,22 @@ namespace UI
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+        }
+                     
+        public void mostrarBuscarTabla(string Nick)
+        {
+            Audit objBL = new Audit();
+            Nick = TxtBusqueda.Text.ToString();
+            dgvAuditoria.DataSource = objBL.ListarAccionNick(Nick);
+            dgvAuditoria.DataBind();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvAuditoria.Rows.Count);
+        }
 
+        protected void dgvAuditoria_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            dgvAuditoria.PageIndex = e.NewPageIndex;
+            mostrarTabla();
         }
     }
 }
