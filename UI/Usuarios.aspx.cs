@@ -45,7 +45,18 @@ namespace UI
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
-            
+            hid.Value = "0";
+            ModalPopupExtender1.Show();
+        }
+
+        protected void btnGrabar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
