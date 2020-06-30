@@ -10,4 +10,5 @@
       <a href="Inicio.aspx"><img src="../images/sacrum-logo.jpg" width="150" height="70"></a>
   <p><b>Error 404.</b> <p>Parece que ha habido un problema...</p>
   </p>La URL solicitada no ha sido encontrada. Es todo lo que sabemos.<p>
+      <asp:HyperLink ID="HyperLink1" NavigateUrl="~/Inicio.aspx" runat="server">Volver al Inicio Sacrum</asp:HyperLink>
 </p></body></html>

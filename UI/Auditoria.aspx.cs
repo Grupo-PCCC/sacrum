@@ -15,7 +15,7 @@ namespace UI
         {
             if (Session["usuarioNick"] == null)
             {
-                Response.Redirect("~/Inicio.aspx");
+                Response.Redirect("~/Login.aspx");
             }
 
             mostrarTabla();

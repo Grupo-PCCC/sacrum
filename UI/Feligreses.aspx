@@ -24,9 +24,7 @@
                     </div>
 
                 </div>
-                
-               <%-- <asp:UpdatePanel ID="UpdatePanel1" runat="server">
-                    <ContentTemplate>--%>
+        
 
                 <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging">
 
@@ -73,9 +71,7 @@
                     <SortedDescendingHeaderStyle BackColor="#383838" />
                 </asp:GridView>
                         
-                   <%-- </ContentTemplate>
-                </asp:UpdatePanel>--%>
-
+               
                 <br />
                 <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
             </div>

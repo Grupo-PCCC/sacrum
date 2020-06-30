@@ -2,14 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <img src="../images/sacrum-logo.jpg" class="center"/>
-    <style>
-        .center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
-}
-    </style>
+    <link href="css/stylegen.css" rel="stylesheet" />
+    <img src="../images/sacrum-logo.jpg" id="sacrum" class="center"/>
+   
     
 </asp:Content>

@@ -20,7 +20,7 @@ namespace UI
             Session.Clear();
             Session["usuarioNick"] = null;
             Session.Abandon();
-            Response.Redirect("~/Inicio.aspx");
+            Response.Redirect("~/Login.aspx");
         }
     }
 };
