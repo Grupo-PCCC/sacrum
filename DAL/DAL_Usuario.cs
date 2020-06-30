@@ -12,9 +12,11 @@ namespace DAL
 {
     public class DAL_Usuario
     {
+        private DAL_Acceso acceso = new DAL_Acceso();
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
 
         public List<EN_Usuario> ListarUsers(string buscar)
+
         {
             var lista = new List<EN_Usuario>();
             SqlDataReader LeerFilas;
@@ -42,6 +44,21 @@ namespace DAL
             LeerFilas.Close();
             return lista;
         }
+
+        public int Insertar(EN_Usuario usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Nick", usuario.Nick));
+            parameters.Add(acceso.CrearParametro("@Contraseña", usuario.Contraseña));
+            parameters.Add(acceso.CrearParametro("@Nombre", usuario.Nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", usuario.Apellido));
+            parameters.Add(acceso.CrearParametro("@TipoUsuario", usuario.TipoUsuario));
+
+            return acceso.Escribir("N", parameters);
+
+
+        }
+
 
     }
 }

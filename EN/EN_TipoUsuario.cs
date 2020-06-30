@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EN
 {
-    class EN_TipoUsuario
+    public class EN_TipoUsuario
     {
+        public int Id { get; set; }
+        public string Nombre { get; set; }
     }
 }

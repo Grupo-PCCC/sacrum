@@ -42,5 +42,10 @@ namespace UI
             dgvUsuarios.PageIndex = e.NewPageIndex;
             mostrarBuscarTabla(TxtBusqueda.Text.ToString());
         }
+
+        protected void btnNuevo_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

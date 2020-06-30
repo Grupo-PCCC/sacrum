@@ -8,6 +8,7 @@
             <div class="col-lg-12">
                 <h1>Usuarios</h1>
                 <%--<form id="form1" runat="server" class="">--%>
+                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo Usuario" OnClick="btnNuevo_Click" />
                 <div class="form-inline float-lg-right">
                     <div class="form-group mx-sm-3 mb-2">
                         <asp:TextBox ID="TxtBusqueda" class="form-control" PlaceHolder="Nick" runat="server"></asp:TextBox>
@@ -82,7 +83,39 @@
                 <br />
                 <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                 <%--</form>--%>
+                
+
+        <div class="modal-header" id="ModalHeader">
+
+            <h3>Nuevo Usuario</h3>
+        </div>
+
+        <div class="form form-group">
+            <label for="Nick" runat="server">Nick</label>
+            <asp:TextBox ID="txtNick" class="form-control" runat="server" Width="350px"></asp:TextBox>
+        </div>
+
+        <div class="form form-group">
+            <label for="Contraseña" runat="server">Contraseña</label>
+            <asp:TextBox ID="txtContraseña" class="form-control" runat="server" Width="350px"></asp:TextBox>
+        </div>
+        <div class="form form-group">
+            <label for="Nombre" runat="server">Nombre</label>
+            <asp:TextBox ID="txtNombre" class="form-control" runat="server" Width="350px"></asp:TextBox>
+        </div>
+        <div class="form form-group">
+            <label for="Apellido" runat="server">Apellido</label>
+            <asp:TextBox ID="txtApellido" class="form-control" runat="server" Width="350px"></asp:TextBox>
+        </div>
+        <div class="form form-group">
+            <label for="Tipo de Usuario" runat="server">Tipo de Usuario</label>
+            <asp:TextBox ID="TxtTipodeUsuario" class="form-control" runat="server" Width="350px"></asp:TextBox>
+
+           
+        
             </div>
         </div>
-    </div>
+
+            </div>
+        </div>
 </asp:Content>
