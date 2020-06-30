@@ -16,7 +16,7 @@
                     <div class="col-lg-12">
                         <h1>Usuarios</h1>
 
-                        <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo Usuario" OnClick="btnNuevo_Click" />
+                        <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo usuario" OnClick="btnNuevo_Click" />
                         <div class="form-inline float-lg-right">
                             <div class="form-group mx-sm-3 mb-2">
                                 <asp:TextBox ID="TxtBusqueda" class="form-control" PlaceHolder="Nick" runat="server"></asp:TextBox>
