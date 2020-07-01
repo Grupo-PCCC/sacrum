@@ -21,6 +21,14 @@ namespace UI
             Enlazar();
 
             VerificarSesion();
+
+            if (!IsPostBack)
+
+            {
+
+                this.Form.Attributes.Add("autocomplete", "off");
+
+            }
         }
         private void VerificarSesion()
         {
