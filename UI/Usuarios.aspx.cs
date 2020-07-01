@@ -6,8 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using COMMON;
 using BL;
-
-
+using EN;
 
 namespace UI
 {
@@ -51,7 +50,27 @@ namespace UI
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
+            EN_Usuario par = new EN_Usuario();
+            Audit L = new Audit();
+            par.Id = int.Parse(hid.Value);
+            par.Nick = txtNick.Text.ToString();
+            par.Nombre = txtNombre.Text.ToString();
+            par.Apellido = txtApellido.Text.ToString();
+            par.TipoUsuario = TxtTipodeUsuario.Text.ToString();
 
+         //   EN_Usuario.Grabar(par);
+
+            L.Action = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
+            L.ActionDate = DateTime.Now;
+            L.Id = LoginCache.Id;
+            L.WriteLog(L);
+            hid.Value = "0";    
+            txtNick.Text = "";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            TxtTipodeUsuario.Text = "";
+           // Enlazar();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)

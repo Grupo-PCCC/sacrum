@@ -23,6 +23,7 @@ namespace DAL
             {
                 EN_Feligres feligres = new EN_Feligres();
 
+
                 feligres.Id = int.Parse(registro["Id"].ToString());
                 feligres.Nombre = (registro["Name"].ToString());
                 feligres.Apellido = (registro["Surname"].ToString());

@@ -59,6 +59,30 @@ namespace DAL
 
         }
 
+        public int Editar(EN_Usuario usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Id", usuario.Id));
+            parameters.Add(acceso.CrearParametro("@Nick", usuario.Nick));
+            parameters.Add(acceso.CrearParametro("@Name", usuario.Nombre));
+            parameters.Add(acceso.CrearParametro("@Surname", usuario.Apellido));
+            parameters.Add(acceso.CrearParametro("@TipoUsuario", usuario.TipoUsuario));
+
+            return acceso.Escribir("UpdateUsuario", parameters);
+        }
+
+        public int Borrar(EN_Usuario usuario)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Id", usuario.Id));
+
+            return acceso.Escribir("DeleteUsuario", parameters);
+        }
+
+
+
+
+
 
     }
 }
