@@ -7,23 +7,23 @@
          }
          //Function to clear the values
          //Add other control also here
-         function clearvalues() {
-             var txtNombre = $get("txtNombre");
-             txtNombre.value = "";
+var nombre = document.getElementById('txtNombre');
+var apellido = document.getElementById('txtApellido');
+var fechanac = document.getElementById('txtFechaNac');
+var observaciones = document.getElementById('txtObservaciones');
+var error = document.getElementById('error');
+error.style.color = 'red';
 
-             var txtApellido = $get("txtApellido");
-             txtApellido.value = "";
 
-             var txtFechaNac = $get("txtFechaNac");
-             txtFechaNac.value = "";
-
-             var txtNum1 = $get("txtNum1");
-             txtNum1.value = "";
-
-             var txtNum2 = $get("txtNum2");
-             txtNum2.value = "";
-
-             var txtObservaciones = $get("txtObservaciones");
-             txtObservaciones.value = "";
-
-         }
+function enviarFeligres() {
+    var mensajesError = [];
+    if (nombre == '') {
+        mensajesError.push('Debe ingresar un nombre');
+    }
+    if (apellido == '') {
+        mensajesError.push('Debe ingresar un apellido');
+    }
+    error.innerHTML = mensajesError.join(', ');
+    
+    return false;
+}

@@ -86,7 +86,7 @@
 
         <div class="modal-header" id="ModalHeader">
 
-            <h3>Feligres</h3>
+            <h3>Feligrés</h3>
         </div>
 
         <div class="form form-group">
@@ -109,11 +109,12 @@
             <label for="observaciones" runat="server">Observaciones</label>
             <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
         </div>
-
-
+        <div ID="error">
+        </div>
         <br />
 
-        <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
+        <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClientClick="return enviarFeligres()" />
+        </script>
         <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
 
 
