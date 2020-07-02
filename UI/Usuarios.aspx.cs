@@ -11,7 +11,9 @@ using EN;
 namespace UI
 {
     public partial class Users : System.Web.UI.Page
+
     {
+        BL_Usuario objBL = new BL_Usuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -24,7 +26,7 @@ namespace UI
 
         public void mostrarBuscarTabla (string buscar)
         {
-            BL_Usuario objBL = new BL_Usuario();
+       
             buscar = TxtBusqueda.Text.ToString();
             dgvUsuarios.DataSource = objBL.ListandoUsers(buscar);
             dgvUsuarios.DataBind();
@@ -47,9 +49,14 @@ namespace UI
             hid.Value = "0";
             ModalPopupExtender1.Show();
         }
+        
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(hid.Value))
+            {
+                hid.Value = "0";
+            }
             EN_Usuario par = new EN_Usuario();
             Audit L = new Audit();
             par.Id = int.Parse(hid.Value);
@@ -57,8 +64,6 @@ namespace UI
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
             par.TipoUsuario = TxtTipodeUsuario.Text.ToString();
-
-         //   EN_Usuario.Grabar(par);
 
             L.Action = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
             L.ActionDate = DateTime.Now;
@@ -69,13 +74,21 @@ namespace UI
             txtNombre.Text = "";
             txtApellido.Text = "";
             TxtTipodeUsuario.Text = "";
-           // Enlazar();
+            Enlazar();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        public void Enlazar()
+        {
+            dgvUsuarios.DataSource = objBL.ListaTotal();
+            dgvUsuarios.DataBind();
+
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
     }
 }

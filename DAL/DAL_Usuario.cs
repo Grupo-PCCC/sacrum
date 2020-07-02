@@ -15,6 +15,40 @@ namespace DAL
         private DAL_Acceso acceso = new DAL_Acceso();
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
 
+        public List<EN_Usuario> ListaTotal()
+
+
+        {
+            DataTable Tabla = acceso.Leer("ListUser", null);
+            List<EN_Usuario> lista = new List<EN_Usuario>();
+
+            foreach (DataRow registro in Tabla.Rows)
+            {
+                EN_TipoUsuario Tipo = new EN_TipoUsuario();
+                var usuario = new EN_Usuario();
+
+                usuario.Id = int.Parse(registro["Id"].ToString());
+                usuario.Nick = (registro["Nick"].ToString());
+                usuario.Contraseña = (registro["Password"].ToString());
+                usuario.Nombre = (registro["Name"].ToString());
+                usuario.Apellido = (registro["Surname"].ToString());
+
+                Tipo.Nombre=(registro["TipoPerfil"].ToString());
+                lista.Add(registro);
+
+            }
+            return lista;
+
+
+        }    
+
+           
+
+           
+
+
+           
+
         public List<EN_Usuario> ListarUsers(string buscar)
 
         {
@@ -36,10 +70,12 @@ namespace DAL
                 reg.Contraseña = (string)LeerFilas["Password"];
                 reg.Nombre = (string)LeerFilas["Name"];
                 reg.Apellido = (string)LeerFilas["Surname"];
-                reg.TipoUsuario= (string)LeerFilas["TipoPerfil"];
+                reg.TipoUsuario = (string)LeerFilas["TipoPerfil"];
                 lista.Add(reg);
 
             }
+
+
             Conexion.Close();
             LeerFilas.Close();
             return lista;
@@ -54,7 +90,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Apellido", usuario.Apellido));
             parameters.Add(acceso.CrearParametro("@TipoUsuario", usuario.TipoUsuario));
 
-            return acceso.Escribir("N", parameters);
+            return acceso.Escribir("NewUser", parameters);
 
 
         }
@@ -68,7 +104,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Surname", usuario.Apellido));
             parameters.Add(acceso.CrearParametro("@TipoUsuario", usuario.TipoUsuario));
 
-            return acceso.Escribir("UpdateUsuario", parameters);
+            return acceso.Escribir("UpdateUser", parameters);
         }
 
         public int Borrar(EN_Usuario usuario)
@@ -76,7 +112,7 @@ namespace DAL
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Id", usuario.Id));
 
-            return acceso.Escribir("DeleteUsuario", parameters);
+            return acceso.Escribir("DeleteUser", parameters);
         }
 
 

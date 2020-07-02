@@ -16,7 +16,7 @@ namespace UI
         BL_Feligres BL_Parishioner = new BL_Feligres();
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
-        {
+            {
 
             Enlazar();
 

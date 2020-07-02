@@ -19,5 +19,34 @@ namespace BL
         {
             return objDato.ListarUsers(buscar);
         }
+
+        public List<EN_Usuario> ListaTotal()
+        {
+            return objDato.ListaTotal();
+        }
+
+
+        DAL_Usuario DAL_Usuario = new DAL_Usuario();
+        public int Insertar(EN_Usuario usuario)
+        {
+            int res = 0;
+            if (usuario.Id == 0)
+            {
+                res = DAL_Usuario.Insertar(usuario);
+            }
+            else
+            {
+                res = DAL_Usuario.Editar(usuario);
+            }
+            return res;
+        }
+
+
+        public int Borrar(EN_Usuario usuario)
+        {
+            return DAL_Usuario.Borrar(usuario);
+        }
+
+
     }
 }

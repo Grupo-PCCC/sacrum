@@ -18,11 +18,11 @@ namespace EN
         public string Apellido { get; set; }
         public string TipoUsuario { get; set; }
 
-        //public EN_TipoUsuario _tipoUsuario;
+        public EN_TipoUsuario _tipoUsuario;
 
        public EN_Usuario()
         {
-          //  _tipoUsuario = new EN_TipoUsuario();
+            _tipoUsuario = new EN_TipoUsuario();
         }
     }
     
