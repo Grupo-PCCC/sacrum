@@ -10,6 +10,7 @@ namespace COMMON
     public static class GenerarMD5
     {
         public static string crearMD5(string clave)
+
         {
             MD5CryptoServiceProvider md5 = new MD5CryptoServiceProvider();
             md5.ComputeHash(ASCIIEncoding.ASCII.GetBytes(clave));

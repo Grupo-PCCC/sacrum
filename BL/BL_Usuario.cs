@@ -15,9 +15,9 @@ namespace BL
 
         DAL_Usuario objDato = new DAL_Usuario();
 
-        public List<EN_Usuario> ListandoUsers(string buscar)
+        public List<EN_Usuario> ListarUser(string buscar)
         {
-            return objDato.ListarUsers(buscar);
+            return objDato.ListarUser(buscar);
         }
 
         public List<EN_Usuario> ListaTotal()
@@ -25,7 +25,10 @@ namespace BL
             return objDato.ListaTotal();
         }
 
-
+        public List<EN_Usuario> ListarUserId(int Id)
+        {
+            return DAL_Usuario.ListarUserId(Id);
+        }
         DAL_Usuario DAL_Usuario = new DAL_Usuario();
         public int Insertar(EN_Usuario usuario)
         {

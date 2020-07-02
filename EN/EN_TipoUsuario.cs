@@ -9,6 +9,6 @@ namespace EN
     public class EN_TipoUsuario
     {
         public int Id { get; set; }
-        public string Nombre { get; set; }
+        public string Tusuario{ get; set; }
     }
 }

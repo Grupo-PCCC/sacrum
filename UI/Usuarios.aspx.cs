@@ -13,7 +13,8 @@ namespace UI
     public partial class Users : System.Web.UI.Page
 
     {
-        BL_Usuario objBL = new BL_Usuario();
+        BL_Usuario BL_Usuario = new BL_Usuario();
+        public EN_TipoUsuario _TipoUsuario;
         protected void Page_Load(object sender, EventArgs e)
         {
             
@@ -28,7 +29,7 @@ namespace UI
         {
        
             buscar = TxtBusqueda.Text.ToString();
-            dgvUsuarios.DataSource = objBL.ListandoUsers(buscar);
+            dgvUsuarios.DataSource = BL_Usuario.ListarUser(buscar);
             dgvUsuarios.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
@@ -58,13 +59,16 @@ namespace UI
                 hid.Value = "0";
             }
             EN_Usuario par = new EN_Usuario();
-            Audit L = new Audit();
+            _TipoUsuario = new EN_TipoUsuario();
+            
             par.Id = int.Parse(hid.Value);
             par.Nick = txtNick.Text.ToString();
+            par.Contraseña = txtContraseña.Text.ToString();
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
-            par.TipoUsuario = TxtTipodeUsuario.Text.ToString();
-
+            par._tipoUsuario.Id = int.Parse(TxtTipodeUsuario.Text);
+            BL_Usuario.Insertar(par);
+            Audit L = new Audit();
             L.Action = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
             L.ActionDate = DateTime.Now;
             L.Id = LoginCache.Id;
@@ -85,10 +89,46 @@ namespace UI
 
         public void Enlazar()
         {
-            dgvUsuarios.DataSource = objBL.ListaTotal();
+            dgvUsuarios.DataSource = BL_Usuario.ListaTotal();
             dgvUsuarios.DataBind();
 
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
+        }
+
+
+        protected void dgvUsuarios_RowCommand1(object sender, GridViewCommandEventArgs e)
+        {
+            int Id = int.Parse(dgvUsuarios.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
+            //int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
+            //int Id = int.Parse(dgvFeligres.DataKeys[0][int.Parse(e.CommandArgument.ToString())].ToString());
+            List<EN_Usuario> listUserId = BL_Usuario.ListarUserId(Id);
+            var User = listUserId[0];
+
+
+            switch (e.CommandName)
+            {
+                case "Borrar":
+                    {
+                        BL_Usuario.Borrar(User);
+                        Enlazar();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
+                        break;
+
+                    }
+                case "Seleccionar":
+                    {
+                        hid.Value = User.Id.ToString();
+                        txtNick.Text = User.Nick.ToString();
+                        txtContraseña.Text = User.Contraseña.ToString();
+                        txtNombre.Text = User.Nombre.ToString();
+                        txtApellido.Text = User.Apellido.ToString();
+                        TxtTipodeUsuario.Text = Convert.ToInt32(User._tipoUsuario.Id).ToString();
+                        ModalPopupExtender1.Show();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
+                        break;
+
+                    }
+            }
         }
     }
 }

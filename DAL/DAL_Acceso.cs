@@ -76,7 +76,7 @@ namespace DAL
             {
                 filasAfectadas = -1;
             }
-            Cerrar();
+               Cerrar();
             return filasAfectadas;
         }
 

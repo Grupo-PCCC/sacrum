@@ -25,7 +25,7 @@
 
                         </div>
 
-                        <asp:GridView ID="dgvUsuarios" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvUsuarios_PageIndexChanging">
+                        <asp:GridView ID="dgvUsuarios" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvUsuarios_PageIndexChanging" OnRowCommand="dgvUsuarios_RowCommand1">
 
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="false">
