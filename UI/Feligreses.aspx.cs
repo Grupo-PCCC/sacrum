@@ -22,12 +22,17 @@ namespace UI
 
             VerificarSesion();
 
+            ChequearTextBoxs();
+
             if (!IsPostBack)
 
             {
-
                 this.Form.Attributes.Add("autocomplete", "off");
-
+            }
+            if (Page.IsPostBack)
+            {
+                // reshow
+                ModalPopupExtender1.Show();
             }
         }
         private void VerificarSesion()
@@ -49,35 +54,47 @@ namespace UI
 
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
+        
+        private void ChequearTextBoxs()
+        {
+            if (txtNombre.Text.Trim() == "" || txtApellido.Text.Trim() == "" || txtFechaNac.Text.Trim() == "")
+            {
+                btnGrabar.Enabled = false;
+            }
+            else
+            {
+                btnGrabar.Enabled = true;
+            }
+        }
 
-
-        protected void btnGrabar_Click(object sender, EventArgs e)
+    protected void btnGrabar_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(hid.Value))
             {
                 hid.Value = "0";
             }
 
-            EN_Feligres par = new EN_Feligres();
-            Audit L = new Audit();
-            par.Id = int.Parse(hid.Value);
-            par.Nombre = txtNombre.Text.ToString();
-            par.Apellido = txtApellido.Text.ToString();
-            par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
-            par.Observacion = txtObservaciones.Text.ToString();
-            BL_Parishioner.Grabar(par);
-            L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
-            L.ActionDate = DateTime.Now;
-            L.Id = LoginCache.Id;
-            L.WriteLog(L);
-            hid.Value = "0";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            txtFechaNac.Text = "";
-            txtObservaciones.Text = "";
-            Enlazar();
-            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+                    EN_Feligres par = new EN_Feligres();
+                    Audit L = new Audit();
+                    par.Id = int.Parse(hid.Value);
+                    par.Nombre = txtNombre.Text.ToString();
+                    par.Apellido = txtApellido.Text.ToString();
+                    par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
+                    par.Observacion = txtObservaciones.Text.ToString();
+                    BL_Parishioner.Grabar(par);
+                    L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
+                    L.ActionDate = DateTime.Now;
+                    L.Id = LoginCache.Id;
+                    L.WriteLog(L);
+                    hid.Value = "0";
+                    txtNombre.Text = "";
+                    txtApellido.Text = "";
+                    txtFechaNac.Text = "";
+                    txtObservaciones.Text = "";
+                    Enlazar();
+                    lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
+
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
@@ -106,6 +123,7 @@ namespace UI
                         txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToShortDateString();
                         txtObservaciones.Text = parish.Observacion;
                         ModalPopupExtender1.Show();
+                        ChequearTextBoxs();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
 
@@ -115,6 +133,7 @@ namespace UI
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
+            ChequearTextBoxs();
             hid.Value = "0";
             ModalPopupExtender1.Show();
         }
@@ -147,6 +166,16 @@ namespace UI
             dgvFeligres.DataSource = objBL.ListarName(Name);
             dgvFeligres.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+        }
+
+        protected void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+            ChequearTextBoxs();
+        }
+
+        protected void txtApellido_TextChanged(object sender, EventArgs e)
+        {
+            ChequearTextBoxs();
         }
     }
 }

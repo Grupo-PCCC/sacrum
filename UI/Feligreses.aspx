@@ -91,29 +91,29 @@
 
         <div class="form form-group">
             <label for="Nombre" runat="server">Nombre</label>
-            <asp:TextBox ID="txtNombre" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox AutoPostBack="true" ID="txtNombre" class="form-control" runat="server" Width="350px" OnTextChanged="txtNombre_TextChanged" MaxLength="41"></asp:TextBox>
         </div>
 
         <div class="form form-group">
             <label for="apellido" runat="server">Apellido</label>
-            <asp:TextBox ID="txtApellido" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox AutoPostBack="true" ID="txtApellido" class="form-control" runat="server" Width="350px" OnTextChanged="txtApellido_TextChanged" MaxLength="36"></asp:TextBox>
         </div>
         <div class="form form-group">
             <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
-            <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px" MaxLength="10"></asp:TextBox>
             
             <ajaxToolkit:CalendarExtender ID="txtFechaNac_CalendarExtender" runat="server" TargetControlID="txtFechaNac" Format="dd/MM/yyyy"/>
             
         </div>
         <div class="form form-group">
             <label for="observaciones" runat="server">Observaciones</label>
-            <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
+            <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px" MaxLength="120"></asp:TextBox>
         </div>
 
 
         <br />
 
-        <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
+        <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click"  OnClientClick="postback false;"  />
         <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
 
 
