@@ -102,7 +102,7 @@
             <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
             <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
             
-            <ajaxToolkit:CalendarExtender ID="txtFechaNac_CalendarExtender" runat="server" TargetControlID="txtFechaNac" />
+            <ajaxToolkit:CalendarExtender ID="txtFechaNac_CalendarExtender" runat="server" TargetControlID="txtFechaNac" Format="dd/MM/yyyy"/>
             
         </div>
         <div class="form form-group">
