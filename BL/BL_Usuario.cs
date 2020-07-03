@@ -45,10 +45,7 @@ namespace BL
         }
 
 
-        public int Borrar(EN_Usuario usuario)
-        {
-            return DAL_Usuario.Borrar(usuario);
-        }
+    
 
 
     }

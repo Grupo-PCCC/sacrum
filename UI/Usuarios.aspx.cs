@@ -66,25 +66,34 @@ namespace UI
             par.Contraseña = txtContraseña.Text.ToString();
             par.Nombre = txtNombre.Text.ToString();
             par.Apellido = txtApellido.Text.ToString();
-            par._tipoUsuario.Id = int.Parse(TxtTipodeUsuario.Text);
+            par._tipoUsuario.Id = int.Parse(cmbTipoUsuario.SelectedValue);
+            //par._tipoUsuario.Id = int.Parse(TxtTipodeUsuario.Text);
             BL_Usuario.Insertar(par);
             Audit L = new Audit();
             L.Action = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
             L.ActionDate = DateTime.Now;
             L.Id = LoginCache.Id;
             L.WriteLog(L);
-            hid.Value = "0";    
-            txtNick.Text = "";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            TxtTipodeUsuario.Text = "";
+            hid.Value = "0";
+            txtNick.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtContraseña.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            cmbTipoUsuario.Text = string.Empty;
+            //TxtTipodeUsuario.Text = "";
             Enlazar();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-
+            txtNick.Text = string.Empty;
+            txtNombre.Text = string.Empty;
+            txtContraseña.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            cmbTipoUsuario.Text = string.Empty;
+            ModalPopupExtender1.Dispose();
+            ModalPopupExtender1.Hide();
         }
 
         public void Enlazar()
@@ -107,14 +116,7 @@ namespace UI
 
             switch (e.CommandName)
             {
-                case "Borrar":
-                    {
-                        BL_Usuario.Borrar(User);
-                        Enlazar();
-                        lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
-                        break;
-
-                    }
+               
                 case "Seleccionar":
                     {
                         hid.Value = User.Id.ToString();
@@ -122,7 +124,8 @@ namespace UI
                         txtContraseña.Text = User.Contraseña.ToString();
                         txtNombre.Text = User.Nombre.ToString();
                         txtApellido.Text = User.Apellido.ToString();
-                        TxtTipodeUsuario.Text = Convert.ToInt32(User._tipoUsuario.Id).ToString();
+                        cmbTipoUsuario.Text = Convert.ToInt32(User._tipoUsuario.Id).ToString();
+                        //TxtTipodeUsuario.Text = Convert.ToInt32(User._tipoUsuario.Id).ToString();
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
                         break;

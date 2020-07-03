@@ -58,10 +58,10 @@
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:ButtonField>
-                                <asp:ButtonField CommandName="Borrar" Text="Borrar" HeaderText="Borrar">
+                               <%-- <asp:ButtonField CommandName="Borrar" Text="Borrar" HeaderText="Borrar">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
-                                </asp:ButtonField>
+                                </asp:ButtonField>--%>
                             </Columns>
                             <FooterStyle BackColor="#CCCCCC" />
                             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
@@ -108,7 +108,12 @@
                             </div>
                             <div class="form form-group">
                                 <label for="Tipo de Usuario" runat="server">Tipo de Usuario</label>
-                                <asp:TextBox ID="TxtTipodeUsuario" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                <br />
+                                <asp:DropDownList ID="cmbTipoUsuario" runat="server" Width="350px">
+                                    <asp:ListItem Value="1">Administrador</asp:ListItem>
+                                    <asp:ListItem Value="2">Usuario</asp:ListItem>
+                                </asp:DropDownList>
+                                <%--<asp:TextBox ID="TxtTipodeUsuario" class="form-control" runat="server" Width="350px"></asp:TextBox>--%>
                             </div>
 
                             <br />

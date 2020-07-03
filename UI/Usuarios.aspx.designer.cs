@@ -7,13 +7,11 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI
-{
-
-
-    public partial class Users
-    {
-
+namespace UI {
+    
+    
+    public partial class Users {
+        
         /// <summary>
         /// Control ScriptManager1.
         /// </summary>
@@ -22,7 +20,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-
+        
         /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
@@ -31,7 +29,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-
+        
         /// <summary>
         /// Control btnNuevo.
         /// </summary>
@@ -40,7 +38,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevo;
-
+        
         /// <summary>
         /// Control TxtBusqueda.
         /// </summary>
@@ -49,7 +47,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtBusqueda;
-
+        
         /// <summary>
         /// Control BtnBuscar.
         /// </summary>
@@ -58,7 +56,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnBuscar;
-
+        
         /// <summary>
         /// Control dgvUsuarios.
         /// </summary>
@@ -67,7 +65,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvUsuarios;
-
+        
         /// <summary>
         /// Control lblResultado.
         /// </summary>
@@ -76,7 +74,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
-
+        
         /// <summary>
         /// Control hid.
         /// </summary>
@@ -85,7 +83,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hid;
-
+        
         /// <summary>
         /// Control pnlUsuarios.
         /// </summary>
@@ -94,7 +92,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlUsuarios;
-
+        
         /// <summary>
         /// Control txtNick.
         /// </summary>
@@ -103,7 +101,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNick;
-
+        
         /// <summary>
         /// Control txtContraseña.
         /// </summary>
@@ -112,7 +110,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtContraseña;
-
+        
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -121,7 +119,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-
+        
         /// <summary>
         /// Control txtApellido.
         /// </summary>
@@ -130,16 +128,16 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
-
+        
         /// <summary>
-        /// Control TxtTipodeUsuario.
+        /// Control cmbTipoUsuario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TxtTipodeUsuario;
-
+        protected global::System.Web.UI.WebControls.DropDownList cmbTipoUsuario;
+        
         /// <summary>
         /// Control btnGrabar.
         /// </summary>
@@ -148,7 +146,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrabar;
-
+        
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -157,7 +155,7 @@ namespace UI
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-
+        
         /// <summary>
         /// Control ModalPopupExtender1.
         /// </summary>

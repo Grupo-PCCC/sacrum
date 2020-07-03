@@ -25,8 +25,9 @@
                     <form action="#" method="post" autocomplete="off">
                         <asp:TextBox ID="txtUsuario" runat="server" PlaceHolder="Usuario"></asp:TextBox>
                         <asp:TextBox ID="txtContraseña" TextMode="Password" runat="server" PlaceHolder="Contraseña"></asp:TextBox>
+                        <br /><br />
                         <asp:Button ID="btnIniciarSesion" runat="server" Text="Iniciar sesión" OnClick="Login_Click" />
-                        <br />
+                        
 
                         <asp:Label ID="lblError" runat="server" ForeColor="Red"></asp:Label>
                         

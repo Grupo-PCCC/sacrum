@@ -127,13 +127,7 @@ namespace DAL
             return acceso.Escribir("UpdateUser", parameters);
         }
 
-        public int Borrar(EN_Usuario usuario)
-        {
-            List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(acceso.CrearParametro("@Id", usuario.Id));
-
-            return acceso.Escribir("DeleteUser", parameters);
-        }
+   
 
 
 
