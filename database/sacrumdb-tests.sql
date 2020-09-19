@@ -31,6 +31,32 @@ RazonSocial VARCHAR (50) NOT NULL,
 Observaciones VARCHAR (120),
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
 GO
+CREATE TABLE TipoDocumento (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Nombre VARCHAR (3)
+)
+GO
+CREATE TABLE Fallecido (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+CodigoInterno VARCHAR (6),
+Nombre VARCHAR (50) NOT NULL,
+Apellido VARCHAR (50) NOT NULL,
+Documento VARCHAR (20) NOT NULL,
+FechaFallecimiento DATE NOT NULL,
+FechaIngresoCinerario DATE NOT NULL,
+Observaciones VARCHAR (120),
+Contribuyo BIT NOT NULL,
+IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
+GO
+CREATE TABLE ContactoFallecido (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+CodigoInterno VARCHAR (6),
+Nombre VARCHAR (50) NOT NULL,
+Apellido VARCHAR (50) NOT NULL,
+Observaciones VARCHAR (120),
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL
+)
 CREATE TABLE TipoUsuario (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (14) NOT NULL)
@@ -51,7 +77,7 @@ CREATE TABLE TipoDatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (30) NOT NULL)
 GO
-INSERT INTO TipoDatoEntidad VALUES ('Tel¿fono'), ('Mail'), ('Direcci¿n')
+INSERT INTO TipoDatoEntidad VALUES ('Telï¿½fono'), ('Mail'), ('Direcciï¿½n')
 GO
 CREATE TABLE DatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
