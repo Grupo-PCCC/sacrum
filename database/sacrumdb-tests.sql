@@ -8,7 +8,7 @@ CREATE TABLE TipoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (9) NOT NULL)
 GO
-INSERT INTO TipoEntidad VALUES ('Feligres'), ('Proveedor'), ('Usuario')
+INSERT INTO TipoEntidad VALUES ('Feligres'), ('Proveedor'), ('Usuario'), ('Fallecido')
 GO
 CREATE TABLE Entidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
@@ -21,7 +21,9 @@ Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 CodigoInterno VARCHAR (6),
 Nombre VARCHAR (30) NOT NULL,
 Apellido VARCHAR (30) NOT NULL,
+FechaNacimiento DATE,
 Observaciones VARCHAR (120),
+Vivo BIT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0, IdTipoEntidad=4, se cambia el código interno para que sea correlativo a la tabla Fallecido. Se pide cambiar
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
 GO
 CREATE TABLE Proveedor (
@@ -39,8 +41,8 @@ GO
 CREATE TABLE Fallecido (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 CodigoInterno VARCHAR (6),
-Nombre VARCHAR (50) NOT NULL,
-Apellido VARCHAR (50) NOT NULL,
+Nombre VARCHAR (30) NOT NULL,
+Apellido VARCHAR (30) NOT NULL,
 Documento VARCHAR (20) NOT NULL,
 FechaFallecimiento DATE NOT NULL,
 FechaIngresoCinerario DATE NOT NULL,
@@ -50,13 +52,10 @@ IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
 GO
 CREATE TABLE ContactoFallecido (
-Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-CodigoInterno VARCHAR (6),
-Nombre VARCHAR (50) NOT NULL,
-Apellido VARCHAR (50) NOT NULL,
-Observaciones VARCHAR (120),
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL
+IdFeligres INT FOREIGN KEY REFERENCES Feligres(Id) NOT NULL,
+IdFallecido INT FOREIGN KEY REFERENCES Fallecido(Id) NOT NULL
 )
+GO
 CREATE TABLE TipoUsuario (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (14) NOT NULL)
@@ -77,7 +76,7 @@ CREATE TABLE TipoDatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (30) NOT NULL)
 GO
-INSERT INTO TipoDatoEntidad VALUES ('Tel�fono'), ('Mail'), ('Direcci�n')
+INSERT INTO TipoDatoEntidad VALUES ('Teléfono'), ('Mail'), ('Dirección')
 GO
 CREATE TABLE DatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
