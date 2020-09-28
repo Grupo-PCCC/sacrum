@@ -16,6 +16,13 @@ IdTipoEntidad INT FOREIGN KEY REFERENCES TipoEntidad(Id),
 CodigoInterno VARCHAR (6),
 Estado BIT NOT NULL)
 GO
+CREATE TABLE TipoDocumento (
+Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
+Nombre VARCHAR (3)
+)
+GO
+INSERT INTO TipoDocumento VALUES ('DNI'), ('LC'), ('LE'), ('PAS')
+GO
 CREATE TABLE Feligres (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 CodigoInterno VARCHAR (6),
@@ -35,13 +42,6 @@ CodigoInterno VARCHAR (6),
 RazonSocial VARCHAR (50) NOT NULL,
 Observaciones VARCHAR (120),
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
-GO
-CREATE TABLE TipoDocumento (
-Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-Nombre VARCHAR (3)
-)
-GO
-INSERT INTO TipoDocumento VALUES ('DNI'), ('LC'), ('LE'), ('PAS')
 GO
 CREATE TABLE Fallecido (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
