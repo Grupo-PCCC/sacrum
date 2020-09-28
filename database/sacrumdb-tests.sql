@@ -22,9 +22,12 @@ CodigoInterno VARCHAR (6),
 Nombre VARCHAR (30) NOT NULL,
 Apellido VARCHAR (30) NOT NULL,
 FechaNacimiento DATE,
+Documento VARCHAR (20) NOT NULL,
+IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
 Observaciones VARCHAR (120),
-Vivo BIT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0, IdTipoEntidad=4, se cambia el código interno para que sea correlativo a la tabla Fallecido. Se pide cambiar
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
+Vivo BIT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0. Copia un nuevo fallecido con los mismos datos.
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL,
+EsContacto BIT NOT NULL)
 GO
 CREATE TABLE Proveedor (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
@@ -37,6 +40,8 @@ CREATE TABLE TipoDocumento (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 Nombre VARCHAR (3)
 )
+GO
+INSERT INTO TipoDocumento VALUES ('DNI'), ('LC'), ('LE'), ('PAS')
 GO
 CREATE TABLE Fallecido (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
