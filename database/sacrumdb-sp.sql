@@ -167,13 +167,17 @@ GO
 EXEC ModificarEntidad 'Darío modificado','Benítez modificado',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido',4
 GO
 
+--DESACTIVAR ENTIDAD--
 CREATE PROC DesactivarEntidad
 @IdEntidad INT
 AS
 UPDATE Entidad SET Estado=0 WHERE Id=@IdEntidad
 GO
+--Desactivo una entidad--
+EXEC DesactivarEntidad 1
+GO
 
-/*
+--NUEVO DATO ENTIDAD--
 CREATE PROC NuevoDatoEntidad
 @IdEntidad INT,
 @IdTipoDatoEntidad INT,
@@ -182,4 +186,32 @@ CREATE PROC NuevoDatoEntidad
 AS
 INSERT INTO DatoEntidad VALUES (@IdEntidad,@IdTipoDatoEntidad,@Valor,@Detalle)
 GO
-*/
+
+--Agrego un dato de una entidad--
+EXEC NuevoDatoEntidad 2,1,'46015151','Teléfono de la abuela'
+GO
+
+--MODIFICAR DATO ENTIDAD--
+CREATE PROC ModificarDatoEntidad
+@Valor VARCHAR (100),
+@Detalle VARCHAR (20),
+@Id INT
+AS
+UPDATE DatoEntidad SET Valor=@Valor, Detalle=@Detalle
+WHERE Id=@Id
+GO
+
+--Modifico un dato de una entidad--
+EXEC  ModificarDatoEntidad '33334455','Teléfono del abuelo', 1
+GO
+
+--BORRAR DATO ENTIDAD--
+CREATE PROC BorrarDatoEntidad
+@Id INT
+AS
+DELETE FROM DatoEntidad WHERE Id=@Id
+GO
+
+--Borro un dato de una entidad--
+EXEC BorrarDatoEntidad 1
+GO
