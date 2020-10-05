@@ -104,14 +104,15 @@ IdFallecido INT FOREIGN KEY REFERENCES Fallecido(Id) NOT NULL
 GO
 CREATE TABLE TipoDatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-Nombre VARCHAR (30) NOT NULL)
+Nombre VARCHAR (9) NOT NULL)
 GO
-INSERT INTO TipoDatoEntidad VALUES ('Teléfono'), ('Mail'), ('Dirección')
+INSERT INTO TipoDatoEntidad VALUES ('Principal'), ('Otro')
 GO
 CREATE TABLE DatoEntidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL,
 IdTipoDatoEntidad INT FOREIGN KEY REFERENCES TipoDatoEntidad(Id) NOT NULL,
+NombreDato VARCHAR (4) NOT NULL, --(tel,mail,dire. Lo mandamos desde la APP)
 Valor VARCHAR (100) NOT NULL,
 Detalle VARCHAR (20))
 GO

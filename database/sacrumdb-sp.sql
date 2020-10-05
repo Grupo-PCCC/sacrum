@@ -181,16 +181,27 @@ GO
 CREATE PROC NuevoDatoEntidad
 @IdEntidad INT,
 @IdTipoDatoEntidad INT,
+@NombreDato VARCHAR (4),
 @Valor VARCHAR (100),
 @Detalle VARCHAR (20)
 AS
-INSERT INTO DatoEntidad VALUES (@IdEntidad,@IdTipoDatoEntidad,@Valor,@Detalle)
+INSERT INTO DatoEntidad VALUES (@IdEntidad,@IdTipoDatoEntidad,@NombreDato, @Valor,@Detalle)
 GO
 
 --Agrego un dato de una entidad--
-EXEC NuevoDatoEntidad 2,1,'46015151','Teléfono de la abuela'
+EXEC NuevoDatoEntidad 2,1,'tel','46015151','Teléfono de la abuela'
 GO
 
+--VALIDAR QUE NO HAYA YA UN DATO PRINCIPAL PARA CIERTA ENTIDAD--
+CREATE PROC ValidarTipoDeDato
+@IdEntidad INT,
+@NombreDato VARCHAR (4)
+AS
+SELECT * FROM DatoEntidad WHERE IdEntidad=@IdEntidad AND IdTipoDatoEntidad=1 AND NombreDato=@NombreDato
+GO
+--Con esto, logramos que no haya por ejemplo 2 teléfonos principales para el feligrés Pepito:--
+EXEC ValidarTipoDeDato 1,'tel'
+GO
 --MODIFICAR DATO ENTIDAD--
 CREATE PROC ModificarDatoEntidad
 @Valor VARCHAR (100),
