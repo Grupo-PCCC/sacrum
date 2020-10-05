@@ -13,7 +13,7 @@ GO
 CREATE TABLE Entidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 IdTipoEntidad INT FOREIGN KEY REFERENCES TipoEntidad(Id),
-CodigoInterno VARCHAR (6),
+CodigoInterno VARCHAR (8),
 Estado BIT NOT NULL)
 GO
 CREATE TABLE TipoDocumento (
@@ -25,7 +25,7 @@ INSERT INTO TipoDocumento VALUES ('DNI'), ('LC'), ('LE'), ('PAS')
 GO
 CREATE TABLE Feligres (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-CodigoInterno VARCHAR (6),
+CodigoInterno VARCHAR (8),
 Nombre VARCHAR (30) NOT NULL,
 Apellido VARCHAR (30) NOT NULL,
 FechaNacimiento DATE,
@@ -38,7 +38,7 @@ EsContacto BIT NOT NULL)
 GO
 CREATE TABLE Proveedor (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-CodigoInterno VARCHAR (6),
+CodigoInterno VARCHAR (8),
 RazonSocial VARCHAR (50) NOT NULL,
 Observaciones VARCHAR (120),
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id))
@@ -51,7 +51,7 @@ INSERT INTO TipoUsuario VALUES ('Administrador'),('Operador')
 GO
 CREATE TABLE Usuario (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-CodigoInterno VARCHAR (6),
+CodigoInterno VARCHAR (8),
 Nombre VARCHAR (30) NOT NULL,
 Apellido VARCHAR (30) NOT NULL,
 Nick VARCHAR (15),
@@ -85,7 +85,7 @@ IdCategoria INT FOREIGN KEY REFERENCES Categoria(Id) NOT NULL
 )
 CREATE TABLE Fallecido (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
-CodigoInterno VARCHAR (6),
+CodigoInterno VARCHAR (8),
 Nombre VARCHAR (30) NOT NULL,
 Apellido VARCHAR (30) NOT NULL,
 Documento VARCHAR (20) NOT NULL,
