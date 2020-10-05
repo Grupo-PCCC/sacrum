@@ -33,7 +33,7 @@ Documento VARCHAR (20) NOT NULL,
 IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
 Observaciones VARCHAR (120),
 Vivo BIT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0. Copia un nuevo fallecido con los mismos datos.
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL,
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id),
 EsContacto BIT NOT NULL)
 GO
 CREATE TABLE Proveedor (
@@ -41,7 +41,7 @@ Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 CodigoInterno VARCHAR (6),
 RazonSocial VARCHAR (50) NOT NULL,
 Observaciones VARCHAR (120),
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id))
 GO
 CREATE TABLE TipoUsuario (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
@@ -57,7 +57,7 @@ Apellido VARCHAR (30) NOT NULL,
 Nick VARCHAR (15),
 Contrasenia VARCHAR (255),
 IdTipoUsuario INT FOREIGN KEY REFERENCES TipoUsuario(Id) NOT NULL,
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id))
 GO
 CREATE TABLE TipoCategoria
 (
@@ -95,7 +95,7 @@ Observaciones VARCHAR (120),
 Contribuyo BIT NOT NULL,
 IdMovimientoMonetario INT FOREIGN KEY REFERENCES MovimientoMonetario(Id),
 IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
-IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id) NOT NULL)
+IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id))
 GO
 CREATE TABLE ContactoFallecido (
 IdFeligres INT FOREIGN KEY REFERENCES Feligres(Id) NOT NULL,
