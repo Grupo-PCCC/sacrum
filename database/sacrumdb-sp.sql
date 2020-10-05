@@ -167,6 +167,12 @@ GO
 EXEC ModificarEntidad 'Darío modificado','Benítez modificado',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido',4
 GO
 
+CREATE PROC DesactivarEntidad
+@IdEntidad INT
+AS
+UPDATE Entidad SET Estado=0 WHERE Id=@IdEntidad
+GO
+
 /*
 CREATE PROC NuevoDatoEntidad
 @IdEntidad INT,
