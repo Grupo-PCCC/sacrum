@@ -132,11 +132,40 @@ SET Nombre=@Nombre, Apellido=@Apellido, FechaNacimiento=@FechaNacimiento, Docume
 WHERE IdEntidad=@IdEntidad
 END
 ELSE IF @Tabla = 'Proveedor'
+BEGIN
 UPDATE Proveedor
 SET RazonSocial=@RazonSocial, Observaciones=@Observaciones
+WHERE IdEntidad=@IdEntidad
+END
+ELSE IF @Tabla = 'Usuario'
+BEGIN
+UPDATE Usuario
+SET Nombre=@Nombre, Apellido=@Apellido, Nick=@Nick, Contrasenia=@Contrasenia, IdTipoUsuario=@IdTipoUsuario 
+WHERE IdEntidad=@IdEntidad
+END
+ELSE IF @Tabla = 'Fallecido'
+BEGIN
+UPDATE Fallecido
+SET Nombre=@Nombre, Apellido=@Apellido, FechaFallecimiento=@FechaFallecimiento, FechaIngresoCinerario=@FechaIngresoCinerario, Contribuyo=@Contribuyo, IdMovimientoMonetario=@IdMovimientoMonetario, Observaciones=@Observaciones 
+WHERE IdEntidad=@IdEntidad
+END
+GO
 
-
-
+--Modifico un proveedor--
+--RazonSocial, Observaciones--
+EXEC ModificarEntidad null,null,null,null,null,null,null,null,null,null,null,'Casa de Monjas modificado',null,null,null,'Llamar de 12 a 17',2,'Proveedor',1
+GO
+--Modifico un feligrés--
+--Nombre, Apellido, FechaNacimiento, IdTipoDocumento, IdTipoDocumento,Vivo, EsContacto--
+EXEC ModificarEntidad'Darío modificado','Benítez modificado', '05/05/1980',1,'3045567656',1,0,null,null,null,null,null,null,null,null,'Buen muchacho',1,'Feligres',2
+GO
+--Modifico un usuario--
+--Nombre, Apellido, Nick, Contraseña, IdTipoUsuario--
+EXEC ModificarEntidad 'Iván modificado','Rodríguez modificado',null,null,null,null,null,null,null,null,null,null,'irodriguez','1234abc',1,null,3,'Usuario',3
+GO
+--Modifico un fallecido--
+EXEC ModificarEntidad 'Darío modificado','Benítez modificado',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido',4
+GO
 
 /*
 CREATE PROC NuevoDatoEntidad
