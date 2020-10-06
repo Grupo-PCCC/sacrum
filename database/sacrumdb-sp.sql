@@ -226,3 +226,18 @@ GO
 --Borro un dato de una entidad--
 EXEC BorrarDatoEntidad 1
 GO
+
+--SP ESPECÍFICOS DE FELIGRESES--
+
+--MARCAR COMO MUERTO A UN FELIGRÉS--
+CREATE PROC FeligresMuerto
+@IdFeligres INT,
+@IdEntidad INT
+AS
+UPDATE Feligres SET Vivo=0 WHERE Id=@IdFeligres
+UPDATE Entidad SET Estado=0 WHERE Id=@IdEntidad
+GO
+
+--Mato a un feligrés--
+EXEC FeligresMuerto 1,2
+GO
