@@ -28,11 +28,13 @@ namespace UI
                     var validlogin = User.LoginUser(txtUsuario.Text, GenerarMD5.crearMD5(txtContraseña.Text));
                     if (validlogin == true)
                     {
+                        /*
                         Audit L = new Audit();
                         L.Action = "El usuario " + txtUsuario.Text + " inició sesión en la aplicación";
                         L.ActionDate = DateTime.Now;
                         L.Id = LoginCache.Id;
                         L.WriteLog(L);
+                        */
                         Session["usuarioNick"] = LoginCache.Nick;
                         Response.Redirect("~/Inicio.aspx");
 

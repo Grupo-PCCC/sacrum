@@ -15,13 +15,13 @@ namespace DAL
     {
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
 
-        public bool Login(string Nick, string Contraseña)
+        public bool Login(string Nick, string Contrasenia)
         {
-            SqlCommand cmd = new SqlCommand("SelectUser", Conexion);
+            SqlCommand cmd = new SqlCommand("IniciarSesion", Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion.Open();
             cmd.Parameters.AddWithValue("@Nick", Nick);
-            cmd.Parameters.AddWithValue("@Password", Contraseña);
+            cmd.Parameters.AddWithValue("@Contrasenia", Contrasenia);
             SqlDataReader reader = cmd.ExecuteReader();
             if (reader.HasRows)
             {
