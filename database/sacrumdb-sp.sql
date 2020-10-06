@@ -167,14 +167,15 @@ GO
 EXEC ModificarEntidad 'Darío modificado','Benítez modificado',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido',4
 GO
 
---DESACTIVAR ENTIDAD--
-CREATE PROC DesactivarEntidad
-@IdEntidad INT
+--CAMBIAR ESTADO DE ENTIDAD--
+CREATE PROC CambiarEstadoEntidad
+@IdEntidad INT,
+@Estado INT
 AS
-UPDATE Entidad SET Estado=0 WHERE Id=@IdEntidad
+UPDATE Entidad SET Estado=@Estado WHERE Id=@IdEntidad
 GO
---Desactivo una entidad--
-EXEC DesactivarEntidad 1
+--Camio el estado de una entidad--
+EXEC CambiarEstadoEntidad 1,0
 GO
 
 --NUEVO DATO ENTIDAD--
