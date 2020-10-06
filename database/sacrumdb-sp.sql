@@ -242,3 +242,65 @@ GO
 --Mato a un feligrés--
 EXEC FeligresMuerto 1,2
 GO
+
+--SP ESPECÍFICOS DE CAJA--
+
+--NUEVA CATEGORÍA--
+CREATE PROC NuevaCategoria
+@Nombre VARCHAR (30),
+@IdTipoCategoria INT
+AS
+INSERT INTO Categoria VALUES (@Nombre, @IdTipoCategoria)
+GO
+--Agrego nuevas categorías--
+EXEC NuevaCategoria 'Donación', 1
+GO
+EXEC NuevaCategoria 'Bautismos', 1
+GO
+EXEC NuevaCategoria 'Ostias', 2
+GO
+EXEC NuevaCategoria 'Varios', 2
+GO
+
+--MODIFICAR CATEGORÍAS--
+CREATE PROC ModificarCategoria
+@Nombre VARCHAR (30),
+@Id INT
+AS
+UPDATE Categoria SET Nombre=@Nombre
+WHERE Id=@Id
+GO
+
+--BORRAR CATEGORÍAS--
+CREATE PROC BorrarCategoria
+@Id INT
+AS
+DELETE FROM Categoria WHERE Id=@Id
+GO
+
+--VALIDAR CATEGORÍA--
+CREATE PROC ValidarCategoria
+@Nombre VARCHAR (30)
+AS
+SELECT * FROM Categoria WHERE Nombre=@Nombre
+GO
+--Si devuelve un valor, significa que la categoría ya existe--
+
+--BUSCAR CATEGORÍA EN MOVIMIENTOS MONETARIOS--
+CREATE PROC BuscarCategoría
+@IdCategoria INT
+AS
+SELECT * FROM MovimientoMonetario WHERE IdCategoria=@IdCategoria
+GO
+--Si devuelve un valor, significa que la categoría existe en la tabla de movimientos monetarios, por lo cual no se puede borrar/modificar
+
+--NUEVO MOVIMIENTO MONETARIO--
+CREATE PROC NuevoMovimientoMonetario
+@Valor FLOAT,
+@Fecha DATE,
+@Observacion VARCHAR (120),
+@IdUsuario INT,
+@IdCategoria INT
+AS
+INSERT INTO MovimientoMonetario VALUES (@Valor, @Fecha, @Observacion, @IdUsuario, @IdCategoria)
+GO
