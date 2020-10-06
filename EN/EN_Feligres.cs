@@ -17,7 +17,5 @@ namespace EN
         public string Numero2 { get; set; }
         public string Observacion { get; set; }
 
-        public EN_TelefonoFeligres _telefonoFeligres;
-
     }
 }

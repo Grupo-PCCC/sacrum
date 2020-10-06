@@ -60,8 +60,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EN_Feligres.cs" />
-    <Compile Include="EN_TelefonoFeligres.cs" />
-    <Compile Include="EN_TipoTelefono.cs" />
     <Compile Include="EN_TipoUsuario.cs" />
     <Compile Include="EN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
