@@ -14,38 +14,38 @@ namespace BL
     {
 
         DAL_Feligres DAL_Feligres = new DAL_Feligres();
-        public int Grabar(EN_Feligres feligres)
-        {
-            int res = 0;
-            if (feligres.Id == 0)
-            {
-                res = DAL_Feligres.Insertar(feligres);
-            }
-            else
-            {
-                res = DAL_Feligres.Editar(feligres);
-            }
-            return res;
-        }
+        //public int Grabar(EN_Feligres feligres)
+        //{
+        //    int res = 0;
+        //    if (feligres.Id == 0)
+        //    {
+        //        res = DAL_Feligres.Insertar(feligres);
+        //    }
+        //    else
+        //    {
+        //        res = DAL_Feligres.Editar(feligres);
+        //    }
+        //    return res;
+        //}
 
         public int Borrar(EN_Feligres feligres)
         {
             return DAL_Feligres.Borrar(feligres);
         }
 
-        public List<EN_Feligres> ListarTodo()
+        public List<EN_Feligres> Listar(string Nombre, string Apellido, DateTime Fecha1, DateTime Fecha2, string Documento, int Vivo, int EsContacto, int Estado)
         {
-            return DAL_Feligres.ListarTodo();
+            return DAL_Feligres.Listar(Nombre, Apellido, Fecha1, Fecha2, Documento, Vivo, EsContacto, Estado);
         }
 
-        public List<EN_Feligres> ListarID(int Id)
-        {
-            return DAL_Feligres.ListarID(Id);
-        }
+        //public List<EN_Feligres> ListarID(int Id)
+        //{
+        //    return DAL_Feligres.ListarID(Id);
+        //}
 
-        public List<EN_Feligres> ListarName(string Name)
-        {
-            return DAL_Feligres.ListarNombre(Name);
-        }
+        //public List<EN_Feligres> ListarName(string Name)
+        //{
+        //    return DAL_Feligres.ListarNombre(Name);
+        //}
     }
 }

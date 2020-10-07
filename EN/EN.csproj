@@ -59,7 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EN_DatoEntidad.cs" />
+    <Compile Include="EN_Entidad.cs" />
     <Compile Include="EN_Feligres.cs" />
+    <Compile Include="EN_TipoDatoEntidad.cs" />
+    <Compile Include="EN_TipoDocumento.cs" />
     <Compile Include="EN_TipoUsuario.cs" />
     <Compile Include="EN_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

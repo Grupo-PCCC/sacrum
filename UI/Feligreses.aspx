@@ -33,6 +33,10 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
+                         <asp:BoundField HeaderText="Codigo Interno" DataField="Código Interno" Visible="false">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
                         <asp:BoundField HeaderText="Nombre" DataField="Nombre">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
@@ -41,13 +45,58 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNac" DataFormatString="{0:dd/MM/yyyy}">
+                        <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}">
 
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
+                        
+                        <asp:BoundField HeaderText="Tipo Documento" DataField="Nombre">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        
+                        <%--<asp:BoundField HeaderText="ID TIPO DOCUMENTO" DataField="IdTipoDocumento">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>--%>
+                        
+                        <asp:BoundField HeaderText="Documento" DataField="Documento">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        
+                       <%-- <asp:BoundField HeaderText="Telefono" DataField="Teléfono">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+                        
+                        <asp:BoundField HeaderText="Mail" DataField="Mail">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
 
-                        <asp:BoundField HeaderText="Observaciones" DataField="Observacion">
+                        <asp:BoundField HeaderText="Direccion" DataField="Dirección">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>--%>
+
+                         <asp:BoundField HeaderText="Observaciones" DataField="Observaciones">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+
+                         <asp:BoundField HeaderText="Vivo" DataField="Vivo">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>
+
+                         <%--<asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad">
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:BoundField>--%>
+
+                        <asp:BoundField HeaderText="EsContacto" DataField="EsContacto">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>

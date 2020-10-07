@@ -56,9 +56,7 @@ namespace DAL
 
             return tabla;
         }
-
-
-                          
+                                    
 
 
         public int Escribir(string nombre, List<SqlParameter> parametros)
@@ -83,8 +81,8 @@ namespace DAL
         public SqlParameter CrearParametro(string nombre, string valor)
         {
             SqlParameter parametro = new SqlParameter();
-            parametro.ParameterName = nombre;
-            parametro.Value = valor;
+            parametro.ParameterName = nombre ;
+            parametro.Value = valor ;
             parametro.DbType = DbType.String;
             return parametro;
         }
