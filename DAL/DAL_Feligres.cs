@@ -26,29 +26,26 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@EsContacto", EsContacto));
             parameters.Add(acceso.CrearParametro("@Estado", Estado));
 
-            DataTable tabla = acceso.Leer("PFeligres", parameters);
+            DataTable tabla = acceso.Leer("VW_Feligreses", parameters);
             List<EN_Feligres> feligress = new List<EN_Feligres>();
 
             foreach (DataRow registro in tabla.Rows)
             {
                 EN_Feligres feligres = new EN_Feligres();
-                EN_TipoDocumento TDoc = new EN_TipoDocumento();
-                EN_Entidad Entidad = new EN_Entidad();
-                EN_DatoEntidad DatoEntidad = new EN_DatoEntidad();
+                EN_TipoDocumento TD = new EN_TipoDocumento();
                 feligres.Id = int.Parse(registro["Id"].ToString());
-                feligres.CodigoInterno = (registro["Código Interno"].ToString());
+                feligres.CodigoInterno = (registro["Codigo Interno"].ToString());
                 feligres.Nombre = (registro["Nombre"].ToString());
                 feligres.Apellido = (registro["Apellido"].ToString());
                 feligres.FechaNacimiento = Convert.ToDateTime(registro["Fecha de nacimiento"].ToString());
-                feligres._TipoDocumento.Nombre = (registro["Tipo de documento"].ToString());
-                feligres._TipoDocumento.Id = int.Parse(registro["IdTipoDocumento"].ToString());
+                feligres.TDoc = (registro["Tipo de documento"].ToString());
                 feligres.Documento = (registro["Documento"].ToString());
-                feligres._DatoEntidad.Telefono = (registro["Teléfono"] is DBNull ? "" : registro["Teléfono"]).ToString();
-                feligres._DatoEntidad.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
-                feligres._DatoEntidad.Direccion = (registro["Dirección"] is DBNull ? "" : registro["Dirección"].ToString());
+                feligres.Telefono = (registro["Telefono"] is DBNull ? "" : registro["Telefono"]).ToString();
+                feligres.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
+                feligres.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
                 feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
                 feligres.Vivo = int.Parse(registro["Vivo"].ToString());
-                feligres._Entidad.Id = int.Parse(registro["IdEntidad"].ToString());
+                feligres.Id = int.Parse(registro["IdEntidad"].ToString());
                 feligres.EsContacto = int.Parse(registro["EsContacto"].ToString());
                 feligress.Add(feligres);
             }

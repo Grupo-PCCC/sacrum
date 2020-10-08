@@ -56,17 +56,13 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         
-                        <asp:BoundField HeaderText="ID TIPO DOCUMENTO" DataField="IdTipoDocumento">
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>
-                        
+                                              
                         <asp:BoundField HeaderText="Documento" DataField="Documento">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         
-                        <asp:BoundField HeaderText="Telefono" DataField="Teléfono">
+                        <asp:BoundField HeaderText="Telefono" DataField="Telefono">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -76,7 +72,7 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                        <asp:BoundField HeaderText="Direccion" DataField="Dirección">
+                        <asp:BoundField HeaderText="Direccion" DataField="Direccion">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
