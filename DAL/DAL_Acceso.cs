@@ -33,6 +33,7 @@ namespace DAL
             comando.Connection = conexion;
             comando.CommandText = nombre;
             comando.CommandType = CommandType.StoredProcedure;
+            
 
             if (parametros != null && parametros.Count > 0)
             {

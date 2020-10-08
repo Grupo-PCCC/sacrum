@@ -14,7 +14,7 @@ namespace DAL
     {
 
         private DAL_Acceso acceso = new DAL_Acceso();
-        public List<EN_Feligres> Listar(string Nombre,string Apellido, DateTime Fecha1 , DateTime Fecha2, string Documento,int Vivo, int EsContacto,int Estado)
+        public List<EN_Feligres> Listar(string Nombre, string Apellido, DateTime Fecha1, DateTime Fecha2, string Documento, int Vivo, int EsContacto, int Estado)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Nombre", Nombre));
@@ -25,7 +25,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Vivo", Vivo));
             parameters.Add(acceso.CrearParametro("@EsContacto", EsContacto));
             parameters.Add(acceso.CrearParametro("@Estado", Estado));
-            
+
             DataTable tabla = acceso.Leer("PFeligres", parameters);
             List<EN_Feligres> feligress = new List<EN_Feligres>();
 
@@ -43,11 +43,11 @@ namespace DAL
                 feligres._TipoDocumento.Nombre = (registro["Tipo de documento"].ToString());
                 feligres._TipoDocumento.Id = int.Parse(registro["IdTipoDocumento"].ToString());
                 feligres.Documento = (registro["Documento"].ToString());
-                feligres._DatoEntidad.Telefono=(registro["Teléfono"].ToString());
-                feligres._DatoEntidad.Mail = (registro["Mail"].ToString());
-                feligres._DatoEntidad.Direccion = (registro["Dirección"].ToString());
-                feligres.Observaciones = (registro["Observaciones"].ToString());
-                feligres.Vivo= int.Parse(registro["Vivo"].ToString());
+                feligres._DatoEntidad.Telefono = (registro["Teléfono"] is DBNull ? "" : registro["Teléfono"]).ToString();
+                feligres._DatoEntidad.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
+                feligres._DatoEntidad.Direccion = (registro["Dirección"] is DBNull ? "" : registro["Dirección"].ToString());
+                feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
+                feligres.Vivo = int.Parse(registro["Vivo"].ToString());
                 feligres._Entidad.Id = int.Parse(registro["IdEntidad"].ToString());
                 feligres.EsContacto = int.Parse(registro["EsContacto"].ToString());
                 feligress.Add(feligres);
@@ -142,7 +142,7 @@ namespace DAL
         //}
 
     }
-   
+
 
 }
 

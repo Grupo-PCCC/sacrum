@@ -33,7 +33,7 @@
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
-                         <asp:BoundField HeaderText="Codigo Interno" DataField="Código Interno" Visible="false">
+                         <asp:BoundField HeaderText="Codigo Interno" DataField="CodigoInterno">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -56,17 +56,17 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         
-                        <%--<asp:BoundField HeaderText="ID TIPO DOCUMENTO" DataField="IdTipoDocumento">
+                        <asp:BoundField HeaderText="ID TIPO DOCUMENTO" DataField="IdTipoDocumento">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>--%>
+                        </asp:BoundField>
                         
                         <asp:BoundField HeaderText="Documento" DataField="Documento">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         
-                       <%-- <asp:BoundField HeaderText="Telefono" DataField="Teléfono">
+                        <asp:BoundField HeaderText="Telefono" DataField="Teléfono">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -79,7 +79,7 @@
                         <asp:BoundField HeaderText="Direccion" DataField="Dirección">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>--%>
+                        </asp:BoundField>
 
                          <asp:BoundField HeaderText="Observaciones" DataField="Observaciones">
                             <HeaderStyle HorizontalAlign="Center" />
@@ -91,10 +91,10 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                         <%--<asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad">
+                         <asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
-                        </asp:BoundField>--%>
+                        </asp:BoundField>
 
                         <asp:BoundField HeaderText="EsContacto" DataField="EsContacto">
                             <HeaderStyle HorizontalAlign="Center" />
