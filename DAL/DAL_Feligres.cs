@@ -45,7 +45,7 @@ namespace DAL
                 feligres.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
                 feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
                 feligres.Vivo = int.Parse(registro["Vivo"].ToString());
-                feligres.Id = int.Parse(registro["IdEntidad"].ToString());
+                feligres.IdEntidad = int.Parse(registro["IdEntidad"].ToString());
                 feligres.EsContacto = int.Parse(registro["EsContacto"].ToString());
                 feligress.Add(feligres);
             }
