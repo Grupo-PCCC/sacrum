@@ -29,7 +29,7 @@
                 <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging">
 
                     <Columns>
-                        <asp:BoundField HeaderText="Id" DataField="Id" Visible="false">
+                        <asp:BoundField HeaderText="Id" DataField="Id" Visible="False">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
@@ -77,22 +77,22 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                         <asp:BoundField HeaderText="Observaciones" DataField="Observaciones">
+                         <asp:BoundField HeaderText="Observaciones" DataField="Observaciones" Visible="False">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                         <asp:BoundField HeaderText="Vivo" DataField="Vivo">
+                         <asp:BoundField HeaderText="Vivo" DataField="Vivo" Visible="False">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                         <asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad">
+                         <asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad" Visible="False">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
 
-                        <asp:BoundField HeaderText="EsContacto" DataField="EsContacto">
+                        <asp:BoundField HeaderText="EsContacto" DataField="EsContacto" Visible="False">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
