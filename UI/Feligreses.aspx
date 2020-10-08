@@ -51,7 +51,7 @@
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
                         
-                        <asp:BoundField HeaderText="Tipo Documento" DataField="Nombre">
+                        <asp:BoundField HeaderText="Tipo Documento" DataField="TDoc">
                             <HeaderStyle HorizontalAlign="Center" />
                             <ItemStyle HorizontalAlign="Center" />
                         </asp:BoundField>
