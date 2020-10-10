@@ -53,18 +53,34 @@ namespace DAL
             return feligress;
         }
 
-        //public int Insertar(EN_Feligres feligres)
-        //{
-        //    List<SqlParameter> parameters = new List<SqlParameter>();
-        //    parameters.Add(acceso.CrearParametro("@Name", feligres.Nombre));
-        //    parameters.Add(acceso.CrearParametro("@Surname", feligres.Apellido));
-        //    parameters.Add(acceso.CrearParametro("@BirthDate", feligres.FechaNac));
-        //    parameters.Add(acceso.CrearParametro("@Observation", feligres.Observacion));
+        public int Insertar(EN_Feligres feligres)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
 
-        //    return acceso.Escribir("NewParishioner", parameters);
+            parameters.Add(acceso.CrearParametro("@Nombre", feligres.Nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", feligres.Apellido));
+            parameters.Add(acceso.CrearParametro("@FechaNacimiento", feligres.FechaNacimiento));
+            parameters.Add(acceso.CrearParametro("@IdTipoDocumento", feligres.TDoc));
+            parameters.Add(acceso.CrearParametro("@Documento", feligres.Documento));
+            parameters.Add(acceso.CrearParametro("@Vivo", feligres.Vivo));
+            parameters.Add(acceso.CrearParametro("@EsContacto", feligres.EsContacto));
+            parameters.Add(acceso.CrearParametro("@FechaFallecimiento", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@FechaIngresoCinerario", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Contribuyo", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@IdMovimientoMonetario", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@RazonSocial", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Nick", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Contrasenia", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@IdTipoUsuario", DBNull.Value.ToString())); ; ;
+            parameters.Add(acceso.CrearParametro("@Observaciones", feligres.Observaciones));
+            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdEntidad));
+            parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
+            
+
+            return acceso.Escribir("NuevaEntidad", parameters);
 
 
-        //}
+        }
 
         //public int Editar(EN_Feligres feligres)
         //{

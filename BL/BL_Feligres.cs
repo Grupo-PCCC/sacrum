@@ -14,19 +14,19 @@ namespace BL
     {
 
         DAL_Feligres DAL_Feligres = new DAL_Feligres();
-        //public int Grabar(EN_Feligres feligres)
-        //{
-        //    int res = 0;
-        //    if (feligres.Id == 0)
-        //    {
-        //        res = DAL_Feligres.Insertar(feligres);
-        //    }
-        //    else
-        //    {
-        //        res = DAL_Feligres.Editar(feligres);
-        //    }
-        //    return res;
-        //}
+        public int Grabar(EN_Feligres feligres)
+        {
+            int res = 0;
+            if (feligres.Id == 0)
+            {
+                res = DAL_Feligres.Insertar(feligres);
+            }
+            else
+            {
+                //res = DAL_Feligres.Editar(feligres);
+            }
+            return res;
+        }
 
         public int Borrar(EN_Feligres feligres)
         {

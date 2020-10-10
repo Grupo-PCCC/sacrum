@@ -21,12 +21,12 @@ CREATE PROC NuevaEntidad
 @FechaNacimiento DATE,
 @IdTipoDocumento INT,
 @Documento VARCHAR (20),
-@Vivo BIT,
-@EsContacto BIT,
+@Vivo INT,
+@EsContacto INT,
 --FALLECIDOS--
 @FechaFallecimiento DATE,
 @FechaIngresoCinerario DATE,
-@Contribuyo BIT,
+@Contribuyo INT,
 @IdMovimientoMonetario INT,
 --PROVEEDORES--
 @RazonSocial VARCHAR (30),
@@ -47,7 +47,7 @@ SELECT @IdEntidad = SCOPE_IDENTITY()
 SELECT @IdEntidad
 If @Tabla  = 'Feligres'
 BEGIN
-INSERT INTO Feligres(Nombre, Apellido, FechaNacimiento, Documento, IdTipoDocumento, Observaciones, Vivo, EsContacto) VALUES (@Nombre, @Apellido, @FechaNacimiento, @Documento, @IdTipoDocumento, @Observaciones, @Vivo, @EsContacto)
+INSERT INTO Feligres(Nombre, Apellido, FechaNacimiento, IdTipoDocumento, Documento , Observaciones, Vivo, EsContacto) VALUES (@Nombre, @Apellido, @FechaNacimiento, @IdTipoDocumento , @Documento , @Observaciones, @Vivo, @EsContacto)
 SELECT @IdEntidades = SCOPE_IDENTITY()
 SELECT @CodigoInterno = ('FEL'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(6)))
 UPDATE Feligres SET CodigoInterno=@CodigoInterno, IdEntidad=@IdEntidad WHERE Id=@IdEntidades
@@ -87,7 +87,7 @@ GO
 EXEC NuevaEntidad null,null,null,null,null,null,null,null,null,null,null,'Casa de Monjas',null,null,null,'Llamar de 12 a 17',2,'Proveedor'
 GO
 --Agrego un feligrés--
---Nombre, Apellido, FechaNacimiento, IdTipoDocumento, IdTipoDocumento,Vivo, EsContacto--
+--Nombre, Apellido, FechaNacimiento, IdTipoDocumento, Documento,Vivo, EsContacto--
 EXEC NuevaEntidad 'Darío','Benítez', '05/05/1980',1,'3045567656',1,0,null,null,null,null,null,null,null,null,'Buen muchacho',1,'Feligres'
 GO
 --Agrego un usuario--
@@ -106,12 +106,12 @@ CREATE PROC ModificarEntidad
 @FechaNacimiento DATE,
 @IdTipoDocumento INT,
 @Documento VARCHAR (20),
-@Vivo BIT,
-@EsContacto BIT,
+@Vivo INT,
+@EsContacto INT,
 --FALLECIDOS--
 @FechaFallecimiento DATE,
 @FechaIngresoCinerario DATE,
-@Contribuyo BIT,
+@Contribuyo INT,
 @IdMovimientoMonetario INT,
 --PROVEEDORES--
 @RazonSocial VARCHAR (30),
@@ -128,7 +128,7 @@ AS
 IF @Tabla  = 'Feligres'
 BEGIN
 UPDATE Feligres
-SET Nombre=@Nombre, Apellido=@Apellido, FechaNacimiento=@FechaNacimiento, Documento=@Documento, IdTipoDocumento=@IdTipoDocumento, Observaciones=@Observaciones, Vivo=@Vivo, EsContacto=@EsContacto
+SET Nombre=@Nombre, Apellido=@Apellido, FechaNacimiento=@FechaNacimiento, IdTipoDocumento=@IdTipoDocumento, Documento=@Documento, Observaciones=@Observaciones, Vivo=@Vivo, EsContacto=@EsContacto
 WHERE IdEntidad=@IdEntidad
 END
 ELSE IF @Tabla = 'Proveedor'

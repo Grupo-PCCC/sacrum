@@ -71,8 +71,11 @@ namespace DAL
                 filasAfectadas = comando.ExecuteNonQuery();
             }
 
-            catch
+            catch (SqlException ex)
             {
+                SqlError err = ex.Errors[0];
+                string mensaje = string.Empty;
+                mensaje = err.ToString();
                 filasAfectadas = -1;
             }
                Cerrar();

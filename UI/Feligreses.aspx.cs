@@ -60,33 +60,44 @@ namespace UI
 
 
         protected void btnGrabar_Click(object sender, EventArgs e)
-        { }
-        //{
-        //    if (string.IsNullOrWhiteSpace(hid.Value))
-        //    {
-        //        hid.Value = "0";
-        //    }
 
-        //    EN_Feligres par = new EN_Feligres();
-        //    Audit L = new Audit();
-        //    par.Id = int.Parse(hid.Value);
-        //    par.Nombre = txtNombre.Text.ToString();
-        //    par.Apellido = txtApellido.Text.ToString();
-        //    par.FechaNac = Convert.ToDateTime(txtFechaNac.Text);
-        //    par.Observacion = txtObservaciones.Text.ToString();
-        //    BL_Parishioner.Grabar(par);
-        //    L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
-        //    L.ActionDate = DateTime.Now;
-        //    L.Id = LoginCache.Id;
-        //    L.WriteLog(L);
-        //    hid.Value = "0";
-        //    txtNombre.Text = "";
-        //    txtApellido.Text = "";
-        //    txtFechaNac.Text = "";
-        //    txtObservaciones.Text = "";
-        //    Enlazar();
-        //    lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
-        //}
+        {
+            if (string.IsNullOrWhiteSpace(hid.Value))
+            {
+                hid.Value = "0";
+            }
+            string Tabla = "Feligres";
+            int Entidad = 1;
+            EN_Feligres Feligres = new EN_Feligres();
+            //Audit L = new Audit();
+            Feligres.Id = int.Parse(hid.Value);
+            Feligres.Nombre = txtNombre.Text.ToString();
+            Feligres.Apellido = txtApellido.Text.ToString();
+            Feligres.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
+            Feligres.TDoc = LstTDoc.SelectedValue;
+            Feligres.Documento = txtDocumento.Text.ToString();
+            Feligres.Observaciones = txtObservaciones.Text.ToString();
+            Feligres.Vivo = int.Parse(LstVivo.SelectedValue);
+            Feligres.EsContacto = int.Parse(LstContacto.SelectedValue);
+            Feligres.Tabla = Tabla;
+            Feligres.IdEntidad = Entidad;
+            BL_Feligres.Grabar(Feligres);
+            //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
+            //L.ActionDate = DateTime.Now;
+            //L.Id = LoginCache.Id;
+            //L.WriteLog(L);
+            hid.Value = "0";
+            txtNombre.Text = "";
+            txtApellido.Text = "";
+            LstContacto.Text = "";
+            LstTDoc.Text = "";
+            LstVivo.Text = "";
+            txtFechaNac.Text = "";
+            txtDocumento.Text = "";
+            txtObservaciones.Text = "";
+            Enlazar();
+            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+        }
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         { }

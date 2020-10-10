@@ -14,7 +14,7 @@ CREATE TABLE Entidad (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
 IdTipoEntidad INT FOREIGN KEY REFERENCES TipoEntidad(Id),
 CodigoInterno VARCHAR (8),
-Estado BIT NOT NULL)
+Estado INT NOT NULL)
 GO
 CREATE TABLE TipoDocumento (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
@@ -32,9 +32,9 @@ FechaNacimiento DATE,
 Documento VARCHAR (20) NOT NULL,
 IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
 Observaciones VARCHAR (120),
-Vivo BIT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0. Copia un nuevo fallecido con los mismos datos.
+Vivo INT NOT NULL,--Si el fallecido es un feligrés, se cargan los datos automáticamente y cambia: Vivo=0. Copia un nuevo fallecido con los mismos datos.
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id),
-EsContacto BIT NOT NULL)
+EsContacto INT NOT NULL)
 GO
 CREATE TABLE Proveedor (
 Id INT PRIMARY KEY IDENTITY (1,1) NOT NULL,
@@ -92,7 +92,7 @@ Documento VARCHAR (20) NOT NULL,
 FechaFallecimiento DATE NOT NULL,
 FechaIngresoCinerario DATE NOT NULL,
 Observaciones VARCHAR (120),
-Contribuyo BIT NOT NULL,
+Contribuyo INT NOT NULL,
 IdMovimientoMonetario INT FOREIGN KEY REFERENCES MovimientoMonetario(Id),
 IdTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumento(Id) NOT NULL,
 IdEntidad INT FOREIGN KEY REFERENCES Entidad(Id))

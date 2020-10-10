@@ -130,6 +130,24 @@ namespace UI {
         protected global::AjaxControlToolkit.CalendarExtender txtFechaNac_CalendarExtender;
         
         /// <summary>
+        /// Control LstTDoc.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList LstTDoc;
+        
+        /// <summary>
+        /// Control txtDocumento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtDocumento;
+        
+        /// <summary>
         /// Control txtObservaciones.
         /// </summary>
         /// <remarks>
@@ -137,6 +155,24 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
+        
+        /// <summary>
+        /// Control LstVivo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList LstVivo;
+        
+        /// <summary>
+        /// Control LstContacto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList LstContacto;
         
         /// <summary>
         /// Control btnGrabar.

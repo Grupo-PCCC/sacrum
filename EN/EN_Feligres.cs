@@ -25,7 +25,9 @@ namespace EN
         public string TDoc { get; set; }
         public string Observaciones { get; set; }
         public int Vivo { get; set; }
-        
+
+        public string Tabla { get; set; }
+
         public int IdEntidad { get; set; }
         public int EsContacto { get; set; }
 
