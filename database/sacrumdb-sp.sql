@@ -13,7 +13,7 @@ GO
 
 
 
--- NUEVA ENTIDAD --
+-- NUEVA ENTIDAD -- ARREGLAR BUG DE CODIGO INTERNO
 CREATE PROC NuevaEntidad
 --FELIGRESES--
 @Nombre VARCHAR (30),
@@ -98,6 +98,19 @@ GO
 EXEC NuevaEntidad 'Darío','Benítez',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido'
 GO
 
+
+--- BUSCAR ENTIDAD ---
+CREATE PROC BuscarEntidadId
+@Id Int
+AS
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
+FROM Feligres F
+LEFT JOIN TipoDocumento TD ON F.IdTipoDocumento=TD.Id
+ WHERE F.Id = @Id
+Go
+
+
+
 --- MODIFICAR ENTIDAD --
 CREATE PROC ModificarEntidad
 ---FELIGRESES--
@@ -123,31 +136,31 @@ CREATE PROC ModificarEntidad
 @Observaciones VARCHAR (120),
 @IdTipoEntidad INT,
 @Tabla VARCHAR (30),
-@IdEntidad INT
+@Id INT
 AS
 IF @Tabla  = 'Feligres'
 BEGIN
 UPDATE Feligres
 SET Nombre=@Nombre, Apellido=@Apellido, FechaNacimiento=@FechaNacimiento, IdTipoDocumento=@IdTipoDocumento, Documento=@Documento, Observaciones=@Observaciones, Vivo=@Vivo, EsContacto=@EsContacto
-WHERE IdEntidad=@IdEntidad
+WHERE Id=@Id
 END
 ELSE IF @Tabla = 'Proveedor'
 BEGIN
 UPDATE Proveedor
 SET RazonSocial=@RazonSocial, Observaciones=@Observaciones
-WHERE IdEntidad=@IdEntidad
+WHERE Id=@Id
 END
 ELSE IF @Tabla = 'Usuario'
 BEGIN
 UPDATE Usuario
 SET Nombre=@Nombre, Apellido=@Apellido, Nick=@Nick, Contrasenia=@Contrasenia, IdTipoUsuario=@IdTipoUsuario 
-WHERE IdEntidad=@IdEntidad
+WHERE Id=@Id
 END
 ELSE IF @Tabla = 'Fallecido'
 BEGIN
 UPDATE Fallecido
 SET Nombre=@Nombre, Apellido=@Apellido, FechaFallecimiento=@FechaFallecimiento, FechaIngresoCinerario=@FechaIngresoCinerario, Contribuyo=@Contribuyo, IdMovimientoMonetario=@IdMovimientoMonetario, Observaciones=@Observaciones 
-WHERE IdEntidad=@IdEntidad
+WHERE Id=@Id
 END
 GO
 
@@ -166,6 +179,8 @@ GO
 --Modifico un fallecido--
 EXEC ModificarEntidad 'Darío modificado','Benítez modificado',null,1,'38440987',null,null,'06/06/2019','03/09/2020',0,null,null,null,null,null,'No han contribuído porque son pobres',4,'Fallecido',4
 GO
+
+
 
 --CAMBIAR ESTADO DE ENTIDAD--
 CREATE PROC CambiarEstadoEntidad

@@ -75,24 +75,39 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Observaciones", feligres.Observaciones));
             parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdEntidad));
             parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
-            
+
 
             return acceso.Escribir("NuevaEntidad", parameters);
 
 
         }
 
-        //public int Editar(EN_Feligres feligres)
-        //{
-        //    List<SqlParameter> parameters = new List<SqlParameter>();
-        //    parameters.Add(acceso.CrearParametro("@Id", feligres.Id));
-        //    parameters.Add(acceso.CrearParametro("@Name", feligres.Nombre));
-        //    parameters.Add(acceso.CrearParametro("@Surname", feligres.Apellido));
-        //    parameters.Add(acceso.CrearParametro("@BirthDate", Convert.ToDateTime(feligres.FechaNac)));
-        //    parameters.Add(acceso.CrearParametro("@Observation", feligres.Observacion));
+        public int Editar(EN_Feligres feligres)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Nombre", feligres.Nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", feligres.Apellido));
+            parameters.Add(acceso.CrearParametro("@FechaNacimiento", feligres.FechaNacimiento));
+            parameters.Add(acceso.CrearParametro("@IdTipoDocumento", feligres.TDoc));
+            parameters.Add(acceso.CrearParametro("@Documento", feligres.Documento));
+            parameters.Add(acceso.CrearParametro("@Vivo", feligres.Vivo));
+            parameters.Add(acceso.CrearParametro("@EsContacto", feligres.EsContacto));
+            parameters.Add(acceso.CrearParametro("@FechaFallecimiento", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@FechaIngresoCinerario", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Contribuyo", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@IdMovimientoMonetario", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@RazonSocial", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Nick", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@Contrasenia", DBNull.Value.ToString())); ;
+            parameters.Add(acceso.CrearParametro("@IdTipoUsuario", DBNull.Value.ToString())); ; ;
+            parameters.Add(acceso.CrearParametro("@Observaciones", feligres.Observaciones));
+            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdEntidad));
+            parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
+            parameters.Add(acceso.CrearParametro("@Id", feligres.Id));
 
-        //    return acceso.Escribir("UpdateParishioner", parameters);
-        //}
+
+            return acceso.Escribir("ModificarEntidad", parameters);
+        }
 
         public int Borrar(EN_Feligres feligres)
         {
@@ -104,29 +119,33 @@ namespace DAL
 
 
 
-        //public List<EN_Feligres> ListarID(int Id)
+        public List<EN_Feligres> FeligresId(int Id)
 
-        //{
-        //    int idEncontrado = Id;
-        //    List<SqlParameter> parameters = new List<SqlParameter>();
-        //    parameters.Add(acceso.CrearParametro("@Id", idEncontrado));
-        //    DataTable tabla = acceso.Leer("ListParishId", parameters);
-        //    List<EN_Feligres> parishID = new List<EN_Feligres>();
+        {
+            int idEncontrado = Id;
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Id", idEncontrado));
+            DataTable tabla = acceso.Leer("BuscarEntidadId", parameters);
+            List<EN_Feligres> Feligres_ID = new List<EN_Feligres>();
 
-        //    foreach (DataRow registro in tabla.Rows)
-        //    {
-        //        EN_Feligres feligres = new EN_Feligres();
-        //        feligres.Id = int.Parse(registro["Id"].ToString());
-        //        feligres.Nombre = (registro["Name"].ToString());
-        //        feligres.Apellido = (registro["Surname"].ToString());
-        //        feligres.FechaNac = Convert.ToDateTime(registro["BirthDate"].ToString());
-        //        feligres.Numero1 = (registro["NumberP"].ToString());
-        //        feligres.Numero2 = (registro["NumberA"].ToString());
-        //        feligres.Observacion = (registro["Observation"].ToString());
-        //        parishID.Add(feligres);
-        //    }
+            foreach (DataRow registro in tabla.Rows)
+            {
+                EN_Feligres feligres = new EN_Feligres();
+                feligres.Id = int.Parse(registro["Id"].ToString());
+                feligres.Nombre = (registro["Nombre"].ToString());
+                feligres.Apellido = (registro["Apellido"].ToString());
+                feligres.FechaNacimiento = Convert.ToDateTime(registro["Fecha de nacimiento"].ToString());
+                feligres.TDoc = (registro["Tipo de documento"].ToString());
+                feligres.Documento = (registro["Documento"].ToString());
+                feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
+                feligres.Vivo = int.Parse(registro["Vivo"].ToString());
+                feligres.IdEntidad = int.Parse(registro["IdEntidad"].ToString());
+                feligres.EsContacto = int.Parse(registro["EsContacto"].ToString());
+                Feligres_ID.Add(feligres);
+            }
 
-        //    return parishID;
+            return Feligres_ID;
+        }
 
         //}
         //public List<EN_Feligres> ListarNombre(string Name)

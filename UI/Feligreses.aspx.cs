@@ -100,39 +100,41 @@ namespace UI
         }
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
-        { }
-        //{
-        //    int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
-        //    //int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
-        //    //int Id = int.Parse(dgvFeligres.DataKeys[0][int.Parse(e.CommandArgument.ToString())].ToString());
-        //    List<EN_Feligres> listparishID = BL_Parishioner.ListarID(Id);
-        //    var parish = listparishID[0];
+        {
+            int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
+            //int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
+            //int Id = int.Parse(dgvFeligres.DataKeys[0][int.Parse(e.CommandArgument.ToString())].ToString());
+            List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(Id);
+            var Feligres = EditarFeligres[0];
 
 
-        //    switch (e.CommandName)
-        //    {
-        //        case "Borrar":
-        //            {
-        //                BL_Parishioner.Borrar(parish);
-        //                Enlazar();
-        //                lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
-        //                break;
+            switch (e.CommandName)
+            {
+                //case "Borrar":
+                //    {
+                //        BL_Parishioner.Borrar(parish);
+                //        Enlazar();
+                //        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+                //        break;
 
-        //            }
-        //        case "Seleccionar":
-        //            {
-        //                hid.Value = parish.Id.ToString();
-        //                txtNombre.Text = parish.Nombre;
-        //                txtApellido.Text = parish.Apellido;
-        //                txtFechaNac.Text = Convert.ToDateTime(parish.FechaNac).ToShortDateString();
-        //                txtObservaciones.Text = parish.Observacion;
-        //                ModalPopupExtender1.Show();
-        //                lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
-        //                break;
-
-        //            }
-        //    }
-        //}
+                //    }
+                case "Seleccionar":
+                    {
+                        hid.Value = Feligres.Id.ToString();
+                        txtNombre.Text = Feligres.Nombre;
+                        txtApellido.Text = Feligres.Apellido;
+                        txtFechaNac.Text = Convert.ToDateTime(Feligres.FechaNacimiento).ToShortDateString();
+                        LstTDoc.Text = Feligres.TDoc;
+                        txtDocumento.Text = Feligres.Documento;
+                        txtObservaciones.Text = Feligres.Observaciones;
+                        Feligres.Vivo = int.Parse(LstVivo.SelectedValue);
+                        Feligres.EsContacto = int.Parse(LstContacto.SelectedValue);
+                        ModalPopupExtender1.Show();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+                        break;
+                    }
+            }
+        }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
         {

@@ -23,7 +23,7 @@ namespace BL
             }
             else
             {
-                //res = DAL_Feligres.Editar(feligres);
+                res = DAL_Feligres.Editar(feligres);
             }
             return res;
         }
@@ -38,10 +38,10 @@ namespace BL
             return DAL_Feligres.Listar(Nombre, Apellido, Fecha1, Fecha2, Documento, Vivo, EsContacto, Estado);
         }
 
-        //public List<EN_Feligres> ListarID(int Id)
-        //{
-        //    return DAL_Feligres.ListarID(Id);
-        //}
+        public List<EN_Feligres> FeligresId(int Id)
+        {
+            return DAL_Feligres.FeligresId(Id);
+        }
 
         //public List<EN_Feligres> ListarName(string Name)
         //{
