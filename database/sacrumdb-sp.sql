@@ -13,7 +13,7 @@ GO
 
 
 
--- NUEVA ENTIDAD -- ARREGLAR BUG DE CODIGO INTERNO
+-- NUEVA ENTIDAD -- 
 CREATE PROC NuevaEntidad
 --FELIGRESES--
 @Nombre VARCHAR (30),
@@ -49,7 +49,7 @@ If @Tabla  = 'Feligres'
 BEGIN
 INSERT INTO Feligres(Nombre, Apellido, FechaNacimiento, IdTipoDocumento, Documento , Observaciones, Vivo, EsContacto) VALUES (@Nombre, @Apellido, @FechaNacimiento, @IdTipoDocumento , @Documento , @Observaciones, @Vivo, @EsContacto)
 SELECT @IdEntidades = SCOPE_IDENTITY()
-SELECT @CodigoInterno = ('FEL'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(6)))
+SELECT @CodigoInterno = ('FEL'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(10)))
 UPDATE Feligres SET CodigoInterno=@CodigoInterno, IdEntidad=@IdEntidad WHERE Id=@IdEntidades
 UPDATE Entidad SET CodigoInterno=@CodigoInterno WHERE Id=@IdEntidad
 END
@@ -57,7 +57,7 @@ ELSE IF @Tabla  = 'Proveedor'
 BEGIN
 INSERT INTO Proveedor(RazonSocial, Observaciones) VALUES (@RazonSocial,@Observaciones)
 SELECT @IdEntidades = SCOPE_IDENTITY()
-SELECT @CodigoInterno = ('PRO'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(6)))
+SELECT @CodigoInterno = ('PRO'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(10)))
 UPDATE Proveedor SET CodigoInterno=@CodigoInterno, IdEntidad=@IdEntidad WHERE Id=@IdEntidades
 UPDATE Entidad SET CodigoInterno=@CodigoInterno WHERE Id=@IdEntidad
 END
@@ -65,7 +65,7 @@ ELSE IF @Tabla  = 'Fallecido'
 BEGIN
 INSERT INTO Fallecido(Nombre, Apellido, Documento, FechaFallecimiento, FechaIngresoCinerario, Observaciones, Contribuyo, IdMovimientoMonetario, IdTipoDocumento) VALUES (@Nombre, @Apellido, @Documento, @FechaFallecimiento, @FechaIngresoCinerario, @Observaciones, @Contribuyo, @IdMovimientoMonetario, @IdTipoDocumento)
 SELECT @IdEntidades = SCOPE_IDENTITY()
-SELECT @CodigoInterno = ('FAL'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(6)))
+SELECT @CodigoInterno = ('FAL'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(10)))
 UPDATE Fallecido SET CodigoInterno=@CodigoInterno, IdEntidad=@IdEntidad WHERE Id=@IdEntidades
 UPDATE Entidad SET CodigoInterno=@CodigoInterno WHERE Id=@IdEntidad
 END
@@ -73,7 +73,7 @@ ELSE IF @Tabla  = 'Usuario'
 BEGIN
 INSERT INTO Usuario(Nombre, Apellido, Nick, Contrasenia, IdTipoUsuario) VALUES (@Nombre, @Apellido, @Nick, @Contrasenia, @IdTipoUsuario)
 SELECT @IdEntidades = SCOPE_IDENTITY()
-SELECT @CodigoInterno = ('USU'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(6)))
+SELECT @CodigoInterno = ('USU'+RIGHT('-'+CONVERT(VARCHAR, @IdEntidades),(10)))
 UPDATE Usuario SET CodigoInterno=@CodigoInterno, IdEntidad=@IdEntidad WHERE Id=@IdEntidades
 UPDATE Entidad SET CodigoInterno=@CodigoInterno WHERE Id=@IdEntidad
 END
@@ -101,15 +101,13 @@ GO
 
 --- BUSCAR ENTIDAD ---
 CREATE PROC BuscarEntidadId
-@Id Int
+@IdEntidad Int
 AS
 SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
 FROM Feligres F
 LEFT JOIN TipoDocumento TD ON F.IdTipoDocumento=TD.Id
- WHERE F.Id = @Id
+ WHERE F.IdEntidad = @IdEntidad
 Go
-
-
 
 --- MODIFICAR ENTIDAD --
 CREATE PROC ModificarEntidad
@@ -136,31 +134,32 @@ CREATE PROC ModificarEntidad
 @Observaciones VARCHAR (120),
 @IdTipoEntidad INT,
 @Tabla VARCHAR (30),
-@Id INT
+@IdEntidad INT
+
 AS
 IF @Tabla  = 'Feligres'
 BEGIN
 UPDATE Feligres
 SET Nombre=@Nombre, Apellido=@Apellido, FechaNacimiento=@FechaNacimiento, IdTipoDocumento=@IdTipoDocumento, Documento=@Documento, Observaciones=@Observaciones, Vivo=@Vivo, EsContacto=@EsContacto
-WHERE Id=@Id
+WHERE IdEntidad=@IdEntidad
 END
 ELSE IF @Tabla = 'Proveedor'
 BEGIN
 UPDATE Proveedor
 SET RazonSocial=@RazonSocial, Observaciones=@Observaciones
-WHERE Id=@Id
+WHERE IdEntidad=@IdEntidad
 END
 ELSE IF @Tabla = 'Usuario'
 BEGIN
 UPDATE Usuario
 SET Nombre=@Nombre, Apellido=@Apellido, Nick=@Nick, Contrasenia=@Contrasenia, IdTipoUsuario=@IdTipoUsuario 
-WHERE Id=@Id
+WHERE IdEntidad=@IdEntidad
 END
 ELSE IF @Tabla = 'Fallecido'
 BEGIN
 UPDATE Fallecido
 SET Nombre=@Nombre, Apellido=@Apellido, FechaFallecimiento=@FechaFallecimiento, FechaIngresoCinerario=@FechaIngresoCinerario, Contribuyo=@Contribuyo, IdMovimientoMonetario=@IdMovimientoMonetario, Observaciones=@Observaciones 
-WHERE Id=@Id
+WHERE IdEntidad=@IdEntidad
 END
 GO
 

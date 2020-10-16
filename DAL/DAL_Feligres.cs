@@ -73,7 +73,7 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Contrasenia", DBNull.Value.ToString())); ;
             parameters.Add(acceso.CrearParametro("@IdTipoUsuario", DBNull.Value.ToString())); ; ;
             parameters.Add(acceso.CrearParametro("@Observaciones", feligres.Observaciones));
-            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdEntidad));
+            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdTipoEntidad));
             parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
 
 
@@ -101,20 +101,21 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@Contrasenia", DBNull.Value.ToString())); ;
             parameters.Add(acceso.CrearParametro("@IdTipoUsuario", DBNull.Value.ToString())); ; ;
             parameters.Add(acceso.CrearParametro("@Observaciones", feligres.Observaciones));
-            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdEntidad));
+            parameters.Add(acceso.CrearParametro("@IdTipoEntidad", feligres.IdTipoEntidad));
             parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
-            parameters.Add(acceso.CrearParametro("@Id", feligres.Id));
+            parameters.Add(acceso.CrearParametro("@IdEntidad", feligres.IdEntidad));
 
 
             return acceso.Escribir("ModificarEntidad", parameters);
         }
 
-        public int Borrar(EN_Feligres feligres)
+        public int Baja(EN_Feligres feligres)
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(acceso.CrearParametro("@Id", feligres.Id));
+            parameters.Add(acceso.CrearParametro("@IdEntidad", feligres.IdEntidad));
+            parameters.Add(acceso.CrearParametro("@Estado", feligres.Estado));
 
-            return acceso.Escribir("DeleteParishioner", parameters);
+            return acceso.Escribir("CambiarEstadoEntidad", parameters);
         }
 
 
@@ -124,7 +125,7 @@ namespace DAL
         {
             int idEncontrado = Id;
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(acceso.CrearParametro("@Id", idEncontrado));
+            parameters.Add(acceso.CrearParametro("@IdEntidad", idEncontrado));
             DataTable tabla = acceso.Leer("BuscarEntidadId", parameters);
             List<EN_Feligres> Feligres_ID = new List<EN_Feligres>();
 

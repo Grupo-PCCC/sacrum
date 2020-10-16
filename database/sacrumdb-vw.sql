@@ -1,7 +1,9 @@
+use SacrumDb_tests
+go
 --VISTA PRINCIPAL DE FELIGRESES--
 CREATE PROC VW_Feligreses (@Nombre VARCHAR(30), @Apellido VARCHAR(30), @Fecha1 DATE, @Fecha2 DATE, @Documento VARCHAR(20), @Vivo INT, @EsContacto INT, @Estado INT)
 AS
-SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Teléfono, MAI.Valor AS Mail, DIR.Valor AS Dirección, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, MAI.Valor AS Mail, DIR.Valor AS Direccion, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
 FROM Feligres F
 --JOINS--
 LEFT JOIN TipoDocumento TD
@@ -38,6 +40,7 @@ F.Documento LIKE '%' + @Documento + '%' COLLATE Latin1_General_CI_AI
 GO
 --Búsqueda de prueba--
 exec  VW_Feligreses '','','01-01-1950','01-01-2020','',1,0,1
+
 
 --VW DE CAJA--
 

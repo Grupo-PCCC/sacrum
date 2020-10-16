@@ -40,7 +40,7 @@
                         </div>
 
 
-                        <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging">
+                        <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging" OnSelectedIndexChanged="dgvFeligres_SelectedIndexChanged">
 
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="False">
@@ -188,22 +188,8 @@
                     <label for="observaciones" runat="server">Observaciones</label>
                     <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
                 </div>
-                <div class="form form-group">
-                     <label for="Vivo" runat="server">Estado</label>
-                   <asp:DropDownList ID="LstVivo" runat="server">
-                        <asp:ListItem Value="1">VIVO</asp:ListItem>
-                        <asp:ListItem Value="0">DIFUNTO</asp:ListItem>
-                    </asp:DropDownList >
-                </div>
-                <div class="form form-group">
-                     <label for="EsContacto" runat="server">Contacto</label>
-                    <asp:DropDownList ID="LstContacto" runat="server">
-                        <asp:ListItem Value="0">NO</asp:ListItem>
-                        <asp:ListItem Value="1">SI</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-
-
+               
+  
                 <br />
 
                 <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />

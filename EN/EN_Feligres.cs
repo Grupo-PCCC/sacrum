@@ -31,6 +31,10 @@ namespace EN
         public int IdEntidad { get; set; }
         public int EsContacto { get; set; }
 
+        public int IdTipoEntidad { get; set; }
+
+        public int Estado { get; set; }
+
         public EN_TipoDocumento _TipoDocumento;
         public EN_Entidad _Entidad;
         public EN_DatoEntidad _DatoEntidad;

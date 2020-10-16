@@ -17,16 +17,16 @@ namespace UI
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             Enlazar();
-            
+
 
             VerificarSesion();
 
             if (!IsPostBack)
 
             {
-                
+
                 this.Form.Attributes.Add("autocomplete", "off");
 
             }
@@ -51,7 +51,7 @@ namespace UI
             DateTime Fecha2;
             if (dateInicio.Text == "")
             {
-                Fecha1= Convert.ToDateTime("01-01-1900");
+                Fecha1 = Convert.ToDateTime("01-01-1900");
             }
             else
             {
@@ -66,8 +66,6 @@ namespace UI
                 Fecha2 = Convert.ToDateTime(dateFin.Text);
             }
 
-            //DateTime Fecha1 = Convert.ToDateTime("01-01-1900");
-            //DateTime Fecha2 = Convert.ToDateTime("12-12-2020");
             string Documento = txtDocumentoBuscar.Text.Trim().ToString();
             int Vivo = 1;
             int EsContacto = 0;
@@ -86,8 +84,8 @@ namespace UI
             {
                 hid.Value = "0";
             }
+            
             string Tabla = "Feligres";
-            int Entidad = 1;
             EN_Feligres Feligres = new EN_Feligres();
             //Audit L = new Audit();
             Feligres.Id = int.Parse(hid.Value);
@@ -97,11 +95,19 @@ namespace UI
             Feligres.TDoc = LstTDoc.SelectedValue;
             Feligres.Documento = txtDocumento.Text.ToString();
             Feligres.Observaciones = txtObservaciones.Text.ToString();
-            Feligres.Vivo = int.Parse(LstVivo.SelectedValue);
-            Feligres.EsContacto = int.Parse(LstContacto.SelectedValue);
+            Feligres.Vivo = 1;
+            Feligres.EsContacto = 0;
+            Feligres.IdTipoEntidad = 1;
             Feligres.Tabla = Tabla;
-            Feligres.IdEntidad = Entidad;
-            BL_Feligres.Grabar(Feligres);
+            int IdEntidad = Convert.ToInt32(hid.Value);
+            if (IdEntidad != 0)
+            {
+              
+                List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(IdEntidad);
+                var FeligresId = EditarFeligres[0];
+                Feligres.IdEntidad = FeligresId.IdEntidad;
+            }
+             BL_Feligres.Grabar(Feligres);
             //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
             //L.ActionDate = DateTime.Now;
             //L.Id = LoginCache.Id;
@@ -109,9 +115,7 @@ namespace UI
             hid.Value = "0";
             txtNombre.Text = "";
             txtApellido.Text = "";
-            LstContacto.Text = "";
             LstTDoc.Text = "";
-            LstVivo.Text = "";
             txtFechaNac.Text = "";
             txtDocumento.Text = "";
             txtObservaciones.Text = "";
@@ -122,33 +126,31 @@ namespace UI
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
             int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
-            //int Id = int.Parse(dgvFeligres.Rows[int.Parse(e.CommandArgument.ToString())].Cells[0].Text);
-            //int Id = int.Parse(dgvFeligres.DataKeys[0][int.Parse(e.CommandArgument.ToString())].ToString());
             List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(Id);
-            var Feligres = EditarFeligres[0];
-
+            var FeligresId = EditarFeligres[0];
 
             switch (e.CommandName)
             {
-                //case "Borrar":
-                //    {
-                //        BL_Parishioner.Borrar(parish);
-                //        Enlazar();
-                //        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
-                //        break;
+                case "Borrar":
+                    {
 
-                //    }
+                        FeligresId.Estado = 0;
+                        FeligresId.IdEntidad = Id;
+                        BL_Feligres.Baja(FeligresId);
+                        Enlazar();
+                        lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+                        break;
+
+                    }
                 case "Seleccionar":
                     {
-                        hid.Value = Feligres.Id.ToString();
-                        txtNombre.Text = Feligres.Nombre;
-                        txtApellido.Text = Feligres.Apellido;
-                        txtFechaNac.Text = Convert.ToDateTime(Feligres.FechaNacimiento).ToShortDateString();
-                        LstTDoc.Text = Feligres.TDoc;
-                        txtDocumento.Text = Feligres.Documento;
-                        txtObservaciones.Text = Feligres.Observaciones;
-                        Feligres.Vivo = int.Parse(LstVivo.SelectedValue);
-                        Feligres.EsContacto = int.Parse(LstContacto.SelectedValue);
+                        hid.Value = FeligresId.IdEntidad.ToString();
+                        txtNombre.Text = FeligresId.Nombre;
+                        txtApellido.Text = FeligresId.Apellido;
+                        txtFechaNac.Text = Convert.ToDateTime(FeligresId.FechaNacimiento).ToShortDateString();
+                        LstTDoc.Text = FeligresId.TDoc;
+                        txtDocumento.Text = FeligresId.Documento;
+                        txtObservaciones.Text = FeligresId.Observaciones;
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
@@ -159,6 +161,7 @@ namespace UI
         protected void btnNuevo_Click(object sender, EventArgs e)
         {
             hid.Value = "0";
+            txtDocumento.Text = string.Empty;
             ModalPopupExtender1.Show();
         }
 
@@ -183,16 +186,9 @@ namespace UI
         {
 
         }
-        //{
-        //    mostrarBuscarTabla(TxtBuscar.Text.ToString());
-        //}
-        //public void mostrarBuscarTabla(string Name)
-        //{
-        //    BL_Feligres objBL = new BL_Feligres();
-        //    Name = TxtBuscar.Text.ToString();
-        //    dgvFeligres.DataSource = objBL.ListarName(Name);
-        //    dgvFeligres.DataBind();
-        //    lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
-        //}
+
+        protected void dgvFeligres_SelectedIndexChanged(object sender, EventArgs e)
+        {
+        }
     }
 }

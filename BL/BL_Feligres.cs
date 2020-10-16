@@ -28,9 +28,9 @@ namespace BL
             return res;
         }
 
-        public int Borrar(EN_Feligres feligres)
+        public int Baja(EN_Feligres feligres)
         {
-            return DAL_Feligres.Borrar(feligres);
+            return DAL_Feligres.Baja(feligres);
         }
 
         public List<EN_Feligres> Listar(string Nombre, string Apellido, DateTime Fecha1, DateTime Fecha2, string Documento, int Vivo, int EsContacto, int Estado)
@@ -43,9 +43,6 @@ namespace BL
             return DAL_Feligres.FeligresId(Id);
         }
 
-        //public List<EN_Feligres> ListarName(string Name)
-        //{
-        //    return DAL_Feligres.ListarNombre(Name);
-        //}
+     
     }
 }
