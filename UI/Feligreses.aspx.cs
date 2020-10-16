@@ -17,15 +17,16 @@ namespace UI
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
             Enlazar();
+            
 
             VerificarSesion();
 
             if (!IsPostBack)
 
             {
-
+                
                 this.Form.Attributes.Add("autocomplete", "off");
 
             }
@@ -44,11 +45,30 @@ namespace UI
 
         public void Enlazar()
         {
-            string Nombre = "";
-            string Apellido = "";
-            DateTime Fecha1 = Convert.ToDateTime("01-01-1900");
-            DateTime Fecha2 = Convert.ToDateTime("01-01-2020");
-            string Documento = "";
+            string Nombre = txtNombreBuscar.Text.Trim().ToString();
+            string Apellido = txtApellidoBuscar.Text.Trim().ToString();
+            DateTime Fecha1;
+            DateTime Fecha2;
+            if (dateInicio.Text == "")
+            {
+                Fecha1= Convert.ToDateTime("01-01-1900");
+            }
+            else
+            {
+                Fecha1 = Convert.ToDateTime(dateInicio.Text);
+            }
+            if (dateFin.Text == "")
+            {
+                Fecha2 = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
+            }
+            else
+            {
+                Fecha2 = Convert.ToDateTime(dateFin.Text);
+            }
+
+            //DateTime Fecha1 = Convert.ToDateTime("01-01-1900");
+            //DateTime Fecha2 = Convert.ToDateTime("12-12-2020");
+            string Documento = txtDocumentoBuscar.Text.Trim().ToString();
             int Vivo = 1;
             int EsContacto = 0;
             int Estado = 1;

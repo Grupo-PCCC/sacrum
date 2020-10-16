@@ -20,7 +20,20 @@
                         <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
                         <div class="form-inline float-lg-right">
                             <div class="form-group mx-sm-3 mb-2">
-                                <asp:TextBox ID="TxtBuscar" class="form-control" PlaceHolder="Nombre" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtNombreBuscar" class="form-control" PlaceHolder="Nombre" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtApellidoBuscar" class="form-control" PlaceHolder="Apellido" runat="server"></asp:TextBox>
+                                <asp:TextBox ID="txtDocumentoBuscar" class="form-control" PlaceHolder="Documento" runat="server"></asp:TextBox>
+                                <div class="form form-group">
+                                <label for="fechanac" runat="server">Fecha 1</label>
+                                <asp:TextBox ID="dateInicio" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                <ajaxToolkit:CalendarExtender ID="dateInicioBuscar" runat="server" TargetControlID="dateInicio" Format="dd/MM/yyyy" />
+                                </div>
+                                <div class="form form-group">
+                                <label for="fechanac" runat="server">Fecha 2</label>
+                                <asp:TextBox ID="dateFin" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                <ajaxToolkit:CalendarExtender ID="dateFinBuscar" runat="server" TargetControlID="dateFin" Format="dd/MM/yyyy" />
+                                </div>
+
                                 <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
                             </div>
 
