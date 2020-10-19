@@ -82,6 +82,28 @@ namespace DAL
             return filasAfectadas;
         }
 
+        public int Scalar(string nombre, List<SqlParameter> parametros)
+        {
+            var scl = 0;
+            Abrir();
+            SqlCommand comando = CrearComando(nombre, parametros);
+
+            try
+            {
+                scl = Convert.ToInt32(comando.ExecuteScalar());
+            }
+
+            catch (SqlException ex)
+            {
+                SqlError err = ex.Errors[0];
+                string mensaje = string.Empty;
+                mensaje = err.ToString();
+                scl = -1;
+            }
+            Cerrar();
+            return scl;
+        }
+
         public SqlParameter CrearParametro(string nombre, string valor)
         {
             SqlParameter parametro = new SqlParameter();

@@ -14,6 +14,7 @@ namespace UI
     public partial class Parishioner : System.Web.UI.Page
     {
         BL_Feligres BL_Feligres = new BL_Feligres();
+        BL_Entidad BL_Entidad = new BL_Entidad();
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -108,6 +109,7 @@ namespace UI
                 Feligres.IdEntidad = FeligresId.IdEntidad;
             }
             BL_Feligres.Grabar(Feligres);
+            int idInsertado = BL_Entidad.UltimoIdEntidad();
             //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
             //L.ActionDate = DateTime.Now;
             //L.Id = LoginCache.Id;
