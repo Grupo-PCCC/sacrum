@@ -24,14 +24,14 @@
                                 <asp:TextBox ID="txtApellidoBuscar" class="form-control" PlaceHolder="Apellido" runat="server"></asp:TextBox>
                                 <asp:TextBox ID="txtDocumentoBuscar" class="form-control" PlaceHolder="Documento" runat="server"></asp:TextBox>
                                 <div class="form form-group">
-                                <label for="fechanac" runat="server">Fecha 1</label>
-                                <asp:TextBox ID="dateInicio" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                                <ajaxToolkit:CalendarExtender ID="dateInicioBuscar" runat="server" TargetControlID="dateInicio" Format="dd/MM/yyyy" />
+                                    <label for="fechanac" runat="server">Fecha 1</label>
+                                    <asp:TextBox ID="dateInicio" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                    <ajaxToolkit:CalendarExtender ID="dateInicioBuscar" runat="server" TargetControlID="dateInicio" Format="dd/MM/yyyy" />
                                 </div>
                                 <div class="form form-group">
-                                <label for="fechanac" runat="server">Fecha 2</label>
-                                <asp:TextBox ID="dateFin" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                                <ajaxToolkit:CalendarExtender ID="dateFinBuscar" runat="server" TargetControlID="dateFin" Format="dd/MM/yyyy" />
+                                    <label for="fechanac" runat="server">Fecha 2</label>
+                                    <asp:TextBox ID="dateFin" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                    <ajaxToolkit:CalendarExtender ID="dateFinBuscar" runat="server" TargetControlID="dateFin" Format="dd/MM/yyyy" />
                                 </div>
 
                                 <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
@@ -141,7 +141,7 @@
 
 
 
-            <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" Width="380px" ScrollBars="Horizontal">
+            <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" ScrollBars="Horizontal">
 
                 <div class="modal-header" id="ModalHeader">
 
@@ -181,6 +181,27 @@
                     <asp:TextBox ID="txtDocumento" class="form-control" runat="server" Width="350px"></asp:TextBox>
                 </div>
 
+                <div class="form form-group">
+                    <label for="direccion" runat="server">Dirección</label>
+                    <asp:TextBox ID="txtDireccion" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                </div>
+
+                <div class="form form-group">
+                    <label for="mail" runat="server">E-Mail</label>
+                    <asp:TextBox ID="txtMail" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                </div>
+
+                <div class="form form-group">
+                    <label for="TTel" runat="server">Tipo de Telefono</label>
+                    <asp:DropDownList ID="lstTelefono" runat="server">
+                        <asp:ListItem Value="1">Principal</asp:ListItem>
+                        <asp:ListItem Value="2">Otro</asp:ListItem>
+                    </asp:DropDownList>
+                </div>
+                <div class="form form-group">
+                    <label for="Telefono" runat="server">Telefono</label>
+                    <asp:TextBox ID="txtTelefono" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                </div>
 
 
 
@@ -188,8 +209,8 @@
                     <label for="observaciones" runat="server">Observaciones</label>
                     <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
                 </div>
-               
-  
+
+
                 <br />
 
                 <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />

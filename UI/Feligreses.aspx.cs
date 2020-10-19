@@ -84,7 +84,7 @@ namespace UI
             {
                 hid.Value = "0";
             }
-            
+
             string Tabla = "Feligres";
             EN_Feligres Feligres = new EN_Feligres();
             //Audit L = new Audit();
@@ -102,16 +102,24 @@ namespace UI
             int IdEntidad = Convert.ToInt32(hid.Value);
             if (IdEntidad != 0)
             {
-              
+
                 List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(IdEntidad);
                 var FeligresId = EditarFeligres[0];
                 Feligres.IdEntidad = FeligresId.IdEntidad;
             }
-             BL_Feligres.Grabar(Feligres);
+            BL_Feligres.Grabar(Feligres);
             //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
             //L.ActionDate = DateTime.Now;
             //L.Id = LoginCache.Id;
             //L.WriteLog(L);
+            //Aca habria que primero obtener el IdEntidad para poder dar de alta.
+            //Como se inserta por separado cada datoentidad, mi idea es evaluar con else if cada txt, si no esta vacio, carga los metodos con
+            //los parametros y hace la carga, luego evalua el siguiente y asi sucesivamente.
+            //if (txtDireccion.Text != "")
+            //{
+               // aca iria lo comentado, pero hay que tener el IdEntidad de cada uno para poder cargarlo correctamente. 
+            
+            //}
             hid.Value = "0";
             txtNombre.Text = "";
             txtApellido.Text = "";
