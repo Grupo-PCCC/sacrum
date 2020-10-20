@@ -15,6 +15,7 @@ namespace UI
     {
         BL_Feligres BL_Feligres = new BL_Feligres();
         BL_Entidad BL_Entidad = new BL_Entidad();
+        BL_DatoEntidad BL_DatoEntidad = new BL_DatoEntidad();
         Audit L = new Audit();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -114,14 +115,31 @@ namespace UI
             //L.ActionDate = DateTime.Now;
             //L.Id = LoginCache.Id;
             //L.WriteLog(L);
-            //Aca habria que primero obtener el IdEntidad para poder dar de alta.
-            //Como se inserta por separado cada datoentidad, mi idea es evaluar con else if cada txt, si no esta vacio, carga los metodos con
-            //los parametros y hace la carga, luego evalua el siguiente y asi sucesivamente.
-            //if (txtDireccion.Text != "")
-            //{
-               // aca iria lo comentado, pero hay que tener el IdEntidad de cada uno para poder cargarlo correctamente. 
-            
-            //}
+
+            void NuevoDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
+            {
+                EN_DatoEntidad nuevoDato = new EN_DatoEntidad();
+                nuevoDato._Entidad.Id = idInsertado;
+                nuevoDato._TipoDatoEntidad.Id = 1;
+                nuevoDato.NombreDato = NombreDato;
+                nuevoDato.Valor = Valor;
+                nuevoDato.Detalle = "";
+                BL_DatoEntidad.Insertar(nuevoDato);
+            }
+
+            if (txtDireccion.Text != "")
+            {
+                NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
+            }
+            if (txtMail.Text != "")
+            {
+                NuevoDatoEntidad(idInsertado, "mail", txtMail.Text);
+            }
+            if (txtTelefono.Text != "")
+            {
+                NuevoDatoEntidad(idInsertado, "tel", txtTelefono.Text);
+            }
+
             hid.Value = "0";
             txtNombre.Text = "";
             txtApellido.Text = "";
@@ -129,6 +147,10 @@ namespace UI
             txtFechaNac.Text = "";
             txtDocumento.Text = "";
             txtObservaciones.Text = "";
+            txtDireccion.Text = "";
+            txtMail.Text = "";
+            txtTelefono.Text = "";
+
             Enlazar();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
         }
@@ -161,6 +183,9 @@ namespace UI
                         LstTDoc.Text = FeligresId.TDoc;
                         txtDocumento.Text = FeligresId.Documento;
                         txtObservaciones.Text = FeligresId.Observaciones;
+                        txtTelefono.Text = FeligresId.Telefono;
+                        txtDireccion.Text = FeligresId.Direccion;
+                        txtMail.Text = FeligresId.Mail;
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;
