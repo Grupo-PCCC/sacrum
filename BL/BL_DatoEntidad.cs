@@ -19,5 +19,11 @@ namespace BL
             res = DAL_DatoEntidad.Insertar(datoEntidad);
             return res;
         }
+        public int Editar(EN_DatoEntidad datoEntidad)
+        {
+            int res = 0;
+            res = DAL_DatoEntidad.Editar(datoEntidad);
+            return res;
+        }
     }
 }

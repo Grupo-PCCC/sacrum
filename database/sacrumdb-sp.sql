@@ -103,11 +103,27 @@ GO
 CREATE PROC BuscarEntidadId
 @IdEntidad Int
 AS
-SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, MAI.Valor AS Mail, DIR.Valor AS Direccion, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
 FROM Feligres F
-LEFT JOIN TipoDocumento TD ON F.IdTipoDocumento=TD.Id
+LEFT JOIN TipoDocumento TD
+ON F.IdTipoDocumento=TD.Id
+LEFT JOIN DatoEntidad TEL
+ON TEL.IdTipoDatoEntidad=1
+AND TEL.NombreDato='tel'
+AND F.IdEntidad=TEL.IdEntidad
+LEFT JOIN DatoEntidad AS MAI
+ON MAI.IdTipoDatoEntidad=1
+AND MAI.NombreDato='mail'
+AND F.IdEntidad=MAI.IdEntidad
+LEFT JOIN DatoEntidad AS DIR
+ON DIR.IdTipoDatoEntidad=1
+AND DIR.NombreDato='dire'
+AND F.IdEntidad=DIR.IdEntidad
+LEFT JOIN Entidad E
+ON E.Id=F.IdEntidad
  WHERE F.IdEntidad = @IdEntidad
 Go
+
 
 --- MODIFICAR ENTIDAD --
 CREATE PROC ModificarEntidad
@@ -221,10 +237,10 @@ GO
 CREATE PROC ModificarDatoEntidad
 @Valor VARCHAR (100),
 @Detalle VARCHAR (20),
-@Id INT
+@IdEntidad INT
 AS
 UPDATE DatoEntidad SET Valor=@Valor, Detalle=@Detalle
-WHERE Id=@Id
+WHERE IdEntidad=@IdEntidad
 GO
 
 --Modifico un dato de una entidad--
@@ -233,9 +249,9 @@ GO
 
 --BORRAR DATO ENTIDAD--
 CREATE PROC BorrarDatoEntidad
-@Id INT
+@IdEntidad INT
 AS
-DELETE FROM DatoEntidad WHERE Id=@Id
+DELETE FROM DatoEntidad WHERE IdEntidad=@IdEntidad
 GO
 
 --Borro un dato de una entidad--

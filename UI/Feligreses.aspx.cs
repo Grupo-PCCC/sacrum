@@ -19,6 +19,8 @@ namespace UI
         Audit L = new Audit();
         int flag = 0;
         bool documentoInvalido = true;
+        int FlagIDEntidad;
+        int IDEntidad;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -84,11 +86,20 @@ namespace UI
         protected void btnGrabar_Click(object sender, EventArgs e)
 
         {
+            FlagIDEntidad = 0;
             flag = 0;
             if (string.IsNullOrWhiteSpace(hid.Value))
             {
                 hid.Value = "0";
+                FlagIDEntidad = 0;
+
             }
+            else
+            {
+                FlagIDEntidad = 1;
+                IDEntidad = Convert.ToInt32(hid.Value);
+            }
+
 
             if (txtNombre.Text == "" && txtApellido.Text == "" && txtDocumento.Text == "")
             {
@@ -101,7 +112,7 @@ namespace UI
                 flag = 0;
             }
 
-            if (txtNombre.Text == "" && flag==0)
+            if (txtNombre.Text == "" && flag == 0)
             {
                 flag = 1;
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Nombre para guardar el feligrés')", true);
@@ -119,8 +130,9 @@ namespace UI
                 ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Documento para guardar el feligrés')", true);
             }
 
-            if (txtDocumento.Text != "" && flag == 0)
+            if (FlagIDEntidad == 0 & flag == 0 && txtDocumento.Text != "")
             {
+
                 EN_Feligres documentoIngresado = new EN_Feligres();
                 documentoIngresado.Documento = txtDocumento.Text;
                 documentoIngresado.Tabla = "Feligres";
@@ -134,7 +146,7 @@ namespace UI
                     flag = 1;
                     ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "El documento ingresado pertenece a un feligrés existente", "alert('El documento ingresado pertenece a un feligrés existente')", true);
                 }
-                
+
             }
 
 
@@ -183,18 +195,51 @@ namespace UI
                     nuevoDato.Detalle = "";
                     BL_DatoEntidad.Insertar(nuevoDato);
                 }
+                void EditarDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
+                {
+                    EN_DatoEntidad EditarDato = new EN_DatoEntidad();
+                    EditarDato.IdEntidad = IDEntidad;
+                    EditarDato.NombreDato = NombreDato;
+                    EditarDato.Valor = Valor;
+                    EditarDato.Detalle = "";
+                    BL_DatoEntidad.Editar(EditarDato);
+                }
+                if (FlagIDEntidad == 1)
+                {
+                    EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
 
-                if (txtDireccion.Text != "")
-                {
-                    NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
+                    EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
+                    EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
+                    //if (txtDireccion.Text != "")
+                    //{
+                    //    EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
+                    //}
+                    //if (txtMail.Text != "")
+                    //{
+                    //    EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
+                    //}
+                    //if (txtTelefono.Text != "")
+                    //{
+                    //    //validar telefono doble principal.
+                    //    EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
+                    //}
                 }
-                if (txtMail.Text != "")
+                if (FlagIDEntidad == 0)
                 {
-                    NuevoDatoEntidad(idInsertado, "mail", txtMail.Text);
-                }
-                if (txtTelefono.Text != "")
-                {
-                    NuevoDatoEntidad(idInsertado, "tel", txtTelefono.Text);
+                    if (txtDireccion.Text != "")
+                    {
+                        NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
+                    }
+                    if (txtMail.Text != "")
+                    {
+                        NuevoDatoEntidad(idInsertado, "mail", txtMail.Text);
+                    }
+                    if (txtTelefono.Text != "")
+                    {
+
+                        NuevoDatoEntidad(idInsertado, "tel", txtTelefono.Text);
+                    }
+
                 }
 
                 hid.Value = "0";
@@ -207,15 +252,17 @@ namespace UI
                 txtDireccion.Text = "";
                 txtMail.Text = "";
                 txtTelefono.Text = "";
+                FlagIDEntidad = 0;
 
                 Enlazar();
                 lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
             }
-            
+
         }
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
+
             int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
             List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(Id);
             var FeligresId = EditarFeligres[0];
@@ -236,6 +283,7 @@ namespace UI
                 case "Seleccionar":
                     {
                         hid.Value = FeligresId.IdEntidad.ToString();
+                       
                         txtNombre.Text = FeligresId.Nombre;
                         txtApellido.Text = FeligresId.Apellido;
                         txtFechaNac.Text = Convert.ToDateTime(FeligresId.FechaNacimiento).ToShortDateString();
@@ -245,6 +293,7 @@ namespace UI
                         txtTelefono.Text = FeligresId.Telefono;
                         txtDireccion.Text = FeligresId.Direccion;
                         txtMail.Text = FeligresId.Mail;
+
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;

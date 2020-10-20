@@ -23,8 +23,18 @@ namespace DAL
             parameters.Add(acceso.CrearParametro("@NombreDato", datoEntidad.NombreDato));
             parameters.Add(acceso.CrearParametro("@Valor", datoEntidad.Valor));
             parameters.Add(acceso.CrearParametro("@Detalle", datoEntidad.Detalle));
-            
+
             return acceso.Escribir("NuevoDatoEntidad", parameters);
+
+        }
+
+        public int Editar(EN_DatoEntidad datoEntidad)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();    
+            parameters.Add(acceso.CrearParametro("@Valor", datoEntidad.Valor));
+            parameters.Add(acceso.CrearParametro("@Detalle", datoEntidad.Detalle));
+            parameters.Add(acceso.CrearParametro("@IdEntidad", datoEntidad.IdEntidad));
+            return acceso.Escribir("ModificarDatoEntidad", parameters);
 
         }
     }

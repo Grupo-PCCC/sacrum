@@ -133,11 +133,15 @@ namespace DAL
             {
                 EN_Feligres feligres = new EN_Feligres();
                 feligres.Id = int.Parse(registro["Id"].ToString());
+                feligres.CodigoInterno = (registro["Codigo Interno"].ToString());
                 feligres.Nombre = (registro["Nombre"].ToString());
                 feligres.Apellido = (registro["Apellido"].ToString());
                 feligres.FechaNacimiento = Convert.ToDateTime(registro["Fecha de nacimiento"].ToString());
                 feligres.TDoc = (registro["Tipo de documento"].ToString());
                 feligres.Documento = (registro["Documento"].ToString());
+                feligres.Telefono = (registro["Telefono"] is DBNull ? "" : registro["Telefono"]).ToString();
+                feligres.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
+                feligres.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
                 feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
                 feligres.Vivo = int.Parse(registro["Vivo"].ToString());
                 feligres.IdEntidad = int.Parse(registro["IdEntidad"].ToString());
