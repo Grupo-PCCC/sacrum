@@ -104,6 +104,37 @@ namespace DAL
             return scl;
         }
 
+
+        public bool Reader(string nombre, List<SqlParameter> parametros)
+        {
+            bool answ;
+            try
+            {
+                Abrir();
+                SqlCommand comando = CrearComando(nombre, parametros);
+                SqlDataReader reader = comando.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+
+            }
+            catch (SqlException ex)
+            {
+                SqlError err = ex.Errors[0];
+                string mensaje = string.Empty;
+                mensaje = err.ToString();
+                answ = false;
+            }
+            Cerrar();
+            return answ;
+
+        }
+
         public SqlParameter CrearParametro(string nombre, string valor)
         {
             SqlParameter parametro = new SqlParameter();

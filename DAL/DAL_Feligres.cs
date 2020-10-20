@@ -148,6 +148,15 @@ namespace DAL
             return Feligres_ID;
         }
 
+        public bool ValidarDocumento(EN_Feligres feligres)
+        {
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Tabla", feligres.Tabla));
+            parameters.Add(acceso.CrearParametro("@Documento", feligres.Documento));
+
+            return acceso.Reader("ValidarDocumento", parameters);
+        }
+
         //}
         //public List<EN_Feligres> ListarNombre(string Name)
         //{

@@ -42,7 +42,11 @@ namespace BL
         {
             return DAL_Feligres.FeligresId(Id);
         }
-
+         
+        public bool ValidarDocumento (EN_Feligres feligres)
+        {
+            return DAL_Feligres.ValidarDocumento(feligres);
+        }
      
     }
 }

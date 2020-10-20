@@ -17,6 +17,8 @@ namespace UI
         BL_Entidad BL_Entidad = new BL_Entidad();
         BL_DatoEntidad BL_DatoEntidad = new BL_DatoEntidad();
         Audit L = new Audit();
+        int flag = 0;
+        bool documentoInvalido = true;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -82,77 +84,134 @@ namespace UI
         protected void btnGrabar_Click(object sender, EventArgs e)
 
         {
+            flag = 0;
             if (string.IsNullOrWhiteSpace(hid.Value))
             {
                 hid.Value = "0";
             }
 
-            string Tabla = "Feligres";
-            EN_Feligres Feligres = new EN_Feligres();
-            //Audit L = new Audit();
-            Feligres.Id = int.Parse(hid.Value);
-            Feligres.Nombre = txtNombre.Text.ToString();
-            Feligres.Apellido = txtApellido.Text.ToString();
-            Feligres.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
-            Feligres.TDoc = LstTDoc.SelectedValue;
-            Feligres.Documento = txtDocumento.Text.ToString();
-            Feligres.Observaciones = txtObservaciones.Text.ToString();
-            Feligres.Vivo = 1;
-            Feligres.EsContacto = 0;
-            Feligres.IdTipoEntidad = 1;
-            Feligres.Tabla = Tabla;
-            int IdEntidad = Convert.ToInt32(hid.Value);
-            if (IdEntidad != 0)
+            if (txtNombre.Text == "" && txtApellido.Text == "" && txtDocumento.Text == "")
             {
-
-                List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(IdEntidad);
-                var FeligresId = EditarFeligres[0];
-                Feligres.IdEntidad = FeligresId.IdEntidad;
-            }
-            BL_Feligres.Grabar(Feligres);
-            int idInsertado = BL_Entidad.UltimoIdEntidad();
-            //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
-            //L.ActionDate = DateTime.Now;
-            //L.Id = LoginCache.Id;
-            //L.WriteLog(L);
-
-            void NuevoDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
-            {
-                EN_DatoEntidad nuevoDato = new EN_DatoEntidad();
-                nuevoDato._Entidad.Id = idInsertado;
-                nuevoDato._TipoDatoEntidad.Id = 1;
-                nuevoDato.NombreDato = NombreDato;
-                nuevoDato.Valor = Valor;
-                nuevoDato.Detalle = "";
-                BL_DatoEntidad.Insertar(nuevoDato);
+                flag = 1;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés')", true);
             }
 
-            if (txtDireccion.Text != "")
+            else
             {
-                NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
-            }
-            if (txtMail.Text != "")
-            {
-                NuevoDatoEntidad(idInsertado, "mail", txtMail.Text);
-            }
-            if (txtTelefono.Text != "")
-            {
-                NuevoDatoEntidad(idInsertado, "tel", txtTelefono.Text);
+                flag = 0;
             }
 
-            hid.Value = "0";
-            txtNombre.Text = "";
-            txtApellido.Text = "";
-            LstTDoc.Text = "";
-            txtFechaNac.Text = "";
-            txtDocumento.Text = "";
-            txtObservaciones.Text = "";
-            txtDireccion.Text = "";
-            txtMail.Text = "";
-            txtTelefono.Text = "";
+            if (txtNombre.Text == "" && flag==0)
+            {
+                flag = 1;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Nombre para guardar el feligrés')", true);
+            }
 
-            Enlazar();
-            lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+            if (txtApellido.Text == "" && flag == 0)
+            {
+                flag = 1;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Apellido para guardar el feligrés')", true);
+            }
+
+            if (txtDocumento.Text == "" && flag == 0)
+            {
+                flag = 1;
+                ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "Debe ingresar un Nombre, Apellido y Documento para guardar el feligrés", "alert('Debe ingresar un Documento para guardar el feligrés')", true);
+            }
+
+            if (txtDocumento.Text != "" && flag == 0)
+            {
+                EN_Feligres documentoIngresado = new EN_Feligres();
+                documentoIngresado.Documento = txtDocumento.Text;
+                documentoIngresado.Tabla = "Feligres";
+                documentoInvalido = BL_Feligres.ValidarDocumento(documentoIngresado);
+                if (documentoInvalido == false)
+                {
+                    flag = 0;
+                }
+                else
+                {
+                    flag = 1;
+                    ScriptManager.RegisterClientScriptBlock(this, this.GetType(), "El documento ingresado pertenece a un feligrés existente", "alert('El documento ingresado pertenece a un feligrés existente')", true);
+                }
+                
+            }
+
+
+
+            //validar documento con SP ValidarDocumento. Recibe como parametro la tabla (feligres o fallecido) y el documento.
+            //el metodo recibe un string y hace execute reader
+
+            if (flag == 0)
+            {
+                string Tabla = "Feligres";
+                EN_Feligres Feligres = new EN_Feligres();
+                //Audit L = new Audit();
+                Feligres.Id = int.Parse(hid.Value);
+                Feligres.Nombre = txtNombre.Text.ToString();
+                Feligres.Apellido = txtApellido.Text.ToString();
+                Feligres.FechaNacimiento = Convert.ToDateTime(txtFechaNac.Text);
+                Feligres.TDoc = LstTDoc.SelectedValue;
+                Feligres.Documento = txtDocumento.Text.ToString();
+                Feligres.Observaciones = txtObservaciones.Text.ToString();
+                Feligres.Vivo = 1;
+                Feligres.EsContacto = 0;
+                Feligres.IdTipoEntidad = 1;
+                Feligres.Tabla = Tabla;
+                int IdEntidad = Convert.ToInt32(hid.Value);
+                if (IdEntidad != 0)
+                {
+
+                    List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(IdEntidad);
+                    var FeligresId = EditarFeligres[0];
+                    Feligres.IdEntidad = FeligresId.IdEntidad;
+                }
+                BL_Feligres.Grabar(Feligres);
+                int idInsertado = BL_Entidad.UltimoIdEntidad();
+                //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
+                //L.ActionDate = DateTime.Now;
+                //L.Id = LoginCache.Id;
+                //L.WriteLog(L);
+
+                void NuevoDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
+                {
+                    EN_DatoEntidad nuevoDato = new EN_DatoEntidad();
+                    nuevoDato._Entidad.Id = idInsertado;
+                    nuevoDato._TipoDatoEntidad.Id = 1;
+                    nuevoDato.NombreDato = NombreDato;
+                    nuevoDato.Valor = Valor;
+                    nuevoDato.Detalle = "";
+                    BL_DatoEntidad.Insertar(nuevoDato);
+                }
+
+                if (txtDireccion.Text != "")
+                {
+                    NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
+                }
+                if (txtMail.Text != "")
+                {
+                    NuevoDatoEntidad(idInsertado, "mail", txtMail.Text);
+                }
+                if (txtTelefono.Text != "")
+                {
+                    NuevoDatoEntidad(idInsertado, "tel", txtTelefono.Text);
+                }
+
+                hid.Value = "0";
+                txtNombre.Text = "";
+                txtApellido.Text = "";
+                LstTDoc.Text = "";
+                txtFechaNac.Text = "";
+                txtDocumento.Text = "";
+                txtObservaciones.Text = "";
+                txtDireccion.Text = "";
+                txtMail.Text = "";
+                txtTelefono.Text = "";
+
+                Enlazar();
+                lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
+            }
+            
         }
 
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
@@ -207,6 +266,9 @@ namespace UI
             txtApellido.Text = string.Empty;
             txtFechaNac.Text = string.Empty;
             txtObservaciones.Text = string.Empty;
+            txtDireccion.Text = string.Empty;
+            txtTelefono.Text = string.Empty;
+            txtMail.Text = string.Empty;
             ModalPopupExtender1.Dispose();
             ModalPopupExtender1.Hide();
         }
