@@ -71,10 +71,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Auditoria.aspx" />
+    <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap4.min.css" />
+    <Content Include="css\main.css" />
     <Content Include="css\style.css" />
     <Content Include="css\stylegen.css" />
     <Content Include="Error404.aspx" />
+    <Content Include="images\b4.jpg" />
+    <Content Include="images\iglesia.jpg" />
+    <Content Include="images\login-bg.jpg" />
+    <Content Include="images\sacrum-logo.jpg" />
+    <Content Include="images\sacrum-logo.png" />
     <Content Include="Inicio.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Feligreses.aspx" />
@@ -82,6 +90,38 @@
     <Content Include="js\javascript.js" />
     <Content Include="js\jquery.min.js" />
     <Content Include="Usuarios.aspx" />
+    <Content Include="vendor\bootstrap\css\bootstrap-theme.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap-theme.min.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.css" />
+    <Content Include="vendor\bootstrap\css\bootstrap.min.css" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="vendor\bootstrap\js\bootstrap.js" />
+    <Content Include="vendor\bootstrap\js\bootstrap.min.js" />
+    <Content Include="vendor\bootstrap\js\npm.js" />
+    <Content Include="vendor\chartist\css\chartist-custom.css" />
+    <Content Include="vendor\chartist\css\chartist.css" />
+    <Content Include="vendor\chartist\css\chartist.min.css" />
+    <Content Include="vendor\chartist\js\chartist.js" />
+    <Content Include="vendor\chartist\js\chartist.min.js" />
+    <Content Include="vendor\font-awesome\css\font-awesome.css" />
+    <Content Include="vendor\font-awesome\css\font-awesome.min.css" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.svg" />
+    <Content Include="vendor\jquery-slimscroll\jquery.slimscroll.js" />
+    <Content Include="vendor\jquery-slimscroll\jquery.slimscroll.min.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\angular.easypiechart.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\angular.easypiechart.min.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\easypiechart.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\easypiechart.min.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\jquery.easypiechart.js" />
+    <Content Include="vendor\jquery.easy-pie-chart\jquery.easypiechart.min.js" />
+    <Content Include="vendor\jquery\jquery.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
+    <Content Include="vendor\linearicons\fonts\Linearicons-Free.svg" />
+    <Content Include="vendor\linearicons\style.css" />
+    <Content Include="vendor\toastr\toastr.css" />
+    <Content Include="vendor\toastr\toastr.js" />
+    <Content Include="vendor\toastr\toastr.min.css" />
+    <Content Include="vendor\toastr\toastr.min.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -142,7 +182,26 @@
     <Content Include="css\bootstrap.min.css.map" />
     <Content Include="js\bootstrap.min.js.map" />
     <Content Include="base.Master" />
+    <Content Include="css\main.css.map" />
     <None Include="packages.config" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="vendor\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="vendor\chartist\css\chartist-custom.css.map" />
+    <Content Include="vendor\chartist\map\chartist.css.map" />
+    <Content Include="vendor\chartist\map\chartist.min.js.map" />
+    <Content Include="vendor\chartist\scss\chartist.scss" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.eot" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.ttf" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff" />
+    <Content Include="vendor\font-awesome\fonts\fontawesome-webfont.woff2" />
+    <Content Include="vendor\font-awesome\fonts\FontAwesome.otf" />
+    <Content Include="vendor\jquery\jquery.min.map" />
+    <Content Include="vendor\linearicons\fonts\Linearicons-Free.eot" />
+    <Content Include="vendor\linearicons\fonts\Linearicons-Free.ttf" />
+    <Content Include="vendor\linearicons\fonts\Linearicons-Free.woff" />
+    <Content Include="vendor\linearicons\fonts\Linearicons-Free.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

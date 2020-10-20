@@ -23,7 +23,7 @@ namespace DAL
         public List<EN_Usuario> ListaTotal()
         {
             
-            DataTable Tabla = acceso.Leer("ListUser", null);
+            DataTable Tabla = acceso.Leer("VW_ListarUsuarios", null);
             List<EN_Usuario> lista = new List<EN_Usuario>();
 
             foreach (DataRow registro in Tabla.Rows)
@@ -33,9 +33,9 @@ namespace DAL
 
                 usuario.Id = int.Parse(registro["Id"].ToString());
                 usuario.Nick = (registro["Nick"].ToString());
-                usuario.Contraseña = (registro["Password"].ToString());
-                usuario.Nombre = (registro["Name"].ToString());
-                usuario.Apellido = (registro["Surname"].ToString());
+                usuario.Contraseña = (registro["Contrasenia"].ToString());
+                usuario.Nombre = (registro["Nombre"].ToString());
+                usuario.Apellido = (registro["Apellido"].ToString());
                 usuario._tipoUsuario.Tusuario = (registro["TipoPerfil"].ToString());
                 usuario.TipoUsuario = usuario._tipoUsuario.Tusuario.ToString();
                 lista.Add(usuario);
@@ -51,7 +51,7 @@ namespace DAL
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Nick", buscar));
-            DataTable Tabla = acceso.Leer("ListUserNick", parameters);
+            DataTable Tabla = acceso.Leer("VW_Usuarios", parameters);
             List<EN_Usuario> lista = new List<EN_Usuario>();
 
             foreach (DataRow registro in Tabla.Rows)
@@ -61,9 +61,9 @@ namespace DAL
                 
                 usuario.Id = int.Parse(registro["Id"].ToString());
                 usuario.Nick = (registro["Nick"].ToString());
-                usuario.Contraseña = (registro["Password"].ToString());
-                usuario.Nombre = (registro["Name"].ToString());
-                usuario.Apellido = (registro["Surname"].ToString());
+                usuario.Contraseña = (registro["Contrasenia"].ToString());
+                usuario.Nombre = (registro["Nombre"].ToString());
+                usuario.Apellido = (registro["Apellido"].ToString());
                 usuario._tipoUsuario.Tusuario = (registro["TipoPerfil"].ToString());
                 usuario.TipoUsuario = usuario._tipoUsuario.Tusuario.ToString();
                 lista.Add(usuario);
@@ -78,7 +78,7 @@ namespace DAL
             int idEncontrado = Id;
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Id", idEncontrado));
-            DataTable tabla = acceso.Leer("ListIdUser", parameters);
+            DataTable tabla = acceso.Leer("VW_ListarIdUsuarios", parameters);
             List<EN_Usuario> userID = new List<EN_Usuario>();
 
             foreach (DataRow registro in tabla.Rows)
@@ -87,9 +87,9 @@ namespace DAL
 
                 usuario.Id = int.Parse(registro["Id"].ToString());
                 usuario.Nick = (registro["Nick"].ToString());
-                usuario.Contraseña = (registro["Password"].ToString());
-                usuario.Nombre = (registro["Name"].ToString());
-                usuario.Apellido = (registro["Surname"].ToString());
+                usuario.Contraseña = (registro["Contrasenia"].ToString());
+                usuario.Nombre = (registro["Nombre"].ToString());
+                usuario.Apellido = (registro["Apellido"].ToString());
                 usuario._tipoUsuario.Id = int.Parse(registro["TipoPerfil"].ToString());
                 
                 userID.Add(usuario);
@@ -105,10 +105,10 @@ namespace DAL
             List<SqlParameter> parameters = new List<SqlParameter>();
             usuario.Contraseña=GenerarMD5.crearMD5(usuario.Contraseña);
             parameters.Add(acceso.CrearParametro("@Nick", usuario.Nick));
-            parameters.Add(acceso.CrearParametro("@Password", usuario.Contraseña));
-            parameters.Add(acceso.CrearParametro("@Name", usuario.Nombre));
-            parameters.Add(acceso.CrearParametro("@Surname", usuario.Apellido));
-            parameters.Add(acceso.CrearParametro("@UserTypeId", usuario._tipoUsuario.Id));
+            parameters.Add(acceso.CrearParametro("@Contrasenia", usuario.Contraseña));
+            parameters.Add(acceso.CrearParametro("@Nombre", usuario.Nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", usuario.Apellido));
+            parameters.Add(acceso.CrearParametro("@IdTipoUsuario", usuario._tipoUsuario.Id));
 
             return acceso.Escribir("NewUser", parameters);
 
@@ -120,9 +120,9 @@ namespace DAL
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@Id", usuario.Id));
             parameters.Add(acceso.CrearParametro("@Nick", usuario.Nick));
-            parameters.Add(acceso.CrearParametro("@Name", usuario.Nombre));
-            parameters.Add(acceso.CrearParametro("@Surname", usuario.Apellido));
-            parameters.Add(acceso.CrearParametro("@UserTypeId", _TipoUsuario.Id));
+            parameters.Add(acceso.CrearParametro("@Nombre", usuario.Nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", usuario.Apellido));
+            parameters.Add(acceso.CrearParametro("@IdTipoUsuario", usuario._tipoUsuario.Id));
 
             return acceso.Escribir("UpdateUser", parameters);
         }
