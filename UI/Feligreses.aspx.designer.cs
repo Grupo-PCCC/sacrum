@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace UI {
-    
-    
-    public partial class Parishioner {
-        
+namespace UI
+{
+
+
+    public partial class Parishioner
+    {
+
         /// <summary>
         /// Control ScriptManager1.
         /// </summary>
@@ -20,7 +22,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
+
         /// <summary>
         /// Control UpdatePanel1.
         /// </summary>
@@ -29,7 +31,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.UpdatePanel UpdatePanel1;
-        
+
         /// <summary>
         /// Control btnNuevo.
         /// </summary>
@@ -38,7 +40,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnNuevo;
-        
+
         /// <summary>
         /// Control txtNombreBuscar.
         /// </summary>
@@ -47,7 +49,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreBuscar;
-        
+
         /// <summary>
         /// Control txtApellidoBuscar.
         /// </summary>
@@ -56,7 +58,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellidoBuscar;
-        
+
         /// <summary>
         /// Control txtDocumentoBuscar.
         /// </summary>
@@ -65,7 +67,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDocumentoBuscar;
-        
+
         /// <summary>
         /// Control dateInicio.
         /// </summary>
@@ -74,7 +76,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dateInicio;
-        
+
         /// <summary>
         /// Control dateInicioBuscar.
         /// </summary>
@@ -83,7 +85,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender dateInicioBuscar;
-        
+
         /// <summary>
         /// Control dateFin.
         /// </summary>
@@ -92,7 +94,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox dateFin;
-        
+
         /// <summary>
         /// Control dateFinBuscar.
         /// </summary>
@@ -101,16 +103,16 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender dateFinBuscar;
-        
+
         /// <summary>
-        /// Control BtnBuscar.
+        /// Control Button1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnBuscar;
-        
+        protected global::System.Web.UI.WebControls.Button Button1;
+
         /// <summary>
         /// Control dgvFeligres.
         /// </summary>
@@ -119,7 +121,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView dgvFeligres;
-        
+
         /// <summary>
         /// Control lblResultado.
         /// </summary>
@@ -128,7 +130,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblResultado;
-        
+
         /// <summary>
         /// Control hid.
         /// </summary>
@@ -137,7 +139,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hid;
-        
+
         /// <summary>
         /// Control pnlFeligres.
         /// </summary>
@@ -146,7 +148,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFeligres;
-        
+
         /// <summary>
         /// Control txtNombre.
         /// </summary>
@@ -155,7 +157,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
+
         /// <summary>
         /// Control txtApellido.
         /// </summary>
@@ -164,7 +166,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellido;
-        
+
         /// <summary>
         /// Control txtFechaNac.
         /// </summary>
@@ -173,7 +175,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtFechaNac;
-        
+
         /// <summary>
         /// Control txtFechaNac_CalendarExtender.
         /// </summary>
@@ -182,7 +184,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::AjaxControlToolkit.CalendarExtender txtFechaNac_CalendarExtender;
-        
+
         /// <summary>
         /// Control LstTDoc.
         /// </summary>
@@ -191,7 +193,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList LstTDoc;
-        
+
         /// <summary>
         /// Control txtDocumento.
         /// </summary>
@@ -200,7 +202,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDocumento;
-        
+
         /// <summary>
         /// Control txtDireccion.
         /// </summary>
@@ -209,7 +211,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
+
         /// <summary>
         /// Control txtMail.
         /// </summary>
@@ -218,7 +220,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtMail;
-        
+
         /// <summary>
         /// Control lstTelefono.
         /// </summary>
@@ -227,7 +229,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList lstTelefono;
-        
+
         /// <summary>
         /// Control txtTelefono.
         /// </summary>
@@ -236,7 +238,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
+
         /// <summary>
         /// Control txtObservaciones.
         /// </summary>
@@ -245,7 +247,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtObservaciones;
-        
+
         /// <summary>
         /// Control btnGrabar.
         /// </summary>
@@ -254,7 +256,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnGrabar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -263,7 +265,7 @@ namespace UI {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Control ModalPopupExtender1.
         /// </summary>

@@ -5,8 +5,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <%--</form>--%>
-
-    <link href="css/stylegen.css" rel="stylesheet" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -16,32 +14,47 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Feligreses</h1>
-
-                        <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
-                        <div class="form-inline float-lg-right">
-                            <div class="form-group mx-sm-3 mb-2">
-                                <asp:TextBox ID="txtNombreBuscar" class="form-control" PlaceHolder="Nombre" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="txtApellidoBuscar" class="form-control" PlaceHolder="Apellido" runat="server"></asp:TextBox>
-                                <asp:TextBox ID="txtDocumentoBuscar" class="form-control" PlaceHolder="Documento" runat="server"></asp:TextBox>
-                                <div class="form form-group">
-                                    <label for="fechanac" runat="server">Fecha 1</label>
-                                    <asp:TextBox ID="dateInicio" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                                    <ajaxToolkit:CalendarExtender ID="dateInicioBuscar" runat="server" TargetControlID="dateInicio" Format="dd/MM/yyyy" />
-                                </div>
-                                <div class="form form-group">
-                                    <label for="fechanac" runat="server">Fecha 2</label>
-                                    <asp:TextBox ID="dateFin" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                                    <ajaxToolkit:CalendarExtender ID="dateFinBuscar" runat="server" TargetControlID="dateFin" Format="dd/MM/yyyy" />
-                                </div>
-
-                                <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                        <div class="row">
+                            <div class="col-md-2 ml-0">
+                                <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
                             </div>
-
+                        
+                            <div class="col-md-10 ml-0">
+							    <!-- Filtro -->
+							    <div class="panel">
+								    <div class="panel-heading">
+									    <h3 class="panel-title">Filtro</h3>
+									    <div class="right">
+										    <button type="button" class="btn-toggle-collapse"><i class="lnr lnr-chevron-up"></i></button>
+									    </div>
+								    </div>
+								    <div class="panel-body">
+									    <div class="form-inline mx-sm-3 mb-2">
+                                            <asp:TextBox ID="txtNombreBuscar" class="form-control mr-5" PlaceHolder="Nombre" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtApellidoBuscar" class="form-control mr-5" PlaceHolder="Apellido" runat="server"></asp:TextBox>
+                                            <asp:TextBox ID="txtDocumentoBuscar" class="form-control mr-5" PlaceHolder="Documento" runat="server"></asp:TextBox>
+                                            <div class="form form-group">
+                                                <label for="fechanac" runat="server">Fecha Desde</label>
+                                                <asp:TextBox ID="dateInicio" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                                <ajaxToolkit:CalendarExtender ID="dateInicioBuscar" runat="server" TargetControlID="dateInicio" Format="dd/MM/yyyy" />
+                                            </div>
+                                            <div class="form form-group">
+                                                <label for="fechanac" runat="server">Hasta</label>
+                                                <asp:TextBox ID="dateFin" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                                <ajaxToolkit:CalendarExtender ID="dateFinBuscar" runat="server" TargetControlID="dateFin" Format="dd/MM/yyyy" />
+                                            </div>
+                                            <div class="form form-group">
+                                                <asp:Button ID="Button1" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                                            </div>
+                                        </div>
+								    </div>
+							    </div>
+							    <!-- Filtro -->
+						    </div>
                         </div>
+                        
 
-
-                        <asp:GridView ID="dgvFeligres" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging" OnSelectedIndexChanged="dgvFeligres_SelectedIndexChanged">
-
+                        <asp:GridView ID="dgvFeligres" runat="server" class="table table-striped text-center" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2"  AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging" OnSelectedIndexChanged="dgvFeligres_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />
@@ -119,7 +132,7 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:ButtonField>
                             </Columns>
-                            <FooterStyle BackColor="#CCCCCC" />
+                            <%--<FooterStyle BackColor="#CCCCCC" />
                             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
                             <RowStyle BackColor="White" />
@@ -127,7 +140,7 @@
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />
                             <SortedAscendingHeaderStyle BackColor="#808080" />
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />--%>
                         </asp:GridView>
 
 
@@ -141,83 +154,77 @@
 
 
 
-            <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup" ScrollBars="Horizontal">
+            <asp:Panel ID="pnlFeligres" runat="server" CssClass="modalpopup">
 
                 <div class="modal-header" id="ModalHeader">
 
                     <h3>Feligres</h3>
                 </div>
+                <div class="modal-body">
+                    <div class="form form-inline">
+                        <div class="form form-group">
+                            <label for="Nombre" runat="server">Nombre</label>
+                            <asp:TextBox ID="txtNombre" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        </div>
+                        <div class="form form-group">
+                            <label for="apellido" runat="server">Apellido</label>
+                            <asp:TextBox ID="txtApellido" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form form-inline">
+                        <div class="form form-group">
+                            <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
+                            <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                            <ajaxToolkit:CalendarExtender ID="txtFechaNac_CalendarExtender" runat="server" TargetControlID="txtFechaNac" Format="dd/MM/yyyy" />
+                        </div>
+                        <div class="form form-group">
+                            <label for="Documento" runat="server">N° de Documento</label>
+                            <div class="form form-inline">
+                                <asp:DropDownList ID="LstTDoc" runat="server" class="form-control">
+                                    <asp:ListItem Value="1">DNI</asp:ListItem>
+                                    <asp:ListItem Value="2">LC</asp:ListItem>
+                                    <asp:ListItem Value="3">LE</asp:ListItem>
+                                    <asp:ListItem Value="4">PAS</asp:ListItem>
+                                </asp:DropDownList>
+                                <asp:TextBox ID="txtDocumento" runat="server" class="form-control" Width="300px"></asp:TextBox>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form form-inline">
+                        <div class="form form-group">
+                            <label for="direccion" runat="server">Dirección</label>
+                            <asp:TextBox ID="txtDireccion" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        </div>
 
-                <div class="form form-group">
-                    <label for="Nombre" runat="server">Nombre</label>
-                    <asp:TextBox ID="txtNombre" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        <div class="form form-group">
+                            <label for="mail" runat="server">E-Mail</label>
+                            <asp:TextBox ID="txtMail" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form form-inline">
+                        <div class="form form-group">
+                            <label for="TTel" runat="server">Tipo de Telefono</label>
+                            <asp:DropDownList ID="lstTelefono" runat="server" class="form-control">
+                                <asp:ListItem Value="1">Principal</asp:ListItem>
+                                <asp:ListItem Value="2">Otro</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+                        <div class="form form-group">
+                            <label for="Telefono" runat="server">Telefono</label>
+                            <asp:TextBox ID="txtTelefono" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                        </div>
+                    </div>
+
+                    <div class="form form-group">
+                        <label for="observaciones" runat="server">Observaciones</label>
+                        <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                    </div>
+                    <br />
+                     <div class="form form-group">
+                        <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
+                        <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
+                    </div>
                 </div>
-
-                <div class="form form-group">
-                    <label for="apellido" runat="server">Apellido</label>
-                    <asp:TextBox ID="txtApellido" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-                <div class="form form-group">
-                    <label for="fnacimiento" runat="server">Fecha de Nacimiento</label>
-                    <asp:TextBox ID="txtFechaNac" class="form-control" runat="server" Width="350px"></asp:TextBox>
-
-                    <ajaxToolkit:CalendarExtender ID="txtFechaNac_CalendarExtender" runat="server" TargetControlID="txtFechaNac" Format="dd/MM/yyyy" />
-
-                </div>
-
-                <div class="form form-group">
-                    <label for="TDoc" runat="server">Tipo de Documento</label>
-                    <asp:DropDownList ID="LstTDoc" runat="server">
-                        <asp:ListItem Value="1">DNI</asp:ListItem>
-                        <asp:ListItem Value="2">LC</asp:ListItem>
-                        <asp:ListItem Value="3">LE</asp:ListItem>
-                        <asp:ListItem Value="4">PAS</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-
-
-                <div class="form form-group">
-                    <label for="Documento" runat="server">N° de Documento</label>
-                    <asp:TextBox ID="txtDocumento" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-
-                <div class="form form-group">
-                    <label for="direccion" runat="server">Dirección</label>
-                    <asp:TextBox ID="txtDireccion" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-
-                <div class="form form-group">
-                    <label for="mail" runat="server">E-Mail</label>
-                    <asp:TextBox ID="txtMail" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-
-                <div class="form form-group">
-                    <label for="TTel" runat="server">Tipo de Telefono</label>
-                    <asp:DropDownList ID="lstTelefono" runat="server">
-                        <asp:ListItem Value="1">Principal</asp:ListItem>
-                        <asp:ListItem Value="2">Otro</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
-                <div class="form form-group">
-                    <label for="Telefono" runat="server">Telefono</label>
-                    <asp:TextBox ID="txtTelefono" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-
-
-
-                <div class="form form-group">
-                    <label for="observaciones" runat="server">Observaciones</label>
-                    <asp:TextBox ID="txtObservaciones" class="form-control" runat="server" Width="350px"></asp:TextBox>
-                </div>
-
-
-                <br />
-
-                <asp:Button ID="btnGrabar" CssClass="btn-success" runat="server" Text="Guardar" OnClick="btnGrabar_Click" />
-                <asp:Button ID="btnCancelar" CssClass="btn-danger" runat="server" Text="Cancelar" OnClick="btnCancelar_Click" />
-
-
-
             </asp:Panel>
 
             <ajaxToolkit:ModalPopupExtender ID="ModalPopupExtender1" runat="server" BackgroundCssClass="modalBackground" PopupControlID="pnlFeligres" TargetControlID="btnNuevo" BehaviorID="modalPopupExtender1">

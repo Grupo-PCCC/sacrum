@@ -7,10 +7,10 @@
 }
 
 .modalpopup {
-    padding: 20px 0px 24px 10px;
+    padding: 20px 0px 10px 10px;
     position: relative;
-    width: 380px;
-    height: 658px;
+    width: 45%;
+    height: 50%;
     background-color: white;
     border: 1px solid black;
     top: 0px;
@@ -18,7 +18,8 @@
 }
 
 .modal-header {
-    width: 358px;
+    width: 100%;
+    margin-bottom:10px;
 }
 
 
@@ -38,3 +39,11 @@
     margin-right: auto;
     width: 50%;
 }*/
+.dropdown-menu {
+    padding-left: 15px !important;
+}
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1400px !important;
+    }
+}

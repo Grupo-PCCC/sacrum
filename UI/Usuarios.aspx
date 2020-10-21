@@ -5,7 +5,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server"></asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link href="css/stylegen.css" rel="stylesheet" />
     <asp:ScriptManager ID="ScriptManager1" runat="server">
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
@@ -25,7 +24,7 @@
 
                         </div>
 
-                        <asp:GridView ID="dgvUsuarios" runat="server" class="table" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" ForeColor="Black" AllowPaging="true" OnPageIndexChanging="dgvUsuarios_PageIndexChanging" OnRowCommand="dgvUsuarios_RowCommand1">
+                        <asp:GridView ID="dgvUsuarios" runat="server" class="table table-striped text-center" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" AllowPaging="true" OnPageIndexChanging="dgvUsuarios_PageIndexChanging" OnRowCommand="dgvUsuarios_RowCommand1">
 
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="false">
@@ -63,7 +62,7 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:ButtonField>--%>
                             </Columns>
-                            <FooterStyle BackColor="#CCCCCC" />
+                            <%--<FooterStyle BackColor="#CCCCCC" />
                             <HeaderStyle BackColor="Black" Font-Bold="True" ForeColor="White" HorizontalAlign="Center" />
                             <PagerStyle BackColor="#CCCCCC" ForeColor="Black" HorizontalAlign="Left" />
                             <RowStyle BackColor="White" HorizontalAlign="Center" />
@@ -71,7 +70,7 @@
                             <SortedAscendingCellStyle BackColor="#F1F1F1" />
                             <SortedAscendingHeaderStyle BackColor="#808080" />
                             <SortedDescendingCellStyle BackColor="#CAC9C9" />
-                            <SortedDescendingHeaderStyle BackColor="#383838" />
+                            <SortedDescendingHeaderStyle BackColor="#383838" />--%>
                         </asp:GridView>
 
                         <br />
@@ -96,7 +95,7 @@
 
                             <div class="form form-group">
                                 <label for="Contraseña" runat="server">Contraseña</label>
-                                <asp:TextBox ID="txtContraseña" class="form-control" runat="server" Width="350px"></asp:TextBox>
+                                <asp:TextBox ID="txtContraseña" class="form-control" runat="server" TextMode="Password" Width="350px"></asp:TextBox>
                             </div>
                             <div class="form form-group">
                                 <label for="Nombre" runat="server">Nombre</label>

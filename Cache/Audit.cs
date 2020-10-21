@@ -31,9 +31,9 @@ namespace COMMON
             SqlCommand cmd = new SqlCommand("WriteLog", Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion.Open();
-            cmd.Parameters.AddWithValue("@UserId", L.Id);
             cmd.Parameters.AddWithValue("@ActionDate", L.ActionDate);
             cmd.Parameters.AddWithValue("@Action", L.Action);
+            cmd.Parameters.AddWithValue("@UserId", L.Id);
             cmd.ExecuteNonQuery();
             answ = true;
             Conexion.Close();
