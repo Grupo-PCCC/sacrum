@@ -18,5 +18,11 @@ namespace BL
         {
             return DAL_Entidad.UltimoIdEntidad();
         }
+
+        public List<EN_Entidad> EntidadId(int Id)
+        {
+            return DAL_Entidad.EntidadId(Id);
+        }
+
     }
 }
