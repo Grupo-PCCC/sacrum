@@ -334,3 +334,25 @@ CREATE PROC NuevoMovimientoMonetario
 AS
 INSERT INTO MovimientoMonetario VALUES (@Valor, @Fecha, @Observacion, @IdUsuario, @IdCategoria)
 GO
+
+--MODIFICAR MOVIMIENTO MONETARIO--
+CREATE PROC ModificarMovimientoMonetario
+@Id INT,
+@Observacion VARCHAR (120)
+AS
+UPDATE MovimientoMonetario SET Observacion=@Observacion WHERE Id=@Id
+GO
+
+CREATE PROC NuevaActividad
+@Nombre VARCHAR (50),
+@Observacion VARCHAR (120)
+AS
+INSERT INTO Actividad VALUES (@Nombre, @Observacion)
+GO
+
+CREATE PROC NuevoFeligresEnActividad
+@IdActividad INT,
+@IdFeligres INT
+AS
+INSERT INTO FeligresPorActividad (IdActividad, IdFeligres) VALUES (@IdActividad, @IdFeligres)
+GO
