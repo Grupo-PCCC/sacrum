@@ -21,6 +21,7 @@ namespace UI
         bool documentoInvalido = true;
         int FlagIDEntidad;
         int IDEntidad;
+        int EntidadID;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -198,6 +199,7 @@ namespace UI
                 void EditarDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
                 {
                     EN_DatoEntidad EditarDato = new EN_DatoEntidad();
+                    EditarDato.Id = EntidadID;
                     EditarDato.IdEntidad = IDEntidad;
                     EditarDato.NombreDato = NombreDato;
                     EditarDato.Valor = Valor;
@@ -206,28 +208,27 @@ namespace UI
                 }
                 if (FlagIDEntidad == 1)
                 {
-                    EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
 
-                    EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
-                    EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
-                    //if (txtDireccion.Text != "")
-                    //{
-                    //    EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
-                    //}
-                    //if (txtMail.Text != "")
-                    //{
-                    //    EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
-                    //}
-                    //if (txtTelefono.Text != "")
-                    //{
-                    //    //validar telefono doble principal.
-                    //    EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
-                    //}
+
+                    if (txtDireccion.Text != "")
+                    {
+                        
+                        EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
+                    }
+                    if (txtMail.Text != "")
+                    {
+                        EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
+                    }
+                    if (txtTelefono.Text != "")
+                    {
+                        EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
+                    }
                 }
                 if (FlagIDEntidad == 0)
                 {
                     if (txtDireccion.Text != "")
                     {
+
                         NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
                     }
                     if (txtMail.Text != "")
@@ -283,7 +284,7 @@ namespace UI
                 case "Seleccionar":
                     {
                         hid.Value = FeligresId.IdEntidad.ToString();
-                       
+                        EntidadID = FeligresId.Id;
                         txtNombre.Text = FeligresId.Nombre;
                         txtApellido.Text = FeligresId.Apellido;
                         txtFechaNac.Text = Convert.ToDateTime(FeligresId.FechaNacimiento).ToShortDateString();

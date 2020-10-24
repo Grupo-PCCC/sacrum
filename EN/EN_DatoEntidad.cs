@@ -8,6 +8,8 @@ namespace EN
 {
     public class EN_DatoEntidad
     {
+        public int Id { get; set; }
+
         public int IdEntidad { get; set; }
         public string NombreDato { get; set; }
         public string Valor { get; set; }
