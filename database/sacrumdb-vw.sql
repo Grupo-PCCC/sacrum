@@ -177,3 +177,31 @@ F.Documento LIKE '%' + @Documento + '%' COLLATE Latin1_General_CI_AI
 AND
 A.Id=@IdActividad
 GO
+
+-- VISTA DE LOG --
+CREATE PROC VW_Log
+@Fecha1 DATE, 
+@Fecha2 DATE,
+@IdUsuario INT,
+@Texto VARCHAR(30)
+AS
+DECLARE @NuevaFecha DATE = (SELECT DATEADD(DAY,1,@Fecha2))
+IF @IdUsuario !=NULL
+SELECT Convert(smalldatetime,A.Fecha,120) as FechaAccion,  U.Nick as 'Usuario',  A.Accion
+FROM Auditoria A
+INNER JOIN Usuario U
+ON A.IdUsuario=U.Id
+WHERE
+A.Fecha BETWEEN @Fecha1 AND @NuevaFecha 
+AND U.Id=@IdUsuario 
+AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
+ORDER BY A.Fecha ASC
+ELSE IF @IdUsuario = NULL
+SELECT Convert(smalldatetime,A.Fecha,120) as FechaAccion,  U.Nick as 'Usuario',  A.Accion
+FROM Auditoria A
+INNER JOIN Usuario U
+ON A.IdUsuario=U.Id
+WHERE
+A.Fecha BETWEEN @Fecha1 AND @NuevaFecha 
+AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
+ORDER BY A.Fecha ASC

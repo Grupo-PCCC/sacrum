@@ -356,3 +356,11 @@ CREATE PROC NuevoFeligresEnActividad
 AS
 INSERT INTO FeligresPorActividad (IdActividad, IdFeligres) VALUES (@IdActividad, @IdFeligres)
 GO
+
+CREATE PROC EscribirLog
+@UserId INT,
+@ActionDate DATETIME,
+@Action VARCHAR (240)
+AS
+INSERT INTO Auditoria VALUES (@UserId, @ActionDate, @Action)
+GO
