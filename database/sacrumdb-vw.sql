@@ -205,3 +205,27 @@ WHERE
 A.Fecha BETWEEN @Fecha1 AND @NuevaFecha 
 AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
 ORDER BY A.Fecha ASC
+--VISTA FALLECIDOS--
+CREATE PROC VW_Fallecidos (@Nombre VARCHAR(30), @Apellido VARCHAR(30), @FechaFallecimiento1 DATE, @FechaFallecimiento2 DATE, @FechaIngresoCinerario1 DATE, @FechaIngresoCinerario2 DATE, @Documento VARCHAR(20), @Estado INT, @Contribuyo INT)
+AS
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto, F.Contribuyo, F.IdMovimientoMonetario
+FROM Fallecido F
+--JOINS--
+LEFT JOIN TipoDocumento TD
+ON F.IdTipoDocumento=TD.Id
+LEFT JOIN Entidad E
+ON E.Id=F.IdEntidad
+--CONDICIONES--
+WHERE
+E.Estado=@Estado
+AND
+F.Nombre LIKE '%' + @Nombre + '%' COLLATE Latin1_General_CI_AI
+AND
+F.Apellido LIKE '%' + @Apellido + '%' COLLATE Latin1_General_CI_AI
+AND
+F.FechaFallecimiento BETWEEN @FechaFallecimiento1 AND @FechaFallecimiento2
+AND
+F.FechaIngresoCinerario BETWEEN @FechaIngresoCinerario1 AND @FechaIngresoCinerario2
+AND
+F.Documento LIKE '%' + @Documento + '%' COLLATE Latin1_General_CI_AI
+GO
