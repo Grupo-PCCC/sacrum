@@ -364,3 +364,73 @@ CREATE PROC EscribirLog
 AS
 INSERT INTO Auditoria VALUES (@UserId, @ActionDate, @Action)
 GO
+
+CREATE PROC ChequearNick
+@Nick VARCHAR (15)
+AS
+SELECT COUNT(*) FROM Usuario WHERE Nick=@Nick
+GO
+
+CREATE PROC BorrarActividad
+@Id INT
+AS
+DELETE FROM Actividad WHERE Id=@Id
+GO
+
+CREATE PROC BorrarActividadEnFeligresPorActividad
+@IdActividad INT
+AS
+DELETE FROM FeligresesPorActividad WHERE IdActividad=@IdActividad
+GO
+
+CREATE PROC BorrarFeligresPorActividad
+@IdFeligres INT,
+@IdActividad INT
+AS
+DELETE FROM FeligresesPorActividad WHERE IdFeligres=@IdFeligres AND IdActividad=@IdActividad
+GO
+
+CREATE PROC ChequearActividad
+@Nombre VARCHAR (50)
+AS
+SELECT * FROM Actividad WHERE Nombre=@Nombre
+ORDER BY Nombre
+GO
+
+CREATE PROC ChequearCategoria
+@Nombre VARCHAR (30)
+AS
+SELECT * FROM Categoria WHERE Nombre=@Nombre
+ORDER BY Nombre
+GO
+
+CREATE PROC EncontrarCategoriaEnMovimientosMonetarios
+@IdCategoria INT
+AS
+SELECT * FROM MovimientoMonetario WHERE IdCategoria=@IdCategoria
+GO
+
+CREATE PROC EncontrarFeligresEnActividades
+@IdFeligres INT
+AS
+SELECT * FROM FeligresesPorActividad WHERE IdFeligres=@IdFeligres
+GO
+
+CREATE PROC EncontrarUsuarioPorNick
+@Nick VARCHAR (15)
+AS
+SELECT * FROM Usuario WHERE Nick=@Nick
+GO
+
+CREATE PROC ObtenerObservacionDeActividad
+@IdActividad int
+AS
+SELECT Observacion FROM Actividad WHERE Id=@IdActividad
+GO
+
+CREATE PROC ObtenerIdDeCategoria
+@Nombre VARCHAR (30)
+AS
+SELECT Id, Nombre FROM Categoria WHERE Nombre=@Nombre
+GO
+

@@ -229,3 +229,60 @@ F.FechaIngresoCinerario BETWEEN @FechaIngresoCinerario1 AND @FechaIngresoCinerar
 AND
 F.Documento LIKE '%' + @Documento + '%' COLLATE Latin1_General_CI_AI
 GO
+
+CREATE PROC VW_TodosLosFeligresesEnUnaActividad
+@IdActividad INT
+AS
+SELECT F.Id,F.Nombre + ' ' + F.Apellido + ' (' + F.CodigoInterno + ')' AS Nombre 
+FROM Feligres F
+WHERE F.Id IN (SELECT IdFeligres FROM FeligresesPorActividad WHERE IdActividad=@IdActividad)
+GO
+
+CREATE PROC VW_TodosLosFeligresesNoEnUnaActividad
+@IdActividad INT
+AS
+SELECT F.Id,F.Nombre + ' ' + F.Apellido + ' (' + F.CodigoInterno + ')' AS Nombre 
+FROM Feligres F
+WHERE F.Id NOT IN (SELECT IdFeligres FROM FeligresesPorActividad WHERE IdActividad=@IdActividad)
+GO
+
+CREATE PROC VW_Usuarios
+@Nick Varchar(15),
+@Nombre VARCHAR (30),
+@Apellido VARCHAR (30),
+@Estado INT,
+@IdTipoUsuario INT
+AS
+IF @IdTipoUsuario != NULL
+BEGIN
+SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
+FROM Usuario U
+LEFT join TipoUsuario TU on TU.Id=U.IdTipoUsuario
+LEFT JOIN Entidad E ON E.Id=U.IdEntidad
+WHERE 
+U.Nick LIKE '%' + @Nick + '%' COLLATE Latin1_General_CI_AI
+AND
+U.Nombre LIKE '%' + @Nombre + '%' COLLATE Latin1_General_CI_AI 
+AND
+U.Apellido LIKE '%' + @Apellido + '%' COLLATE Latin1_General_CI_AI 
+AND
+TU.Id=@IdTipoUsuario
+AND
+E.Estado=@Estado
+END
+ELSE IF @IdTipoUsuario = NULL
+BEGIN
+SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
+FROM Usuario U
+LEFT join TipoUsuario TU on TU.Id=U.IdTipoUsuario
+LEFT JOIN Entidad E ON E.Id=U.IdEntidad
+WHERE 
+U.Nick LIKE '%' + @Nick + '%' COLLATE Latin1_General_CI_AI
+AND
+U.Nombre LIKE '%' + @Nombre + '%' COLLATE Latin1_General_CI_AI 
+AND
+U.Apellido LIKE '%' + @Apellido + '%' COLLATE Latin1_General_CI_AI
+AND
+E.Estado=@Estado
+END
+go
