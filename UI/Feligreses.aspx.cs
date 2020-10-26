@@ -22,6 +22,15 @@ namespace UI
         int FlagIDEntidad;
         int IDEntidad;
         int EntidadID;
+
+        private static class Variables
+        {
+            public static int IdDir;
+            public static int IdTel;
+            public static int IdMail;
+        }
+
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -87,6 +96,7 @@ namespace UI
         protected void btnGrabar_Click(object sender, EventArgs e)
 
         {
+
             FlagIDEntidad = 0;
             flag = 0;
             if (string.IsNullOrWhiteSpace(hid.Value))
@@ -189,21 +199,18 @@ namespace UI
                 void NuevoDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
                 {
                     EN_DatoEntidad nuevoDato = new EN_DatoEntidad();
-                    nuevoDato._Entidad.Id = idInsertado;
+                    nuevoDato._Entidad.Id = IdTipoDatoEntidad;
                     nuevoDato._TipoDatoEntidad.Id = 1;
                     nuevoDato.NombreDato = NombreDato;
                     nuevoDato.Valor = Valor;
                     nuevoDato.Detalle = "";
                     BL_DatoEntidad.Insertar(nuevoDato);
                 }
-                void EditarDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
+                void EditarDatoEntidad(int IdDatoEntidad, string Valor)
                 {
                     EN_DatoEntidad EditarDato = new EN_DatoEntidad();
-                    EditarDato.Id = EntidadID;
-                    EditarDato.IdEntidad = IDEntidad;
-                    EditarDato.NombreDato = NombreDato;
+                    EditarDato.Id = IdDatoEntidad;
                     EditarDato.Valor = Valor;
-                    EditarDato.Detalle = "";
                     BL_DatoEntidad.Editar(EditarDato);
                 }
                 if (FlagIDEntidad == 1)
@@ -212,17 +219,40 @@ namespace UI
 
                     if (txtDireccion.Text != "")
                     {
-                        
-                        EditarDatoEntidad(IDEntidad, "dire", txtDireccion.Text);
+                        if (Variables.IdDir == 0)
+                        {
+                            NuevoDatoEntidad(int.Parse(hid.Value), "dire", txtDireccion.Text);
+                        }
+                        else
+                        {
+                            EditarDatoEntidad(Variables.IdDir, txtDireccion.Text);
+                        }
+
                     }
                     if (txtMail.Text != "")
                     {
-                        EditarDatoEntidad(IDEntidad, "mail", txtMail.Text);
+
+                        if (Variables.IdMail == 0)
+                        {
+                            NuevoDatoEntidad(int.Parse(hid.Value), "mail", txtMail.Text);
+                        }
+                        else
+                        {
+                            EditarDatoEntidad(Variables.IdMail, txtMail.Text);
+                        }
                     }
                     if (txtTelefono.Text != "")
                     {
-                        EditarDatoEntidad(IDEntidad, "tel", txtTelefono.Text);
+                        if (Variables.IdTel == 0)
+                        {
+                            NuevoDatoEntidad(int.Parse(hid.Value), "tel", txtTelefono.Text);
+                        }
+                        else
+                        {
+                            EditarDatoEntidad(Variables.IdTel, txtTelefono.Text);
+                        }
                     }
+
                 }
                 if (FlagIDEntidad == 0)
                 {
@@ -264,6 +294,7 @@ namespace UI
         protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
 
+
             int Id = int.Parse(dgvFeligres.DataKeys[int.Parse(e.CommandArgument.ToString())].Value.ToString());
             List<EN_Feligres> EditarFeligres = BL_Feligres.FeligresId(Id);
             var FeligresId = EditarFeligres[0];
@@ -292,9 +323,11 @@ namespace UI
                         txtDocumento.Text = FeligresId.Documento;
                         txtObservaciones.Text = FeligresId.Observaciones;
                         txtTelefono.Text = FeligresId.Telefono;
+                        Variables.IdTel = FeligresId.IdTelefono;
                         txtDireccion.Text = FeligresId.Direccion;
+                        Variables.IdDir = FeligresId.IdDireccion;
                         txtMail.Text = FeligresId.Mail;
-
+                        Variables.IdMail = FeligresId.IdMail;
                         ModalPopupExtender1.Show();
                         lblResultado.Text = "Registros: " + Convert.ToString(dgvFeligres.Rows.Count);
                         break;

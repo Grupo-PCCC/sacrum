@@ -27,6 +27,10 @@
                 <a class="my-0 mr-md-auto font-weight-normal" href="Inicio.aspx">Sacrum</a>
                 <nav class="my-2 my-md-0 mr-md-3">
                     <a class="p-2 text-dark" href="Feligreses.aspx">Feligreses</a>
+                    <a class="p-2 text-dark" href="Caja.aspx">Caja</a>
+                    <a class="p-2 text-dark" href="Proveedores.aspx">Proveedores</a>
+                    <a class="p-2 text-dark" href="Actividades.aspx">Actividades</a>
+                    <a class="p-2 text-dark" href="Cinerario.aspx">Cinerario</a>
                     <a class="p-2 text-dark" href="Usuarios.aspx">Usuarios</a>
                     <a class="p-2 text-dark" href="Auditoria.aspx">Auditoría</a>
                     

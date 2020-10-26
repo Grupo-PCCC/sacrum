@@ -30,10 +30,9 @@ namespace DAL
 
         public int Editar(EN_DatoEntidad datoEntidad)
         {
-            List<SqlParameter> parameters = new List<SqlParameter>();    
+            List<SqlParameter> parameters = new List<SqlParameter>();
+            parameters.Add(acceso.CrearParametro("@Id", datoEntidad.Id));
             parameters.Add(acceso.CrearParametro("@Valor", datoEntidad.Valor));
-            parameters.Add(acceso.CrearParametro("@Detalle", datoEntidad.Detalle));
-            parameters.Add(acceso.CrearParametro("@IdEntidad", datoEntidad.IdEntidad));
             return acceso.Escribir("ModificarDatoEntidad", parameters);
 
         }

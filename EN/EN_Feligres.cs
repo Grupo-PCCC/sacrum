@@ -18,10 +18,12 @@ namespace EN
         public string  Documento { get; set; }
          
         public string Telefono { get; set; }
-
+        public int IdTelefono { get; set; }
         public string Mail { get; set; }
-
+        public int IdMail { get; set; }
         public string Direccion { get; set; }
+
+        public int IdDireccion { get; set; }
         public string TDoc { get; set; }
         public string Observaciones { get; set; }
         public int Vivo { get; set; }

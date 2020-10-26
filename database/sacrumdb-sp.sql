@@ -103,7 +103,7 @@ GO
 CREATE PROC BuscarEntidadId
 @IdEntidad Int
 AS
-SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, TEL.Id AS IdTel, MAI.Valor AS Mail, MAI.Id AS IdMail, DIR.Valor AS Direccion, DIR.Id AS IdDir, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, case when Tel.Id is null then '0' else tel.Id END AS IdTel, MAI.Valor AS Mail, Case when MAI.Id is null then '0' else Mai.Id end As IdMail, DIR.Valor AS Direccion, case when DIR.Id is null then '0' else dir.Id end AS IdDir, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
 FROM Feligres F
 LEFT JOIN TipoDocumento TD
 ON F.IdTipoDocumento=TD.Id

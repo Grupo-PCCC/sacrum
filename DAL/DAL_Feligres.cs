@@ -140,8 +140,11 @@ namespace DAL
                 feligres.TDoc = (registro["Tipo de documento"].ToString());
                 feligres.Documento = (registro["Documento"].ToString());
                 feligres.Telefono = (registro["Telefono"] is DBNull ? "" : registro["Telefono"]).ToString();
+                feligres.IdTelefono = int.Parse((registro["IdTel"].ToString()));
                 feligres.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
+                feligres.IdMail = int.Parse(registro["IdMail"].ToString());
                 feligres.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
+                feligres.IdDireccion = int.Parse(registro["IdDir"].ToString());
                 feligres.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
                 feligres.Vivo = int.Parse(registro["Vivo"].ToString());
                 feligres.IdEntidad = int.Parse(registro["IdEntidad"].ToString());

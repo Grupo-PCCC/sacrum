@@ -70,7 +70,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Actividades.aspx" />
     <Content Include="Auditoria.aspx" />
+    <Content Include="Caja.aspx" />
+    <Content Include="Cinerario.aspx" />
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\bootstrap4.min.css" />
@@ -89,6 +92,7 @@
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\javascript.js" />
     <Content Include="js\jquery.min.js" />
+    <Content Include="Proveedores.aspx" />
     <Content Include="Usuarios.aspx" />
     <Content Include="vendor\bootstrap\css\bootstrap-theme.css" />
     <Content Include="vendor\bootstrap\css\bootstrap-theme.min.css" />
@@ -125,6 +129,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Actividades.aspx.cs">
+      <DependentUpon>Actividades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Actividades.aspx.designer.cs">
+      <DependentUpon>Actividades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Auditoria.aspx.cs">
       <DependentUpon>Auditoria.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -138,6 +149,20 @@
     </Compile>
     <Compile Include="base.Master.designer.cs">
       <DependentUpon>base.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Caja.aspx.cs">
+      <DependentUpon>Caja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Caja.aspx.designer.cs">
+      <DependentUpon>Caja.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cinerario.aspx.cs">
+      <DependentUpon>Cinerario.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cinerario.aspx.designer.cs">
+      <DependentUpon>Cinerario.aspx</DependentUpon>
     </Compile>
     <Compile Include="Error404.aspx.cs">
       <DependentUpon>Error404.aspx</DependentUpon>
@@ -167,6 +192,13 @@
     </Compile>
     <Compile Include="Feligreses.aspx.designer.cs">
       <DependentUpon>Feligreses.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Usuarios.aspx.cs">
       <DependentUpon>Usuarios.aspx</DependentUpon>
