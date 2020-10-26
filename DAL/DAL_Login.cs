@@ -28,9 +28,9 @@ namespace DAL
                 while (reader.Read())
                 {
                     LoginCache.Id = reader.GetInt32(0);
-                    LoginCache.Nick = reader.GetString(1);
-                    LoginCache.Nombre = reader.GetString(3);
-                    LoginCache.Apellido = reader.GetString(4);
+                    LoginCache.Nick = reader.GetString(4);
+                    LoginCache.Nombre = reader.GetString(2);
+                    LoginCache.Apellido = reader.GetString(3);
 
 
                 }

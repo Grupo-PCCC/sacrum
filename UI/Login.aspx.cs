@@ -36,6 +36,8 @@ namespace UI
                         L.WriteLog(L);
                         */
                         Session["usuarioNick"] = LoginCache.Nick;
+                        Session["usuarioNombre"] = LoginCache.Nombre;
+                        Session["usuarioApellido"] = LoginCache.Apellido;
                         Response.Redirect("~/Inicio.aspx");
 
                     }
