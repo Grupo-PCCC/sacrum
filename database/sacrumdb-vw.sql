@@ -3,7 +3,7 @@ go
 --VISTA PRINCIPAL DE FELIGRESES--
 CREATE PROC VW_Feligreses (@Nombre VARCHAR(30), @Apellido VARCHAR(30), @Fecha1 DATE, @Fecha2 DATE, @Documento VARCHAR(20), @Vivo INT, @EsContacto INT, @Estado INT)
 AS
-SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, MAI.Valor AS Mail, DIR.Valor AS Direccion, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
+SELECT F.Id, F.CodigoInterno AS [Codigo Interno], F.Nombre, F.Apellido, F.FechaNacimiento AS [Fecha de nacimiento], TD.Nombre AS [Tipo de documento], F.Documento, TEL.Valor AS Telefono, TEL.Id AS IdTel, MAI.Valor AS Mail, MAI.Id AS IdMail, DIR.Valor AS Direccion, DIR.Id AS IdDir, F.Observaciones, F.Vivo, F.IdEntidad, F.EsContacto
 FROM Feligres F
 --JOINS--
 LEFT JOIN TipoDocumento TD
