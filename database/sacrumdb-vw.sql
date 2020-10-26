@@ -59,22 +59,150 @@ CREATE PROC VW_MovimientosMonetarios
 @Fecha2 DATE,
 @Precio1 FLOAT,
 @Precio2 FLOAT,
-@IdTipoCategoria VARCHAR (100),
+@IdTipoCategoria INT,
 @IdCategoria VARCHAR (100),
 @IdUsuario VARCHAR (100)
 AS
-IF @IdTipoCategoria IS NULL
+IF @IdTipoCategoria IS NULL AND @IdCategoria IS NULL AND @IdUsuario IS NULL
 BEGIN
-SET @IdTipoCategoria = (SELECT STUFF((SELECT ', ' + CAST(Id AS VARCHAR(10)) FROM TipoCategoria FOR XML PATH ('')),1,2, ''))
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (1,2)
+AND
+M.IdUsuario IN (SELECT Id FROM Usuario)
+AND
+M.IdCategoria IN (SELECT Id FROM Categoria)
+ORDER BY M.Fecha
 END
-ELSE IF @IdCategoria IS NULL
+ELSE IF @IdTipoCategoria IS NULL AND @IdCategoria IS NULL
 BEGIN
-SET @IdCategoria = (SELECT STUFF((SELECT ', ' + CAST(Id AS VARCHAR(10)) FROM Categoria FOR XML PATH ('')),1,2, ''))
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (1,2)
+AND
+M.IdUsuario IN (@IdUsuario)
+AND
+M.IdCategoria IN (SELECT Id FROM Categoria)
+ORDER BY M.Fecha
+END
+ELSE IF @IdCategoria IS NULL AND @IdUsuario IS NULL
+BEGIN
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (@IdTipoCategoria)
+AND
+M.IdUsuario IN (SELECT Id FROM Usuario)
+AND
+M.IdCategoria IN (SELECT Id FROM Categoria)
+ORDER BY M.Fecha
+END
+
+ELSE IF @IdTipoCategoria IS NULL
+BEGIN
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (1,2)
+AND
+M.IdUsuario IN (@IdUsuario)
+AND
+M.IdCategoria IN (@IdCategoria)
+ORDER BY M.Fecha
 END
 ELSE IF @IdUsuario IS NULL
 BEGIN
-SET @IdUsuario = (SELECT STUFF((SELECT ', ' + CAST(Id AS VARCHAR(10)) FROM Usuario FOR XML PATH ('')),1,2, ''))
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (@IdTipoCategoria)
+AND
+M.IdUsuario IN (SELECT Id FROM Usuario)
+AND
+M.IdCategoria IN (@IdCategoria)
+ORDER BY M.Fecha
 END
+ELSE IF @IdCategoria IS NULL
+BEGIN
+SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
+FROM MovimientoMonetario M
+--JOINS--
+INNER JOIN Categoria C
+ON M.IdCategoria=C.Id
+INNER JOIN TipoCategoria TC
+ON C.IdTipoCategoria=TC.Id
+INNER JOIN Usuario U
+ON M.IdUsuario=U.Id
+--CONDICIONES--
+WHERE M.Fecha BETWEEN @Fecha1 AND @Fecha2
+AND
+M.Valor BETWEEN @Precio1 AND @Precio2
+AND
+C.IdTipoCategoria IN (@IdTipoCategoria)
+AND
+M.IdUsuario IN (@IdUsuario)
+AND
+M.IdCategoria IN (SELECT Id FROM Categoria)
+ORDER BY M.Fecha
+END
+ELSE IF @IdTipoCategoria IS NOT NULL AND @IdCategoria IS NOT NULL AND @IdUsuario IS NOT NULL
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -98,13 +226,6 @@ M.IdCategoria IN (@IdCategoria)
 ORDER BY M.Fecha
 END
 GO
-
-EXEC VW_MovimientosMonetarios '1900-01-01','2020-12-31',0,1000,'1','2','1'
-
-EXEC VW_MovimientosMonetarios '1900-01-01','2020-12-31',0,1000,NULL,NULL,NULL
-
-
-exec NuevoMovimientoMonetario 100,'2020-10-22','',1,2
 
 --VISTA PRINCIPAL DE PROVEEDORES--
 CREATE PROC VW_Proveedores (@RazonSocial VARCHAR(50), @Estado INT)
@@ -205,6 +326,7 @@ WHERE
 A.Fecha BETWEEN @Fecha1 AND @NuevaFecha 
 AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
 ORDER BY A.Fecha ASC
+
 --VISTA FALLECIDOS--
 CREATE PROC VW_Fallecidos (@Nombre VARCHAR(30), @Apellido VARCHAR(30), @FechaFallecimiento1 DATE, @FechaFallecimiento2 DATE, @FechaIngresoCinerario1 DATE, @FechaIngresoCinerario2 DATE, @Documento VARCHAR(20), @Estado INT, @Contribuyo INT)
 AS
@@ -253,7 +375,7 @@ CREATE PROC VW_Usuarios
 @Estado INT,
 @IdTipoUsuario INT
 AS
-IF @IdTipoUsuario != NULL
+IF @IdTipoUsuario IS NOT NULL
 BEGIN
 SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
 FROM Usuario U
@@ -270,7 +392,7 @@ TU.Id=@IdTipoUsuario
 AND
 E.Estado=@Estado
 END
-ELSE IF @IdTipoUsuario = NULL
+ELSE IF @IdTipoUsuario IS NULL
 BEGIN
 SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
 FROM Usuario U
@@ -285,4 +407,4 @@ U.Apellido LIKE '%' + @Apellido + '%' COLLATE Latin1_General_CI_AI
 AND
 E.Estado=@Estado
 END
-go
+GO
