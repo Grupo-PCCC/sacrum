@@ -234,18 +234,12 @@ GO
 EXEC ValidarTipoDeDato 1,'tel'
 GO
 --MODIFICAR DATO ENTIDAD--
-CREATE PROC ModificarDatoEntidad
-@Valor VARCHAR (100),
-@Detalle VARCHAR (20),
-@IdEntidad INT
-AS
-UPDATE DatoEntidad SET Valor=@Valor, Detalle=@Detalle
-WHERE IdEntidad=@IdEntidad
-GO
-
---Modifico un dato de una entidad--
-EXEC  ModificarDatoEntidad '33334455','Teléfono del abuelo', 1
-GO
+create PROC ModificarDatoEntidad
+@Id INT
+@Valor VARCHAR (100)
+as
+UPDATE DatoEntidad SET Valor=@Valor WHERE Id=@Id
+go
 
 --BORRAR DATO ENTIDAD--
 CREATE PROC BorrarDatoEntidad
