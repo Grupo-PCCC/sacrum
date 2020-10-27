@@ -365,6 +365,13 @@ AS
 SELECT COUNT(*) FROM Usuario WHERE Nick=@Nick
 GO
 
+CREATE PROC IdUsuario
+as
+SELECT u.Id,u.Nick  FROM Usuario U
+go
+
+
+
 CREATE PROC BorrarActividad
 @Id INT
 AS

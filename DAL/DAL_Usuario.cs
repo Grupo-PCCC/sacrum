@@ -45,6 +45,26 @@ namespace DAL
 
 
         }
+        public List<EN_Usuario> ListaUsuarios()
+        {
+
+            DataTable Tabla = acceso.Leer("IdUsuario", null);
+            List<EN_Usuario> lista = new List<EN_Usuario>();
+
+            foreach (DataRow registro in Tabla.Rows)
+            {
+                
+                EN_Usuario usuario = new EN_Usuario();
+
+                usuario.Id = int.Parse(registro["Id"].ToString());
+                usuario.Nick = (registro["Nick"].ToString());
+                lista.Add(usuario);
+
+            }
+            return lista;
+
+
+        }
 
         public List<EN_Usuario> ListarUser(string buscar)
 

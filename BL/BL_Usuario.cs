@@ -45,7 +45,10 @@ namespace BL
         }
 
 
-    
+        public List<EN_Usuario> ListaUsuarios()
+        {
+            return objDato.ListaUsuarios();
+        }
 
 
     }

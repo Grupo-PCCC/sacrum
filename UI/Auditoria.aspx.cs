@@ -5,12 +5,12 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using COMMON;
-
+using BL;
 namespace UI
 {
     public partial class Auditoria : System.Web.UI.Page
     {
-        
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (Session["usuarioNick"] == null)
@@ -18,47 +18,87 @@ namespace UI
                 Response.Redirect("~/Login.aspx");
             }
 
-            mostrarTabla();
+
+            if (!IsPostBack)
+
+            {
+                CargarlstUsuario();
+                Enlazar();
+
+            }
+          
 
         }
 
 
-
-        public void mostrarTabla()
+        private static class Variables
         {
-            int idUsuario=0;
-            DateTime fecha1 = new DateTime(2008, 6, 1, 7, 47, 0);
-            DateTime fecha2 = new DateTime(9999, 6, 1, 7, 47, 0);
-            string texto = "";
-            Audit L = new Audit();
-            var Lista= L.ListarLog(idUsuario,fecha1,fecha2,texto);
-            dgvAuditoria.DataSource = Lista;
-            dgvAuditoria.DataBind();
-            lblResultado.Text = "Registros: " + Convert.ToString(dgvAuditoria.Rows.Count);
+            public static int IdUsu;
+            
         }
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+            Enlazar();
         }
-                     
-        public void mostrarBuscarTabla(string Nick)
+
+        public void Enlazar()
         {
-            int idUsuario = 0;
-            DateTime fecha1 = new DateTime(2008, 6, 1, 7, 47, 0);
-            DateTime fecha2 = new DateTime(9999, 6, 1, 7, 47, 0);
-            string texto = "";
+            string Texto = txtTextoBuscar.Text.Trim().ToString();
+            
+            
+            DateTime Fecha1;
+            DateTime Fecha2;
+            if (dateInicio.Text == "")
+            {
+                Fecha1 = Convert.ToDateTime("01-01-1900");
+            }
+            else
+            {
+                Fecha1 = Convert.ToDateTime(dateInicio.Text);
+            }
+            if (dateFin.Text == "")
+            {
+                Fecha2 = Convert.ToDateTime(DateTime.Now.ToString("dd/MM/yyyy"));
+            }
+            else
+            {
+                Fecha2 = Convert.ToDateTime(dateFin.Text);
+            }
+            
+            
             Audit objBL = new Audit();
-            Nick = TxtBusqueda.Text.ToString();
-            dgvAuditoria.DataSource = objBL.ListarLog(idUsuario, fecha1, fecha2, texto);
+            dgvAuditoria.DataSource = objBL.ListarLog(Variables.IdUsu, Fecha1, Fecha2, Texto);
             dgvAuditoria.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvAuditoria.Rows.Count);
         }
 
+        private void CargarlstUsuario()
+        {
+            BL_Usuario objBLU = new BL_Usuario();
+
+            lstUsuario.DataSource = objBLU.ListaUsuarios();
+            lstUsuario.DataTextField = "Nick";
+            lstUsuario.DataValueField = "Id";
+            lstUsuario.DataBind();
+            lstUsuario.Items.Insert(0, new ListItem("[TODOS]", "0"));
+
+        }
+
+
+
+
+
+
         protected void dgvAuditoria_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvAuditoria.PageIndex = e.NewPageIndex;
-            mostrarTabla();
+            Enlazar();
+        }
+
+        protected void lstUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Variables.IdUsu = int.Parse(lstUsuario.SelectedValue);
         }
     }
 }
