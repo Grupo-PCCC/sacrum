@@ -26,8 +26,12 @@ namespace UI
 
         public void mostrarTabla()
         {
+            int idUsuario=0;
+            DateTime fecha1 = new DateTime(2008, 6, 1, 7, 47, 0);
+            DateTime fecha2 = new DateTime(9999, 6, 1, 7, 47, 0);
+            string texto = "";
             Audit L = new Audit();
-            var Lista= L.ListLogAll();
+            var Lista= L.ListarLog(idUsuario,fecha1,fecha2,texto);
             dgvAuditoria.DataSource = Lista;
             dgvAuditoria.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvAuditoria.Rows.Count);
@@ -40,9 +44,13 @@ namespace UI
                      
         public void mostrarBuscarTabla(string Nick)
         {
+            int idUsuario = 0;
+            DateTime fecha1 = new DateTime(2008, 6, 1, 7, 47, 0);
+            DateTime fecha2 = new DateTime(9999, 6, 1, 7, 47, 0);
+            string texto = "";
             Audit objBL = new Audit();
             Nick = TxtBusqueda.Text.ToString();
-            dgvAuditoria.DataSource = objBL.ListarAccionNick(Nick);
+            dgvAuditoria.DataSource = objBL.ListarLog(idUsuario, fecha1, fecha2, texto);
             dgvAuditoria.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvAuditoria.Rows.Count);
         }

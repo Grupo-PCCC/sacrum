@@ -15,25 +15,25 @@ namespace COMMON
         SqlConnection Conexion = new SqlConnection(ConfigurationManager.ConnectionStrings["conectar"].ConnectionString);
         public int Id { get; set; }
 
-        public EN_Usuario _users;
-        public DateTime ActionDate { get; set; }
+        public EN_Usuario _usuario;
+        public DateTime Fecha { get; set; }
 
         public string Nick { get; set; }
-        public string Action { get; set; }
+        public string Accion { get; set; }
         public Audit()
         {
-            _users = new EN_Usuario();
+            _usuario = new EN_Usuario();
         }
 
-        public bool WriteLog(Audit L)
+        public bool EscribirLog(Audit L)
         {
             bool answ;
-            SqlCommand cmd = new SqlCommand("WriteLog", Conexion);
+            SqlCommand cmd = new SqlCommand("EscribirLog", Conexion);
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion.Open();
-            cmd.Parameters.AddWithValue("@ActionDate", L.ActionDate);
-            cmd.Parameters.AddWithValue("@Action", L.Action);
-            cmd.Parameters.AddWithValue("@UserId", L.Id);
+            cmd.Parameters.AddWithValue("@Fecha", L.Fecha);
+            cmd.Parameters.AddWithValue("@Accion", L.Accion);
+            cmd.Parameters.AddWithValue("@IdUsuario", L.Id);
             cmd.ExecuteNonQuery();
             answ = true;
             Conexion.Close();
@@ -41,42 +41,23 @@ namespace COMMON
             return answ;
         }
 
-
-        public List<Audit> ListLogAll()
+        public List<Audit> ListarLog(int idUsuario, DateTime fecha1, DateTime fecha2, string texto)
         {
-            SqlCommand cmd = new SqlCommand("ListAllLog", Conexion);
+            SqlCommand cmd = new SqlCommand("VW_Log", Conexion);
             var List = new List<Audit>();
             cmd.CommandType = CommandType.StoredProcedure;
             Conexion.Open();
+            cmd.Parameters.AddWithValue("@IdUsuario", idUsuario);
+            cmd.Parameters.AddWithValue("@Fecha1", fecha1);
+            cmd.Parameters.AddWithValue("@Fecha2", fecha2);
+            cmd.Parameters.AddWithValue("@Texto", texto);
             var rdr = cmd.ExecuteReader();
             while (rdr != null && rdr.Read())
             {
                 var reg = new Audit();
-                reg.ActionDate = (DateTime)rdr["ActionDate"];
+                reg.Fecha = (DateTime)rdr["FechaAccion"];
                 reg.Nick = (string)rdr["Usuario"];
-                reg.Action = (string)rdr["Action"];
-                List.Add(reg);
-
-            }
-            Conexion.Close();
-            Conexion.Dispose();
-            return List;
-        }
-
-        public List<Audit> ListarAccionNick(string Nick)
-        {
-            SqlCommand cmd = new SqlCommand("ListLogAction", Conexion);
-            var List = new List<Audit>();
-            cmd.CommandType = CommandType.StoredProcedure;
-            Conexion.Open();
-            cmd.Parameters.AddWithValue("@Nick", Nick);
-            var rdr = cmd.ExecuteReader();
-            while (rdr != null && rdr.Read())
-            {
-                var reg = new Audit();
-                reg.ActionDate = (DateTime)rdr["ActionDate"];
-                reg.Nick = (string)rdr["Usuario"];
-                reg.Action = (string)rdr["Action"];
+                reg.Accion = (string)rdr["Accion"];
                 List.Add(reg);
 
             }

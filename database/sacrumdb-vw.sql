@@ -307,7 +307,7 @@ CREATE PROC VW_Log
 @Texto VARCHAR(30)
 AS
 DECLARE @NuevaFecha DATE = (SELECT DATEADD(DAY,1,@Fecha2))
-IF @IdUsuario !=NULL
+IF @IdUsuario != 0
 SELECT Convert(smalldatetime,A.Fecha,120) as FechaAccion,  U.Nick as 'Usuario',  A.Accion
 FROM Auditoria A
 INNER JOIN Usuario U
@@ -317,7 +317,7 @@ A.Fecha BETWEEN @Fecha1 AND @NuevaFecha
 AND U.Id=@IdUsuario 
 AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
 ORDER BY A.Fecha ASC
-ELSE IF @IdUsuario = NULL
+ELSE IF @IdUsuario = 0
 SELECT Convert(smalldatetime,A.Fecha,120) as FechaAccion,  U.Nick as 'Usuario',  A.Accion
 FROM Auditoria A
 INNER JOIN Usuario U
@@ -326,6 +326,7 @@ WHERE
 A.Fecha BETWEEN @Fecha1 AND @NuevaFecha 
 AND A.Accion LIKE '%' + @Texto + '%' COLLATE Latin1_General_CI_AI
 ORDER BY A.Fecha ASC
+GO
 
 --VISTA FALLECIDOS--
 CREATE PROC VW_Fallecidos (@Nombre VARCHAR(30), @Apellido VARCHAR(30), @FechaFallecimiento1 DATE, @FechaFallecimiento2 DATE, @FechaIngresoCinerario1 DATE, @FechaIngresoCinerario2 DATE, @Documento VARCHAR(20), @Estado INT, @Contribuyo INT)

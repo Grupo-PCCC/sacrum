@@ -70,10 +70,10 @@ namespace UI
             //par._tipoUsuario.Id = int.Parse(TxtTipodeUsuario.Text);
             BL_Usuario.Insertar(par);
             Audit L = new Audit();
-            L.Action = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
-            L.ActionDate = DateTime.Now;
+            L.Accion = "El usuario " + LoginCache.Nick + " registró el usuario " + txtNombre.Text + " " + txtNombre.Text;
+            L.Fecha = DateTime.Now;
             L.Id = LoginCache.Id;
-            L.WriteLog(L);
+            L.EscribirLog(L);
             hid.Value = "0";
             txtNick.Text = string.Empty;
             txtNombre.Text = string.Empty;

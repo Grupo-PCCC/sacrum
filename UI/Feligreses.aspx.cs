@@ -169,7 +169,7 @@ namespace UI
             {
                 string Tabla = "Feligres";
                 EN_Feligres Feligres = new EN_Feligres();
-                //Audit L = new Audit();
+                Audit L = new Audit();
                 Feligres.Id = int.Parse(hid.Value);
                 Feligres.Nombre = txtNombre.Text.ToString();
                 Feligres.Apellido = txtApellido.Text.ToString();
@@ -191,10 +191,10 @@ namespace UI
                 }
                 BL_Feligres.Grabar(Feligres);
                 int idInsertado = BL_Entidad.UltimoIdEntidad();
-                //L.Action = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
-                //L.ActionDate = DateTime.Now;
-                //L.Id = LoginCache.Id;
-                //L.WriteLog(L);
+                L.Accion = "El usuario " + LoginCache.Nick + " registró el feligrés " + txtNombre.Text + " " + txtApellido.Text;
+                L.Fecha = DateTime.Now;
+                L._usuario.Id = LoginCache.Id;
+                L.EscribirLog(L);
 
                 void NuevoDatoEntidad(int IdTipoDatoEntidad, string NombreDato, string Valor)
                 {

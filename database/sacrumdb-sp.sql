@@ -352,11 +352,11 @@ INSERT INTO FeligresPorActividad (IdActividad, IdFeligres) VALUES (@IdActividad,
 GO
 
 CREATE PROC EscribirLog
-@UserId INT,
-@ActionDate DATETIME,
-@Action VARCHAR (240)
+@IdUsuario INT,
+@Fecha DATETIME,
+@Accion VARCHAR (240)
 AS
-INSERT INTO Auditoria VALUES (@UserId, @ActionDate, @Action)
+INSERT INTO Auditoria (IdUsuario, Fecha, Accion) VALUES (@IdUsuario, @Fecha, @Accion)
 GO
 
 CREATE PROC ChequearNick
