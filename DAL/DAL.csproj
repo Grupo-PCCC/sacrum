@@ -47,6 +47,7 @@
     <Compile Include="DAL_Entidad.cs" />
     <Compile Include="DAL_Login.cs" />
     <Compile Include="DAL_Feligres.cs" />
+    <Compile Include="DAL_Proveedor.cs" />
     <Compile Include="DAL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

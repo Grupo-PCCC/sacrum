@@ -124,6 +124,28 @@ ON E.Id=F.IdEntidad
  WHERE F.IdEntidad = @IdEntidad
 Go
 
+CREATE PROC BuscarEntidadIdProveedor
+@IdEntidad Int
+AS
+SELECT P.Id, P.CodigoInterno AS [Codigo Interno], P.RazonSocial, TEL.Valor AS Telefono, case when Tel.Id is null then '0' else tel.Id END AS IdTel, MAI.Valor AS Mail, Case when MAI.Id is null then '0' else Mai.Id end As IdMail, DIR.Valor AS Direccion, case when DIR.Id is null then '0' else dir.Id end AS IdDir, P.Observaciones, P.IdEntidad
+FROM Proveedor P
+LEFT JOIN DatoEntidad TEL
+ON TEL.IdTipoDatoEntidad=1
+AND TEL.NombreDato='tel'
+AND P.IdEntidad=TEL.IdEntidad
+LEFT JOIN DatoEntidad AS MAI
+ON MAI.IdTipoDatoEntidad=1
+AND MAI.NombreDato='mail'
+AND P.IdEntidad=MAI.IdEntidad
+LEFT JOIN DatoEntidad AS DIR
+ON DIR.IdTipoDatoEntidad=1
+AND DIR.NombreDato='dire'
+AND P.IdEntidad=DIR.IdEntidad
+LEFT JOIN Entidad E
+ON E.Id=P.IdEntidad
+ WHERE P.IdEntidad = @IdEntidad
+Go
+
 
 --- MODIFICAR ENTIDAD --
 CREATE PROC ModificarEntidad

@@ -230,7 +230,7 @@ GO
 --VISTA PRINCIPAL DE PROVEEDORES--
 CREATE PROC VW_Proveedores (@RazonSocial VARCHAR(50), @Estado INT)
 AS
-SELECT P.Id, P.CodigoInterno AS [Codigo Interno], P.RazonSocial, TEL.Valor AS Telefono, MAI.Valor AS Mail, DIR.Valor AS Direccion, P.Observaciones, P.IdEntidad
+SELECT P.Id, P.CodigoInterno AS [Codigo Interno], P.RazonSocial, TEL.Valor AS Telefono, TEL.Id AS IdTel, MAI.Valor AS Mail, MAI.Id AS IdMail, DIR.Valor AS Direccion, DIR.Id AS IdDir, P.Observaciones, P.IdEntidad
 FROM Proveedor P
 --JOINS--
 LEFT JOIN DatoEntidad TEL
