@@ -63,7 +63,7 @@ CREATE PROC VW_MovimientosMonetarios
 @IdCategoria VARCHAR (100),
 @IdUsuario VARCHAR (100)
 AS
-IF @IdTipoCategoria IS NULL AND @IdCategoria IS NULL AND @IdUsuario IS NULL
+IF @IdTipoCategoria = 0 AND @IdCategoria = 0 AND @IdUsuario = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -86,7 +86,7 @@ AND
 M.IdCategoria IN (SELECT Id FROM Categoria)
 ORDER BY M.Fecha
 END
-ELSE IF @IdTipoCategoria IS NULL AND @IdCategoria IS NULL
+ELSE IF @IdTipoCategoria = 0 AND @IdCategoria = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -109,7 +109,7 @@ AND
 M.IdCategoria IN (SELECT Id FROM Categoria)
 ORDER BY M.Fecha
 END
-ELSE IF @IdCategoria IS NULL AND @IdUsuario IS NULL
+ELSE IF @IdCategoria = 0 AND @IdUsuario = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -133,7 +133,7 @@ M.IdCategoria IN (SELECT Id FROM Categoria)
 ORDER BY M.Fecha
 END
 
-ELSE IF @IdTipoCategoria IS NULL
+ELSE IF @IdTipoCategoria = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -156,7 +156,7 @@ AND
 M.IdCategoria IN (@IdCategoria)
 ORDER BY M.Fecha
 END
-ELSE IF @IdUsuario IS NULL
+ELSE IF @IdUsuario = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -179,7 +179,7 @@ AND
 M.IdCategoria IN (@IdCategoria)
 ORDER BY M.Fecha
 END
-ELSE IF @IdCategoria IS NULL
+ELSE IF @IdCategoria = 0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -202,7 +202,7 @@ AND
 M.IdCategoria IN (SELECT Id FROM Categoria)
 ORDER BY M.Fecha
 END
-ELSE IF @IdTipoCategoria IS NOT NULL AND @IdCategoria IS NOT NULL AND @IdUsuario IS NOT NULL
+ELSE IF @IdTipoCategoria !=0 AND @IdCategoria !=0 AND @IdUsuario !=0
 BEGIN
 SELECT M.Id, M.Fecha, C.Nombre AS NombreCategoria, M.Valor, TC.Nombre AS 'Tipo de movimiento', M.Observacion, U.Nick AS Usuario, C.Id AS IdCategoria, TC.Id AS IdTipoCategoria, U.Id AS IdUsuario
 FROM MovimientoMonetario M
@@ -376,7 +376,7 @@ CREATE PROC VW_Usuarios
 @Estado INT,
 @IdTipoUsuario INT
 AS
-IF @IdTipoUsuario IS NOT NULL
+IF @IdTipoUsuario != 0
 BEGIN
 SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
 FROM Usuario U
@@ -393,7 +393,7 @@ TU.Id=@IdTipoUsuario
 AND
 E.Estado=@Estado
 END
-ELSE IF @IdTipoUsuario IS NULL
+ELSE IF @IdTipoUsuario = 0
 BEGIN
 SELECT U.Id, U.CodigoInterno, U.Nick, U.Contrasenia, U.Nombre, U.Apellido,TU.Nombre as TipoPerfil, E.Id AS IdEntidad
 FROM Usuario U
