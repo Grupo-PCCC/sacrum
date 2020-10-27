@@ -106,14 +106,14 @@ namespace DAL
         }
 
 
-        /*
-        public List<EN_Proveedor> proveedorId(int Id)
+        
+        public List<EN_Proveedor> ProveedorId(int Id)
 
         {
             int idEncontrado = Id;
             List<SqlParameter> parameters = new List<SqlParameter>();
             parameters.Add(acceso.CrearParametro("@IdEntidad", idEncontrado));
-            DataTable tabla = acceso.Leer("BuscarEntidadId", parameters);
+            DataTable tabla = acceso.Leer("BuscarEntidadIdProveedor", parameters);
             List<EN_Proveedor> proveedor_ID = new List<EN_Proveedor>();
 
             foreach (DataRow registro in tabla.Rows)
@@ -121,30 +121,19 @@ namespace DAL
                 EN_Proveedor proveedor = new EN_Proveedor();
                 proveedor.Id = int.Parse(registro["Id"].ToString());
                 proveedor.CodigoInterno = (registro["Codigo Interno"].ToString());
-                proveedor.Nombre = (registro["Nombre"].ToString());
-                proveedor.Apellido = (registro["Apellido"].ToString());
-                proveedor.FechaNacimiento = Convert.ToDateTime(registro["Fecha de nacimiento"].ToString());
-                proveedor.TDoc = (registro["Tipo de documento"].ToString());
-                proveedor.Documento = (registro["Documento"].ToString());
+                proveedor.RazonSocial = (registro["RazonSocial"].ToString());
                 proveedor.Telefono = (registro["Telefono"] is DBNull ? "" : registro["Telefono"]).ToString();
-                proveedor.IdTelefono = int.Parse((registro["IdTel"].ToString()));
                 proveedor.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
-                proveedor.IdMail = int.Parse(registro["IdMail"].ToString());
                 proveedor.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
-                proveedor.IdDireccion = int.Parse(registro["IdDir"].ToString());
                 proveedor.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
-                proveedor.Vivo = int.Parse(registro["Vivo"].ToString());
-                proveedor.IdEntidad = int.Parse(registro["IdEntidad"].ToString());
-                proveedor.EsContacto = int.Parse(registro["EsContacto"].ToString());
-                proveedor_ID.Add(proveedor);
+                proveedor.IdEntidad = int.Parse(registro["IdEntidad"].ToString());proveedor_ID.Add(proveedor);
             }
 
             return proveedor_ID;
         }
-        */
-       
+        
+
     }
 
 
 }
-

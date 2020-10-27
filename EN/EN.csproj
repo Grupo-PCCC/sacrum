@@ -62,6 +62,7 @@
     <Compile Include="EN_DatoEntidad.cs" />
     <Compile Include="EN_Entidad.cs" />
     <Compile Include="EN_Feligres.cs" />
+    <Compile Include="EN_Proveedor.cs" />
     <Compile Include="EN_TipoDatoEntidad.cs" />
     <Compile Include="EN_TipoDocumento.cs" />
     <Compile Include="EN_TipoUsuario.cs" />

@@ -45,6 +45,7 @@
     <Compile Include="BL_Entidad.cs" />
     <Compile Include="BL_Login.cs" />
     <Compile Include="BL_Feligres.cs" />
+    <Compile Include="BL_Proveedor.cs" />
     <Compile Include="BL_Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
