@@ -42,8 +42,23 @@
 .dropdown-menu {
     padding-left: 15px !important;
 }
+main > .container {
+    padding: 100px 15px 0;
+}
 @media (min-width: 1200px) {
     .container {
         max-width: 1400px !important;
+        padding-left:0px;
+        padding-right:0px;
     }
 }
+@media (min-width: 992px) {
+    .col-lg-12 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        padding-left: 0px !important;
+        margin-left: 0px !important;
+    }
+}
+
