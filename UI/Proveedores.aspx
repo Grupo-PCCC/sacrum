@@ -42,7 +42,7 @@
                         </div>
                         
 
-                        <asp:GridView ID="dgvProveedor" runat="server" class="table table-striped text-center" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2"  AllowPaging="true" OnPageIndexChanging="dgvProveedor_PageIndexChanging" OnSelectedIndexChanged="dgvProveedor_SelectedIndexChanged">
+                        <asp:GridView ID="dgvProveedor" runat="server" class="table table-striped text-center" CellPadding="4"  OnRowCommand="ViewProveedor_RowCommand1" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2"  AllowPaging="true" OnPageIndexChanging="dgvProveedor_PageIndexChanging" OnSelectedIndexChanged="dgvProveedor_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />

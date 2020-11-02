@@ -221,7 +221,7 @@ namespace UI
 
         }
 
-        protected void ViewParishioner_RowCommand1(object sender, GridViewCommandEventArgs e)
+        protected void ViewProveedor_RowCommand1(object sender, GridViewCommandEventArgs e)
         {
 
 

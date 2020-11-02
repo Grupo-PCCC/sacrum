@@ -33,7 +33,7 @@ namespace COMMON
             Conexion.Open();
             cmd.Parameters.AddWithValue("@Fecha", L.Fecha);
             cmd.Parameters.AddWithValue("@Accion", L.Accion);
-            cmd.Parameters.AddWithValue("@IdUsuario", L.Id);
+            cmd.Parameters.AddWithValue("@IdUsuario", L._usuario.Id);
             cmd.ExecuteNonQuery();
             answ = true;
             Conexion.Close();
