@@ -409,3 +409,10 @@ AND
 E.Estado=@Estado
 END
 GO
+
+CREATE PROC VW_Actividades
+@Nombre VARCHAR (50)
+AS
+SELECT * FROM Actividad 
+WHERE Nombre LIKE '%' + @Nombre + '%' COLLATE Latin1_General_CI_AI
+GO

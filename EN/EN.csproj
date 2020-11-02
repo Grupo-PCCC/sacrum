@@ -59,6 +59,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EN_Actividad.cs" />
     <Compile Include="EN_DatoEntidad.cs" />
     <Compile Include="EN_Entidad.cs" />
     <Compile Include="EN_Feligres.cs" />

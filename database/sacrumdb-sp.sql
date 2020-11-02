@@ -366,6 +366,19 @@ AS
 INSERT INTO Actividad VALUES (@Nombre, @Observacion)
 GO
 
+CREATE PROC ModificarActividad
+@Nombre VARCHAR (50),
+@Observacion VARCHAR (120)
+AS
+UPDATE Actividad SET Nombre=@Nombre, Observacion=@Observacion
+GO
+
+CREATE PROC ValidarActividad
+@Nombre VARCHAR (50)
+AS
+SELECT * FROM Actividad WHERE Nombre=@Nombre
+GO
+
 CREATE PROC NuevoFeligresEnActividad
 @IdActividad INT,
 @IdFeligres INT
@@ -457,3 +470,7 @@ AS
 SELECT Id, Nombre FROM Categoria WHERE Nombre=@Nombre
 GO
 
+CREATE PROC ListarActividades
+AS
+SELECT Id, Nombre FROM Actividad ORDER BY Nombre
+GO

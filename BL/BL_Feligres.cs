@@ -38,6 +38,11 @@ namespace BL
             return DAL_Feligres.Listar(Nombre, Apellido, Fecha1, Fecha2, Documento, Vivo, EsContacto, Estado);
         }
 
+        public List<EN_Feligres> ListarFeligresesEnActividad(string Nombre, string Apellido, DateTime Fecha1, DateTime Fecha2, string Documento, int Vivo, int EsContacto, int Estado, int Actividad)
+        {
+            return DAL_Feligres.ListarFeligresesEnActividad(Nombre, Apellido, Fecha1, Fecha2, Documento, Vivo, EsContacto, Estado, Actividad);
+        }
+
         public List<EN_Feligres> FeligresId(int Id)
         {
             return DAL_Feligres.FeligresId(Id);
