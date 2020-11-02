@@ -9,16 +9,15 @@
     </asp:ScriptManager>
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-
-            <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <h1>Feligreses</h1>
                         <div class="row">
+                            <%--Agregar Feligres--%>
                             <div class="col-md-2 ml-0">
                                 <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo feligrés" OnClick="btnNuevo_Click" />
                             </div>
-                        
+                            <%--Agregar Feligres--%>
                             <div class="col-md-10 ml-0">
 							    <!-- Filtro -->
 							    <div class="panel">
@@ -52,8 +51,6 @@
 							    <!-- Filtro -->
 						    </div>
                         </div>
-                        
-
                         <asp:GridView ID="dgvFeligres" runat="server" class="table table-striped text-center" CellPadding="4" OnRowCommand="ViewParishioner_RowCommand1" AutoGenerateColumns="False" DataKeyNames="IdEntidad" CellSpacing="2"  AllowPaging="true" OnPageIndexChanging="dgvFeligres_PageIndexChanging" OnSelectedIndexChanged="dgvFeligres_SelectedIndexChanged">
                             <Columns>
                                 <asp:BoundField HeaderText="Id" DataField="Id" Visible="False">
@@ -73,52 +70,41 @@
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
                                 <asp:BoundField HeaderText="Fecha de nacimiento" DataField="FechaNacimiento" DataFormatString="{0:dd/MM/yyyy}">
-
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Tipo Documento" DataField="TDoc">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
-
                                 <asp:BoundField HeaderText="Documento" DataField="Documento">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Telefono" DataField="Telefono">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Mail" DataField="Mail">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Direccion" DataField="Direccion">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Observaciones" DataField="Observaciones" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="Vivo" DataField="Vivo" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="IdEntidad" DataField="IdEntidad" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
                                 </asp:BoundField>
-
                                 <asp:BoundField HeaderText="EsContacto" DataField="EsContacto" Visible="False">
                                     <HeaderStyle HorizontalAlign="Center" />
                                     <ItemStyle HorizontalAlign="Center" />
@@ -148,7 +134,6 @@
                         <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
                     </div>
                 </div>
-            </div>
 
             <asp:HiddenField ID="hid" runat="server" />
 

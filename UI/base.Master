@@ -20,21 +20,39 @@
 	<link rel="icon" type="image/png" sizes="96x96" href="/img/favicon.png"/>
     <link href="css/stylegen.css" rel="stylesheet" />
 </head>
-<body>
+<body class="d-flex flex-column h-100">
     <form id="form1" runat="server">
         <header>
-            <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-                <a class="my-0 mr-md-auto font-weight-normal" href="Inicio.aspx">Sacrum</a>
-                <nav class="my-2 my-md-0 mr-md-3">
-                    <a class="p-2 text-dark" href="Feligreses.aspx">Feligreses</a>
-                    <a class="p-2 text-dark" href="Caja.aspx">Caja</a>
-                    <a class="p-2 text-dark" href="Proveedores.aspx">Proveedores</a>
-                    <a class="p-2 text-dark" href="Actividades.aspx">Actividades</a>
-                    <a class="p-2 text-dark" href="Cinerario.aspx">Cinerario</a>
-                    <a class="p-2 text-dark" href="Usuarios.aspx">Usuarios</a>
-                    <a class="p-2 text-dark" href="Auditoria.aspx">Auditoría</a>
-                    
-                </nav>
+          <!-- Fixed navbar -->
+          <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-light">
+            <a class="navbar-brand text-dark" href="#">Sacrum</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="Feligreses.aspx">Feligreses</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="#">Caja</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link text-dark" href="Proveedores.aspx" tabindex="-1" aria-disabled="true">Proveedores</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link text-dark" href="Actividades.aspx" tabindex="-1" aria-disabled="true">Actividades</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link text-dark" href="Cinerario.aspx" tabindex="-1" aria-disabled="true">Cinerario</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link text-dark" href="Usuarios.aspx" tabindex="-1" aria-disabled="true">Usuarios</a>
+                </li>
+                  <li class="nav-item">
+                  <a class="nav-link text-dark" href="Auditoria.aspx" tabindex="-1" aria-disabled="true">Auditoría</a>
+                </li>
+              </ul>
                 <div class="btn-group">
                   <button type="button" class="btn btn-outline-primary">Cuenta</button>
                   <button type="button" class="btn btn-outline-primary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,13 +63,16 @@
                      <asp:LinkButton ID="lnkCerrarSesion" runat="server" OnClick="lnkCerrarSesion_Click">Cerrar sesión</asp:LinkButton>
                   </div>
                 </div>
-                <%--<a class="btn btn-outline-primary" runat="server" href="#">Ingresar</a>--%>
             </div>
+          </nav>
         </header>
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-            </asp:ContentPlaceHolder>
-        </div>
+        <div class="clearfix"></div>
+        <main role="main" class="flex-shrink-0">
+            <div class="container">
+                <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+        </main>
     </form>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
