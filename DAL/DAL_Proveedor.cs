@@ -122,8 +122,11 @@ namespace DAL
                 proveedor.Id = int.Parse(registro["Id"].ToString());
                 proveedor.CodigoInterno = (registro["Codigo Interno"].ToString());
                 proveedor.RazonSocial = (registro["RazonSocial"].ToString());
+                proveedor.IdTelefono= int.Parse((registro["IdTel"].ToString()));
                 proveedor.Telefono = (registro["Telefono"] is DBNull ? "" : registro["Telefono"]).ToString();
+                proveedor.IdMail= int.Parse(registro["IdMail"].ToString());
                 proveedor.Mail = (registro["Mail"] is DBNull ? "" : registro["Mail"].ToString());
+                proveedor.IdDireccion= int.Parse(registro["IdDir"].ToString());
                 proveedor.Direccion = (registro["Direccion"] is DBNull ? "" : registro["Direccion"].ToString());
                 proveedor.Observaciones = (registro["Observaciones"] is DBNull ? "" : registro["Observaciones"].ToString());
                 proveedor.IdEntidad = int.Parse(registro["IdEntidad"].ToString());proveedor_ID.Add(proveedor);
