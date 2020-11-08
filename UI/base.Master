@@ -35,7 +35,7 @@
                   <a class="nav-link text-dark" href="Feligreses.aspx">Feligreses</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link text-dark" href="#">Caja</a>
+                  <a class="nav-link text-dark" href="Caja.aspx" tabindex="-1" aria-disabled="true">Caja</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link text-dark" href="Proveedores.aspx" tabindex="-1" aria-disabled="true">Proveedores</a>

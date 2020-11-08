@@ -104,7 +104,7 @@ namespace UI
             int Vivo = 1;
             int EsContacto = 0;
             int Estado = 1;
-            Variables.IdActividades = int.Parse(lstActividades.SelectedValue);
+            Variables.IdActividades = 1;
             dgvActividad.DataSource = BL_Feligres.ListarFeligresesEnActividad(Nombre, Apellido, Fecha1, Fecha2, Documento, Vivo, EsContacto, Estado, Variables.IdActividades);
             dgvActividad.DataBind();
 
