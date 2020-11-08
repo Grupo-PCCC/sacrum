@@ -22,27 +22,31 @@ namespace UI
             {
                 Response.Redirect("~/Login.aspx");
             }
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "", "", 1, 0);
         }
 
-        public void mostrarBuscarTabla (string buscar)
+        public void mostrarBuscarTabla (string nick, string nombre, string apellido, int estado, int tipoPerfil)
         {
        
-            buscar = TxtBusqueda.Text.ToString();
-            dgvUsuarios.DataSource = BL_Usuario.ListarUser(buscar);
+            nick = TxtBusqueda.Text.ToString();
+            nombre = "";
+            apellido = "";
+            estado = 1;
+            tipoPerfil = 0;
+            dgvUsuarios.DataSource = BL_Usuario.ListarUser(nick, nombre, apellido, estado, tipoPerfil);
             dgvUsuarios.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
 
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "","",1,0);
         }
 
         protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvUsuarios.PageIndex = e.NewPageIndex;
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString());
+            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "", "", 1, 0);
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)

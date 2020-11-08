@@ -15,9 +15,9 @@ namespace BL
 
         DAL_Usuario objDato = new DAL_Usuario();
 
-        public List<EN_Usuario> ListarUser(string buscar)
+        public List<EN_Usuario> ListarUser(string nick, string nombre, string apellido, int estado, int tipoPerfil)
         {
-            return objDato.ListarUser(buscar);
+            return objDato.ListarUser(nick, nombre, apellido, estado, tipoPerfil);
         }
 
         public List<EN_Usuario> ListaTotal()

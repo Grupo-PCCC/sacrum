@@ -66,11 +66,15 @@ namespace DAL
 
         }
 
-        public List<EN_Usuario> ListarUser(string buscar)
+        public List<EN_Usuario> ListarUser(string nick, string nombre, string apellido, int estado, int tipoPerfil)
 
         {
             List<SqlParameter> parameters = new List<SqlParameter>();
-            parameters.Add(acceso.CrearParametro("@Nick", buscar));
+            parameters.Add(acceso.CrearParametro("@Nick", nick));
+            parameters.Add(acceso.CrearParametro("@Nombre", nombre));
+            parameters.Add(acceso.CrearParametro("@Apellido", apellido));
+            parameters.Add(acceso.CrearParametro("@Estado", estado));
+            parameters.Add(acceso.CrearParametro("@IdTipoUsuario", tipoPerfil));
             DataTable Tabla = acceso.Leer("VW_Usuarios", parameters);
             List<EN_Usuario> lista = new List<EN_Usuario>();
 
