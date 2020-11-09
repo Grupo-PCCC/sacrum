@@ -16,13 +16,37 @@
                         <h1>Usuarios</h1>
 
                         <asp:Button ID="btnNuevo" CssClass="btn btn-primary" runat="server" Text="Nuevo usuario" OnClick="btnNuevo_Click" />
-                        <div class="form-inline float-lg-right">
+                  
+                        <div class="panel-body">
+                                    <div class="form-inline mx-sm-3 mb-2">
+                                        <label for="lblNombre" runat="server">Nombre</label>
+                                        <asp:TextBox ID="txtNom" class="form-control mr-5" PlaceHolder="Nombre" runat="server"></asp:TextBox>
+                                        <label for="lblApellido" runat="server">Apellido</label>
+                                        <asp:TextBox ID="txtApe" class="form-control mr-5" PlaceHolder="Apellido" runat="server"></asp:TextBox>
+                                         <label for="lblUsuario" runat="server">Usuario</label>
+                                        <asp:TextBox ID="txtUsuario" class="form-control mr-5" PlaceHolder="Usuario" runat="server"></asp:TextBox>
+                                            <label for="lblPerfil" runat="server">Tipo Perfil</label>
+                                        <asp:DropDownList ID="lstTipoPerfil" runat="server" OnSelectedIndexChanged="lstTipoPerfil_SelectedIndexChanged"></asp:DropDownList>
+                                        </div>
+                            <br />
+                                          <div class="form form-group">
+                                            <asp:Button ID="Button1" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                                        </div>
+                                                                                                                  
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Filtro -->
+                
+                        
+                        
+                        <%--     <div class="form-inline float-lg-right">
                             <div class="form-group mx-sm-3 mb-2">
                                 <asp:TextBox ID="TxtBusqueda" class="form-control" PlaceHolder="Nick" runat="server"></asp:TextBox>
                                 <asp:Button ID="BtnBuscar" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
                             </div>
 
-                        </div>
+                        </div>--%>
 
                         <asp:GridView ID="dgvUsuarios" runat="server" class="table table-striped text-center" CellPadding="4" AutoGenerateColumns="False" DataKeyNames="Id" CellSpacing="2" AllowPaging="true" OnPageIndexChanging="dgvUsuarios_PageIndexChanging" OnRowCommand="dgvUsuarios_RowCommand1">
 

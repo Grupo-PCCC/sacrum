@@ -50,6 +50,9 @@ namespace BL
             return objDato.ListaUsuarios();
         }
 
-
+        public List<EN_Usuario> TipoUsuario()
+        {
+            return objDato.TipoUsuario();
+        }
     }
 }

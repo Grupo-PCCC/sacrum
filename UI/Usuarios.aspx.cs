@@ -15,38 +15,61 @@ namespace UI
     {
         BL_Usuario BL_Usuario = new BL_Usuario();
         public EN_TipoUsuario _TipoUsuario;
+
+        private static class Variables
+        {
+            public static int IdTipoUsuario;
+
+        }
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+
             if (Session["usuarioNick"] == null)
             {
                 Response.Redirect("~/Login.aspx");
             }
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "", "", 1, 0);
+
+            if (!IsPostBack)
+            {
+                mostrarBuscarTabla("", "", "", 1, 0);
+                CargarlstTipoUsuario();
+            }
         }
 
-        public void mostrarBuscarTabla (string nick, string nombre, string apellido, int estado, int tipoPerfil)
+        public void mostrarBuscarTabla(string usuario, string nombre, string apellido, int estado, int tipoPerfil)
         {
-       
-            nick = TxtBusqueda.Text.ToString();
-            nombre = "";
-            apellido = "";
-            estado = 1;
-            tipoPerfil = 0;
-            dgvUsuarios.DataSource = BL_Usuario.ListarUser(nick, nombre, apellido, estado, tipoPerfil);
+
+           
+            dgvUsuarios.DataSource = BL_Usuario.ListarUser(usuario, nombre, apellido, estado, tipoPerfil);
             dgvUsuarios.DataBind();
             lblResultado.Text = "Registros: " + Convert.ToString(dgvUsuarios.Rows.Count);
         }
+        private void CargarlstTipoUsuario()
+        {
+            BL_Usuario objBLU = new BL_Usuario();
 
+            lstTipoPerfil.DataSource = objBLU.TipoUsuario();
+            lstTipoPerfil.DataTextField = "NombreTU";
+            lstTipoPerfil.DataValueField = "IdTU";
+            lstTipoPerfil.DataBind();
+            lstTipoPerfil.Items.Insert(0, new ListItem("[TODOS]", "0"));
+
+        }
+
+        protected void lstTipoPerfil_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Variables.IdTipoUsuario = int.Parse(lstTipoPerfil.SelectedValue);
+        }
         protected void BtnBuscar_Click(object sender, EventArgs e)
         {
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "","",1,0);
+
+            mostrarBuscarTabla(txtUsuario.Text.ToString(), txtNom.Text.ToString(), txtApe.Text.ToString(), 1, Variables.IdTipoUsuario);
         }
 
         protected void dgvUsuarios_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             dgvUsuarios.PageIndex = e.NewPageIndex;
-            mostrarBuscarTabla(TxtBusqueda.Text.ToString(), "", "", 1, 0);
+            mostrarBuscarTabla(txtUsuario.Text.ToString(), txtNom.Text.ToString(), txtApe.Text.ToString(), 1, Variables.IdTipoUsuario);
         }
 
         protected void btnNuevo_Click(object sender, EventArgs e)
@@ -54,7 +77,7 @@ namespace UI
             hid.Value = "0";
             ModalPopupExtender1.Show();
         }
-        
+
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
@@ -64,7 +87,7 @@ namespace UI
             }
             EN_Usuario par = new EN_Usuario();
             _TipoUsuario = new EN_TipoUsuario();
-            
+
             par.Id = int.Parse(hid.Value);
             par.Nick = txtNick.Text.ToString();
             par.Contraseña = txtContraseña.Text.ToString();
@@ -120,7 +143,7 @@ namespace UI
 
             switch (e.CommandName)
             {
-               
+
                 case "Seleccionar":
                     {
                         hid.Value = User.Id.ToString();

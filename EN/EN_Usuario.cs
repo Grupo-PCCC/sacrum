@@ -18,6 +18,10 @@ namespace EN
         public string Apellido { get; set; }
         public string TipoUsuario { get; set; }
 
+        public int IdTU { get; set; }
+
+        public string NombreTU { get; set; }
+
         public EN_TipoUsuario _tipoUsuario;
 
        public EN_Usuario()

@@ -217,41 +217,38 @@ namespace UI
                 {
 
 
-                    if (txtDireccion.Text != "")
-                    {
-                        if (Variables.IdDir == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "dire", txtDireccion.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdDir, txtDireccion.Text);
-                        }
 
-                    }
-                    if (txtMail.Text != "")
+                    if (Variables.IdDir == 0)
                     {
+                        NuevoDatoEntidad(int.Parse(hid.Value), "dire", txtDireccion.Text);
+                    }
+                    else
+                    {
+                        EditarDatoEntidad(Variables.IdDir, txtDireccion.Text);
+                    }
 
-                        if (Variables.IdMail == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "mail", txtMail.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdMail, txtMail.Text);
-                        }
-                    }
-                    if (txtTelefono.Text != "")
+
+
+
+                    if (Variables.IdMail == 0)
                     {
-                        if (Variables.IdTel == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "tel", txtTelefono.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdTel, txtTelefono.Text);
-                        }
+                        NuevoDatoEntidad(int.Parse(hid.Value), "mail", txtMail.Text);
                     }
+                    else
+                    {
+                        EditarDatoEntidad(Variables.IdMail, txtMail.Text);
+                    }
+
+
+                    if (Variables.IdTel == 0)
+                    {
+                        NuevoDatoEntidad(int.Parse(hid.Value), "tel", txtTelefono.Text);
+                    }
+                    else
+                    {
+                        EditarDatoEntidad(Variables.IdTel, txtTelefono.Text);
+                    }
+
 
                 }
                 if (FlagIDEntidad == 0)

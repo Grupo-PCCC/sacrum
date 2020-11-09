@@ -149,50 +149,38 @@ namespace UI
                 }
                 if (FlagIDEntidad == 1)
                 {
-
-
-                    if (txtDireccion.Text != "")
+                    if (Variables.IdDir == 0)
                     {
-                        if (Variables.IdDir == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "dire", txtDireccion.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdDir, txtDireccion.Text);
-                        }
-
+                        NuevoDatoEntidad(int.Parse(hid.Value), "dire", txtDireccion.Text);
                     }
-                    if (txtMail.Text != "")
+                    else
                     {
-
-                        if (Variables.IdMail == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "mail", txtMail.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdMail, txtMail.Text);
-                        }
-                    }
-                    if (txtTelefono.Text != "")
-                    {
-                        if (Variables.IdTel == 0)
-                        {
-                            NuevoDatoEntidad(int.Parse(hid.Value), "tel", txtTelefono.Text);
-                        }
-                        else
-                        {
-                            EditarDatoEntidad(Variables.IdTel, txtTelefono.Text);
-                        }
+                        EditarDatoEntidad(Variables.IdDir, txtDireccion.Text);
                     }
 
+                    if (Variables.IdMail == 0)
+                    {
+                        NuevoDatoEntidad(int.Parse(hid.Value), "mail", txtMail.Text);
+                    }
+                    else
+                    {
+                        EditarDatoEntidad(Variables.IdMail, txtMail.Text);
+                    }
+
+                    if (Variables.IdTel == 0)
+                    {
+                        NuevoDatoEntidad(int.Parse(hid.Value), "tel", txtTelefono.Text);
+                    }
+                    else
+                    {
+                        EditarDatoEntidad(Variables.IdTel, txtTelefono.Text);
+                    }
                 }
+
                 if (FlagIDEntidad == 0)
                 {
                     if (txtDireccion.Text != "")
                     {
-
                         NuevoDatoEntidad(idInsertado, "dire", txtDireccion.Text);
                     }
                     if (txtMail.Text != "")
