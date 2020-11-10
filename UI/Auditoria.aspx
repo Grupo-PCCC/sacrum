@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="/base.Master" AutoEventWireup="true" CodeBehind="Auditoria.aspx.cs" Inherits="UI.Auditoria" %>
+﻿<%@ Page Title="" Language="C#" EnableEventValidation = "false" MasterPageFile="/base.Master" AutoEventWireup="true" CodeBehind="Auditoria.aspx.cs" Inherits="UI.Auditoria"  %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
@@ -43,6 +43,9 @@
                                         <div class="form form-group">
                                             <asp:Button ID="Button1" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
                                         </div>
+                                         <div class="form form-group">
+                                            
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -76,8 +79,9 @@
                        
             <br />
             <asp:Label ID="lblResultado" runat="server" Text=""></asp:Label>
+           
             <%--</form>--%>
         </ContentTemplate>
     </asp:UpdatePanel>
-
+     <asp:Button ID="btnExcel" runat="server" class="btn btn-secondary" OnClick="btnExcel_Click" Text="Excel" />
 </asp:Content>

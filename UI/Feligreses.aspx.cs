@@ -7,7 +7,8 @@ using System.Web.UI.WebControls;
 using EN;
 using BL;
 using COMMON;
-
+using System.IO;
+using System.Web.UI.HtmlControls;
 
 namespace UI
 {
@@ -57,7 +58,7 @@ namespace UI
 
         }
 
-
+   
 
         public void Enlazar()
         {
@@ -367,5 +368,69 @@ namespace UI
         protected void dgvFeligres_SelectedIndexChanged(object sender, EventArgs e)
         {
         }
+
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //required to avoid the runtime error "  
+            //Control 'GridView1' of type 'GridView' must be placed inside a form tag with runat=server."  
+        }
+
+        private void ClearControls(Control control)
+        {
+            for (int i = control.Controls.Count - 1; i >= 0; i--)
+            {
+                ClearControls(control.Controls[i]);
+            }
+            if (!(control is TableCell))
+            {
+                if (control.GetType().GetProperty("SelectedItem") != null)
+                {
+                    LiteralControl literal = new LiteralControl();
+                    control.Parent.Controls.Add(literal);
+                    try
+                    {
+                        literal.Text = (string)control.GetType().GetProperty("SelectedItem").GetValue(control, null);
+                    }
+                    catch
+                    {
+                    }
+                    control.Parent.Controls.Remove(control);
+                }
+                else
+                if (control.GetType().GetProperty("Text") != null)
+                {
+                    LiteralControl literal = new LiteralControl();
+                    control.Parent.Controls.Add(literal);
+                    literal.Text = (string)control.GetType().GetProperty("Text").GetValue(control, null);
+                    control.Parent.Controls.Remove(control);
+                }
+            }
+            return;
+        }
+
+        protected void btnExcel_Click(object sender, EventArgs e)
+        {
+
+            Response.Clear();
+            Response.Buffer = true;
+            Response.ClearContent();
+            Response.ClearHeaders();
+            Response.Charset = "";
+            string FileName = "Feligreses " + DateTime.Now.ToString("dd/MM/yyyy") + ".xls";
+            StringWriter strwritter = new StringWriter();
+            HtmlTextWriter htmltextwrtter = new HtmlTextWriter(strwritter);
+            Response.Cache.SetCacheability(HttpCacheability.NoCache);
+            Response.ContentType = "application/vnd.ms-excel";
+            Response.AddHeader("Content-Disposition", "attachment;filename=" + FileName);
+            dgvFeligres.GridLines = GridLines.Both;
+            dgvFeligres.HeaderStyle.Font.Bold = true;
+            dgvFeligres.RenderControl(htmltextwrtter);
+            Response.Write(strwritter.ToString());
+            Response.End();
+        }
+
+
+
+
     }
 }

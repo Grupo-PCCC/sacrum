@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Feligreses.aspx.cs" MasterPageFile="/base.Master" Inherits="UI.Parishioner" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" EnableEventValidation = "false" CodeBehind="Feligreses.aspx.cs" MasterPageFile="/base.Master" Inherits="UI.Parishioner" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
 
@@ -44,6 +44,7 @@
                                             </div>
                                             <div class="form form-group">
                                                 <asp:Button ID="Button1" runat="server" class="btn btn-secondary" OnClick="BtnBuscar_Click" Text="Buscar" />
+                                                
                                             </div>
                                         </div>
 								    </div>
@@ -218,7 +219,7 @@
         </ContentTemplate>
     </asp:UpdatePanel>
 
-
+    <asp:Button ID="btnExcel" runat="server" class="btn btn-secondary" OnClick="btnExcel_Click" Text="Excel" />
 
     <br />
     <br />
