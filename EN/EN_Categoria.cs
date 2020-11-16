@@ -12,10 +12,10 @@ namespace EN
         public int Id { get; set; }
         public string Nombre { get; set; }
 
-        public EN_TipoCategoria _IdTipoCategoria { get; set; }
+        public EN_TipoCategoria _TipoCategoria { get; set; }
         public EN_Categoria()
         {
-            _IdTipoCategoria = new EN_TipoCategoria();
+            _TipoCategoria = new EN_TipoCategoria();
 
         }
     }
